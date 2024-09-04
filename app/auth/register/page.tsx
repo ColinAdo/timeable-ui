@@ -1,43 +1,19 @@
 "use client";
 
-import { useState, ChangeEvent, FormEvent } from "react";
-import { useRouter } from "next/navigation";
-import { useRegisterMutation } from "@/redux/features/authApiSlice";
 import { Spinner } from "@/components/common";
-import { toast } from "react-toastify";
+import { useRegister } from "@/hooks";
 import Link from "next/link";
 
 export default function Page() {
-  const router = useRouter();
-  const [register, { isLoading }] = useRegisterMutation();
-
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-    re_password: "",
-  });
-
-  const { username, email, password, re_password } = formData;
-
-  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    register({ username, email, password, re_password })
-      .unwrap()
-      .then(() => {
-        toast.success("Please check your email to activate your account");
-        router.push("/auth/login");
-      })
-      .catch(() => {
-        toast.error("Failed to rgister for an account");
-      });
-  };
-
+  const {
+    username,
+    email,
+    password,
+    re_password,
+    isLoading,
+    onChange,
+    onSubmit,
+  } = useRegister();
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
