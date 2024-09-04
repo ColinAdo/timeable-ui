@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Navbar, Footer } from "@/components/common";
+import { SetUp } from "@/components/utils";
 import Provider from "@/redux/provider";
 import "@/styles/globals.css";
 
@@ -21,6 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Provider>
+          <SetUp />
           <Navbar />
           {children}
           <Footer />
