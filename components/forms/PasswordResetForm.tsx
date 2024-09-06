@@ -3,7 +3,7 @@
 import { usePasswordReset } from "@/hooks";
 import { Form } from "@/components/forms";
 
-export default function LoginForm() {
+export default function PasswordResetForm() {
   const { email, isLoading, onChange, onSubmit } = usePasswordReset();
   const config = [
     {
