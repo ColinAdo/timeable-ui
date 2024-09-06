@@ -1,14 +1,13 @@
 import { useState, ChangeEvent, FormEvent } from "react";
+import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import { useLoginMutation } from "@/redux/features/authApiSlice";
 import { useAppDispatch } from "@/redux/hook";
 import { setAuth } from "@/redux/features/authSlice";
-import { toast } from "react-toastify";
+import { useLoginMutation } from "@/redux/features/authApiSlice";
 
 export default function useLogin() {
-  const router = useRouter();
   const dispatch = useAppDispatch();
-
+  const router = useRouter();
   const [login, { isLoading }] = useLoginMutation();
 
   const [formData, setFormData] = useState({
@@ -25,15 +24,16 @@ export default function useLogin() {
 
   const onSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+
     login({ email, password })
       .unwrap()
       .then(() => {
         dispatch(setAuth());
-        toast.success("Login successful");
+        toast.success("Login successfully");
         router.push("/dashboard");
       })
       .catch(() => {
-        toast.error("Failed to login");
+        toast.error("Wrong email or password!");
       });
   };
   return {
