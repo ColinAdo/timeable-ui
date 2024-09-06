@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { PasswordResetForm } from "@/components/forms";
 import type { Metadata } from "next";
 
