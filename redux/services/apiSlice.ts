@@ -6,6 +6,7 @@ import type {
 } from "@reduxjs/toolkit/query";
 import { setAuth, logout } from "../features/authSlice";
 import { Mutex } from "async-mutex";
+import build from "next/dist/build";
 
 const mutex = new Mutex();
 const baseQuery = fetchBaseQuery({
@@ -19,7 +20,6 @@ const baseQueryWithReauth: BaseQueryFn<
 > = async (args, api, extraOptions) => {
   await mutex.waitForUnlock();
   let result = await baseQuery(args, api, extraOptions);
-
   if (result.error && result.error.status === 401) {
     if (!mutex.isLocked()) {
       const release = await mutex.acquire();
@@ -34,7 +34,6 @@ const baseQueryWithReauth: BaseQueryFn<
         );
         if (refreshResult.data) {
           api.dispatch(setAuth());
-
           result = await baseQuery(args, api, extraOptions);
         } else {
           api.dispatch(logout());
@@ -53,5 +52,5 @@ const baseQueryWithReauth: BaseQueryFn<
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: baseQueryWithReauth,
-  endpoints: (builder) => ({}),
+  endpoints: (build) => ({}),
 });
