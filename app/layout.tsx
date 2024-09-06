@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import "@/styles/globals.css";
+
+import Provider from "@/redux/provider";
 import { Navbar, Footer } from "@/components/common";
 import { SetUp } from "@/components/utils";
-import Provider from "@/redux/provider";
-import "@/styles/globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Timeable",
-  description:
-    "This app generate timetables automatically by providing units using excel file...",
+  title: "Monie",
+  description: "Monie is an app to manage your finances",
 };
 
 export default function RootLayout({
@@ -24,7 +24,7 @@ export default function RootLayout({
         <Provider>
           <SetUp />
           <Navbar />
-          <div className="mx-auto max-w-7xl: px-2 sm:px-6 lg:px-8 my-8">
+          <div className="mx-auto max-h-7xl px-2 sm:px-6 lg:px-8 my-8">
             {children}
           </div>
           <Footer />
