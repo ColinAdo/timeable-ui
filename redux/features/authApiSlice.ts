@@ -37,14 +37,22 @@ const authApiSlice = apiSlice.injectEndpoints({
       query: ({ email, password }) => ({
         url: "/jwt/create/",
         method: "POST",
-        body: { email, password },
+        body: {
+          email,
+          password,
+        },
       }),
     }),
     register: builder.mutation({
-      query: ({ username, email, password, re_password }) => ({
+      query: ({ email, username, password, re_password }) => ({
         url: "/users/",
         method: "POST",
-        body: { username, email, password, re_password },
+        body: {
+          email,
+          username,
+          password,
+          re_password,
+        },
       }),
     }),
     verify: builder.mutation({
@@ -81,6 +89,7 @@ const authApiSlice = apiSlice.injectEndpoints({
       }),
     }),
   }),
+  overrideExisting: false,
 });
 
 export const {
