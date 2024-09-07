@@ -5,16 +5,14 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from "@headlessui/react";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useAppDispatch, useAppSelector } from "@/redux/hook";
 import { useLogoutMutation } from "@/redux/features/authApiSlice";
 import { logout as setLogout } from "@/redux/features/authSlice";
 import { NavLink } from "@/components/common";
-import Link from "next/link";
 
 export default function Navbar() {
-  const router = useRouter();
   const pathname = usePathname();
   const dispatch = useAppDispatch();
   const { isAuthenticated } = useAppSelector((state) => state.auth);
@@ -26,9 +24,6 @@ export default function Navbar() {
       .unwrap()
       .then(() => {
         dispatch(setLogout());
-      })
-      .finally(() => {
-        router.push("/");
       });
   };
 
