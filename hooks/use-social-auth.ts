@@ -8,7 +8,6 @@ export default function useSocialAuth(authenticate: any, provider: string) {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const searchParams = useSearchParams();
-
   const effectRan = useRef(false);
 
   useEffect(() => {
@@ -20,12 +19,11 @@ export default function useSocialAuth(authenticate: any, provider: string) {
         .unwrap()
         .then(() => {
           dispatch(setAuth());
-          toast.success("Logged in");
+          toast.success("Login successful");
           router.push("/dashboard");
         })
         .catch(() => {
-          toast.error("Failed to log in");
-          router.push("/auth/login");
+          toast.error("Login failed");
         });
     }
 
