@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 
-// import { Toaster } from "sonner";
+import { Toaster } from "sonner";
 import Provider from "@/redux/provider";
 import { Inter } from "next/font/google";
 // import { Setup } from "@/components/utils";
@@ -34,7 +34,7 @@ export default function RootLayout({
             > */}
             {children}
             {/* </ThemeProvider> */}
-            {/* <Toaster position="top-center" richColors /> */}
+            <Toaster position="top-center" richColors />
           </div>
           <Footer />
         </Provider>
