@@ -6,7 +6,7 @@ import Provider from "@/redux/provider";
 import { Inter } from "next/font/google";
 // import { Setup } from "@/components/utils";
 import { Footer } from "@/components/common";
-// import { ThemeProvider } from "@/components/common/ThemeProvider";
+import { ThemeProvider } from "@/components/common/ThemeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,14 +26,14 @@ export default function RootLayout({
         <Provider>
           {/* <Setup /> */}
           <div className="mx-auto max-h-7xl px-2 sm:px-6 lg:px-8 mt-6">
-            {/* <ThemeProvider
+            <ThemeProvider
               attribute="class"
               defaultTheme="system"
               enableSystem
               disableTransitionOnChange
-            > */}
-            {children}
-            {/* </ThemeProvider> */}
+            >
+              {children}
+            </ThemeProvider>
             <Toaster position="top-center" richColors />
           </div>
           <Footer />
