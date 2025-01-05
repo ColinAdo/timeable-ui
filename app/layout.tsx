@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 import { Toaster } from "sonner";
 import Provider from "@/redux/provider";
 import { Inter } from "next/font/google";
-// import { Setup } from "@/components/utils";
+import { SetUp } from "@/components/utils";
 import { Footer } from "@/components/common";
 import { ThemeProvider } from "@/components/common/ThemeProvider";
 
@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Provider>
-          {/* <Setup /> */}
+          <SetUp />
           <div className="mx-auto max-h-7xl px-2 sm:px-6 lg:px-8 mt-6">
             <ThemeProvider
               attribute="class"

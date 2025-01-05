@@ -1,8 +1,8 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useAppSelector } from "@/redux/hook";
 import { Spinner } from "@/components/common";
+import { useAppSelector } from "@/redux/hook";
 
 interface Props {
   children: React.ReactNode;
@@ -14,7 +14,7 @@ export default function RequireAuth({ children }: Props) {
 
   if (isLoading) {
     return (
-      <div className="flex justify-center my-8">
+      <div className="flex justify-center items-center my-80">
         <Spinner lg />
       </div>
     );
