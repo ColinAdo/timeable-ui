@@ -1,45 +1,40 @@
-import { useState, ChangeEvent, FormEvent } from "react";
+import * as z from "zod";
+import { toast } from "sonner";
+import { useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
+import { registerSchema } from "@/lib/schemas";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useRegisterMutation } from "@/redux/features/authApiSlice";
-import { toast } from "react-toastify";
 
 export default function useRegister() {
   const router = useRouter();
   const [register, { isLoading }] = useRegisterMutation();
 
-  const [formData, setFormData] = useState({
-    username: "",
-    email: "",
-    password: "",
-    re_password: "",
+  const form = useForm<z.infer<typeof registerSchema>>({
+    resolver: zodResolver(registerSchema),
+    defaultValues: {
+      username: "",
+      email: "",
+      password: "",
+      re_password: "",
+    },
   });
 
-  const { username, email, password, re_password } = formData;
-
-  const onChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = event.target;
-    setFormData({ ...formData, [name]: value });
-  };
-
-  const onSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    register({ username, email, password, re_password })
+  const onSubmit = (data: z.infer<typeof registerSchema>) => {
+    register(data)
       .unwrap()
       .then(() => {
         toast.success("Please check your email to activate your account");
         router.push("/auth/login");
       })
-      .catch(() => {
-        toast.error("Failed to rgister for an account");
+      .catch((err) => {
+        toast.error("Registration failed!");
       });
   };
+
   return {
-    username,
-    email,
-    password,
-    re_password,
+    form,
     isLoading,
-    onChange,
     onSubmit,
   };
 }
