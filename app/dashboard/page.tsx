@@ -1,42 +1,129 @@
 "use client";
 
-import { useRetrieveUserQuery } from "@/redux/features/authApiSlice";
-import { List, Spinner } from "@/components/common";
+import Link from "next/link";
+// import Card from "@/components/dashboard/Card";
+
+import { Card } from '@/components/ui/card';
+import { Upload } from 'lucide-react';
+import { useDropzone } from 'react-dropzone';
+import { CardContent } from "@/components/dashboard/Card";
+import { PageTitle, AnalyticBarChart, AnalyticLineChart } from "@/components/dashboard";
+import { CardItem } from "@/components/dashboard/";
+import { useState, useCallback } from "react";
+
+interface Props {
+  name: string,
+  email: string,
+  amount: string,
+}
+
+const SalesData: Props[] = [
+  {
+    name: "Timetable One",
+    email: "annie@gmail.com",
+    amount: "12/Jan/2024",
+  },
+  {
+    name: "Timetable One",
+    email: "maggie@gmail.com",
+    amount: "12/Jan/2024",
+  },
+  {
+    name: "Timetable Two",
+    email: "george@gmail.com",
+    amount: "12/Jan/2024",
+  },
+  {
+    name: "Timetable Three",
+    email: "coco@gmail.com",
+    amount: "12/Jan/2024",
+  },
+  {
+    name: "Timetable Four",
+    email: "boo@gmail.com",
+    amount: "12/Jan/2024",
+  },
+  {
+    name: "Timetable Five",
+    email: "sasha@gmail.com",
+    amount: "12/Jan/2024",
+  },
+];
 
 export default function Page() {
-  const { data: user, isLoading, isFetching } = useRetrieveUserQuery();
+  const onDrop = useCallback((acceptedFiles: File[]) => {
+    setFiles(acceptedFiles)
+  }, [])
 
-  const config = [
-    {
-      label: "Username",
-      value: user?.username,
-    },
-    {
-      label: "Email",
-      value: user?.email,
-    },
-  ];
-
-  if (isLoading || isFetching) {
-    return (
-      <div className="flex justify-center my-8">
-        <Spinner lg />
-      </div>
-    );
-  }
+  const [files, setFiles] = useState<File[]>([])
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
   return (
-    <>
-      <header className="bg-white shadow">
-        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-          <h1 className="text-3xl font-bold tracking-tight text-gray-900">
-            Dashboard
-          </h1>
-        </div>
-      </header>
-      <main className="mx-auto max-w-7xl py-6 my-8 sm:px-6 lg:px-8">
-        <List config={config} />
-      </main>
-    </>
+    <div className="flex flex-col gap-5 w-full">
+      <PageTitle title="Dashboard" />
+      {/* File Upload Area - Replaces the cards */}
+      <div className="mb-6">
+        <Card
+          {...getRootProps()}
+          className="w-full p-8 border-dashed border-2 cursor-pointer hover:border-primary transition-colors"
+        >
+          <input {...getInputProps()} />
+          <div className="flex flex-col items-center justify-center gap-2 text-muted-foreground">
+            <Upload className="h-10 w-10" />
+            {isDragActive ? (
+              <p>Drop the files here ...</p>
+            ) : (
+              <>
+                <p className="font-medium">Drag & drop files here, or click to select files</p>
+                <p className="text-sm">Support for a single or bulk upload</p>
+              </>
+            )}
+            {files.length > 0 && (
+              <div className="mt-4">
+                <p className="font-medium text-foreground">Selected files:</p>
+                <ul className="list-disc pl-5">
+                  {files.map((file) => (
+                    <li key={file.name}>{file.name}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </Card>
+      </div>
+
+      <section className="grid grid-cols-1 gap-4 lg:grid-cols-2 transition-all">
+        <AnalyticLineChart />
+
+        <CardContent>
+          <section>
+            <p className="font-semibold">Generated Timetables </p>
+            <p className="text-gray-500 text-sm">
+              You have generated 5 timetables so far
+            </p>
+            {SalesData.map((d, i) => (
+              <CardItem
+                key={i}
+
+                accountName={d.name}
+                email={d.email}
+                amount={d.amount}
+                username="Colin"
+                description="Some description"
+              />
+            ))}
+            <Link className="flex justify-end text-blue-400" href="#">
+              See all
+            </Link>
+          </section>
+        </CardContent>
+        <CardContent>
+          <p className="p-4 font-semibold">Overview</p>
+          <AnalyticBarChart />
+        </CardContent>
+
+        <AnalyticLineChart />
+      </section>
+    </div>
   );
 }
