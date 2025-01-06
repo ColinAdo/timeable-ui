@@ -1,5 +1,5 @@
 import { RequireAuth } from "@/components/utils";
-import { Navbar } from "@/components/common";
+import { Navbar, Sidebar } from "@/components/common";
 // import { WebSocketProvider } from "@/hooks/WebSocketContext";
 
 interface Props {
@@ -12,9 +12,9 @@ export default function Layout({ children }: Props) {
       {/* <WebSocketProvider> */}
       <Navbar />
       <div className="flex">
-        {/* <div className="hidden md:block">
-            <Sidebar />
-          </div> */}
+        <div className="hidden md:block">
+          <Sidebar />
+        </div>
         <div className="p-5 w-full max-w-[1140px]">{children}</div>
       </div>
       {/* </WebSocketProvider> */}
