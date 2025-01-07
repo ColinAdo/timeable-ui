@@ -1,8 +1,6 @@
 "use client";
 
 import Link from "next/link";
-// import Card from "@/components/dashboard/Card";
-
 import { Card } from '@/components/ui/card';
 import { Upload } from 'lucide-react';
 import { useDropzone } from 'react-dropzone';
@@ -93,7 +91,6 @@ export default function Page() {
       </div>
 
       <section className="grid grid-cols-1 gap-4 lg:grid-cols-2 transition-all">
-        <AnalyticLineChart />
 
         <CardContent>
           <section>
@@ -117,11 +114,6 @@ export default function Page() {
             </Link>
           </section>
         </CardContent>
-        <CardContent>
-          <p className="p-4 font-semibold">Overview</p>
-          <AnalyticBarChart />
-        </CardContent>
-
         <AnalyticLineChart />
       </section>
     </div>
