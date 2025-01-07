@@ -5,6 +5,7 @@ import {
     Line,
     XAxis,
     YAxis,
+    Legend,
     Tooltip,
     CartesianGrid,
     ResponsiveContainer,
@@ -106,12 +107,24 @@ export default function AnalyticCard() {
                 </div>
                 <div style={{ width: "100%", height: 300 }}>
                     <ResponsiveContainer>
-                        <LineChart width={1100} height={300} data={data}>
+                        <LineChart
+                            width={500}
+                            height={300}
+                            data={data}
+                            margin={{
+                                top: 5,
+                                right: 30,
+                                left: 20,
+                                bottom: 5,
+                            }}
+                        >
+                            <CartesianGrid strokeDasharray="3 3" />
                             <XAxis dataKey="name" />
                             <YAxis />
                             <Tooltip />
-                            <Line type="monotone" dataKey="amount" stroke="#8884d8" />
-                            <CartesianGrid stroke="#ccc" />
+                            <Legend />
+                            <Line type="monotone" dataKey="pv" stroke="#8884d8" activeDot={{ r: 8 }} />
+                            <Line type="monotone" dataKey="uv" stroke="#82ca9d" />
                         </LineChart>
                     </ResponsiveContainer>
                 </div>
