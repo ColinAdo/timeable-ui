@@ -8,8 +8,8 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { logout as setLogout } from "@/redux/features/authSlice";
 import {
   LogOut,
+  Settings,
   BadgePlus,
-  UserRound,
   DiamondPlus,
   BadgeDollarSign
 } from "lucide-react";
@@ -60,8 +60,8 @@ export default function Navbar() {
             <DropdownMenuSeparator />
             <DropdownMenuItem>
               <Link href="/" className="flex justify-between">
-                <UserRound className="h-[1.2rem] w-[1.2rem]" />
-                <span className="ml-2">Profile</span>
+                <Settings className="h-[1.2rem] w-[1.2rem]" />
+                <span className="ml-2">Settings</span>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
@@ -73,25 +73,9 @@ export default function Navbar() {
                 <span className="ml-2">Create</span>
               </Link>
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Link
-                href="/dashboard/create/transaction"
-                className="flex justify-between"
-              >
-                <DiamondPlus className="h-[1.2rem] w-[1.2rem]" />
-                <span className="ml-2">Transact</span>
-              </Link>
-            </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Link
-                href="/dashboard/transactions"
-                className="flex justify-between"
-              >
-                <BadgeDollarSign className="h-[1.2rem] w-[1.2rem]" />
-                <span className="ml-2">Transation</span>
-              </Link>
-            </DropdownMenuItem>
-            <ThemeToggler />
+            <div className="ml-2 mt-2">
+              <ThemeToggler />
+            </div>
             <DropdownMenuItem>
               <LogOut className="h-[1.2rem] w-[1.2rem]" />
               <button onClick={handleLogout}>Logout</button>
