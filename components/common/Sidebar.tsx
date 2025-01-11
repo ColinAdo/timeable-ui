@@ -60,11 +60,11 @@ export default function Sidebar() {
                         href: "/dashboard/create/account",
                     },
                     {
-                        title: "Bill Details",
+                        title: "Pricing",
                         label: "",
                         icon: BadgeDollarSign,
                         variant: "ghost",
-                        href: "/dashboard/transactions",
+                        href: "/dashboard/pricing",
                     },
                     {
                         title: "Transact",
