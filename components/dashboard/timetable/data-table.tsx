@@ -23,9 +23,9 @@ import {
     TableHead,
     TableHeader,
     TableRow,
-} from "@/registry/new-york/ui/table"
+} from "@/components/ui/table"
 
-import { DataTablePagination } from "./data-table-pagination"
+import { DataTablePagination } from "@/components/dashboard/timetable/data-table-pagination"
 import { DataTableToolbar } from "./data-table-toolbar"
 
 interface DataTableProps<TData, TValue> {
