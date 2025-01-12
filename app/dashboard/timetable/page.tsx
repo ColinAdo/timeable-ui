@@ -7,7 +7,7 @@ import { z } from "zod"
 import { columns } from "@/components/dashboard/timetable/columns"
 import { DataTable } from "@/components/dashboard/timetable/data-table"
 import { UserNav } from "@/components/dashboard/timetable/user-nav"
-import { taskSchema } from "./data/schema"
+import { taskSchema } from "@/lib/schemas"
 
 export const metadata: Metadata = {
     title: "Tasks",

@@ -77,3 +77,16 @@ export const createTransactionSchema = z.object({
     description: z.string().max(34, "Description must be at most 34 characters.").optional(),
     amount: z.string().min(1, "Account amount is required."),
 });
+
+
+// We're keeping a simple non-relational schema here.
+// IRL, you will have a schema for your data models.
+export const taskSchema = z.object({
+    id: z.string(),
+    title: z.string(),
+    status: z.string(),
+    label: z.string(),
+    priority: z.string(),
+})
+
+export type Task = z.infer<typeof taskSchema>
