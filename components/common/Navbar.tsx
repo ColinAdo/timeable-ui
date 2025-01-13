@@ -73,7 +73,7 @@ export default function Navbar() {
                 <span className="ml-2">Create</span>
               </Link>
             </DropdownMenuItem>
-            <div className="ml-2 mt-2">
+            <div className="ml-2 dark:ml-1 mt-2">
               <ThemeToggler />
             </div>
             <DropdownMenuItem>
