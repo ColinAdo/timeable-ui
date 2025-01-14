@@ -6,10 +6,10 @@ import { Button } from "@/components/ui/button"
 import { DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu"
 import {
     DropdownMenu,
-    DropdownMenuCheckboxItem,
-    DropdownMenuContent,
     DropdownMenuLabel,
+    DropdownMenuContent,
     DropdownMenuSeparator,
+    DropdownMenuCheckboxItem,
 } from "@/components/ui/dropdown-menu"
 
 interface DataTableViewOptionsProps<TData> {
