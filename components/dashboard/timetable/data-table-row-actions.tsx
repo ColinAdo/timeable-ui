@@ -1,8 +1,10 @@
 "use client"
 
+
+import { labels } from "@/data/data"
+import { taskSchema } from "@/lib/schemas"
 import { Row } from "@tanstack/react-table"
 import { MoreHorizontal } from "lucide-react"
-
 import { Button } from "@/components/ui/button"
 import {
     DropdownMenu,
@@ -17,9 +19,6 @@ import {
     DropdownMenuSubTrigger,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-
-import { labels } from "@/data/data"
-import { taskSchema } from "@/lib/schemas"
 
 interface DataTableRowActionsProps<TData> {
     row: Row<TData>
