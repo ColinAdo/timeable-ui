@@ -1,19 +1,21 @@
 "use client"
 
 import * as React from "react"
+import { DataTableToolbar } from "@/components/dashboard/timetable/data-table-toolbar"
+import { DataTablePagination } from "@/components/dashboard/timetable/data-table-pagination"
 import {
     ColumnDef,
-    ColumnFiltersState,
-    SortingState,
-    VisibilityState,
     flexRender,
+    SortingState,
+    useReactTable,
     getCoreRowModel,
+    VisibilityState,
+    getSortedRowModel,
+    ColumnFiltersState,
     getFacetedRowModel,
-    getFacetedUniqueValues,
     getFilteredRowModel,
     getPaginationRowModel,
-    getSortedRowModel,
-    useReactTable,
+    getFacetedUniqueValues,
 } from "@tanstack/react-table"
 
 import {
@@ -24,9 +26,6 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table"
-
-import { DataTablePagination } from "@/components/dashboard/timetable/data-table-pagination"
-import { DataTableToolbar } from "@/components/dashboard/timetable/data-table-toolbar"
 
 interface DataTableProps<TData, TValue> {
     columns: ColumnDef<TData, TValue>[]
