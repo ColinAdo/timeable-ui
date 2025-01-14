@@ -1,14 +1,12 @@
 "use client"
 
-import { ColumnDef } from "@tanstack/react-table"
-
-import { Badge } from "@/components/ui/badge"
-import { Checkbox } from "@/components/ui/checkbox"
-
-import { labels, priorities, statuses } from "@/data/data"
 import { Task } from "@/lib/schemas"
-import { DataTableColumnHeader } from "@/components/dashboard/timetable/data-table-column-header"
+import { Badge } from "@/components/ui/badge"
+import { ColumnDef } from "@tanstack/react-table"
+import { Checkbox } from "@/components/ui/checkbox"
+import { labels, priorities, statuses } from "@/data/data"
 import { DataTableRowActions } from "@/components/dashboard/timetable/data-table-row-actions"
+import { DataTableColumnHeader } from "@/components/dashboard/timetable/data-table-column-header"
 
 export const columns: ColumnDef<Task>[] = [
     {
