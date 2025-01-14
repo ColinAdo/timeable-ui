@@ -10,8 +10,6 @@ import {
   LogOut,
   Settings,
   BadgePlus,
-  DiamondPlus,
-  BadgeDollarSign
 } from "lucide-react";
 import {
   useLogoutMutation,
