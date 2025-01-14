@@ -1,11 +1,18 @@
 'use client'
 
 import { useState } from 'react'
-import { useTheme } from 'next-themes'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Switch } from '@/components/ui/switch'
 import { Check } from 'lucide-react'
+import { useTheme } from 'next-themes'
+import { Switch } from '@/components/ui/switch'
+import { Button } from '@/components/ui/button'
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardFooter,
+    CardHeader,
+    CardTitle
+} from '@/components/ui/card'
 
 interface Props {
     title: string;
@@ -62,7 +69,7 @@ export default function Pricing() {
                     <span className="ml-3">Yearly (Save 20%)</span>
                 </div>
             </div>
-            <div className="grid md:grid-cols-2 md:ml-32 justify-center">
+            <div className="grid md:grid-cols-2 gap-4 md:ml-32 justify-center">
                 <PricingCard
                     title="Free"
                     price="Free"
