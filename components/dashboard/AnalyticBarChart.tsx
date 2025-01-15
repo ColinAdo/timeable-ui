@@ -18,7 +18,6 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import { useState } from "react";
-import { ChevronsLeft, ChevronsRight } from "lucide-react";
 
 const data = [
     {
