@@ -1,23 +1,24 @@
 "use client";
 
+import { useState } from "react";
 import {
-    ResponsiveContainer,
-    CartesianGrid,
-    BarChart,
-    Tooltip,
+    Bar,
     XAxis,
+    YAxis,
     Legend,
-    YAxis, Bar
+    Tooltip,
+    BarChart,
+    CartesianGrid,
+    ResponsiveContainer,
 } from "recharts";
 
 import {
     Card,
+    CardTitle,
+    CardHeader,
     CardContent,
     CardDescription,
-    CardHeader,
-    CardTitle,
 } from "@/components/ui/card";
-import { useState } from "react";
 
 const data = [
     {
