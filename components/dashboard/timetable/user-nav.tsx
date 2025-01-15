@@ -1,18 +1,18 @@
-import {
-    Avatar,
-    AvatarFallback,
-    AvatarImage,
-} from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import {
+    Avatar,
+    AvatarImage,
+    AvatarFallback,
+} from "@/components/ui/avatar"
+import {
     DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuGroup,
     DropdownMenuItem,
     DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuShortcut,
+    DropdownMenuGroup,
+    DropdownMenuContent,
     DropdownMenuTrigger,
+    DropdownMenuShortcut,
+    DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu"
 
 export function UserNav() {
