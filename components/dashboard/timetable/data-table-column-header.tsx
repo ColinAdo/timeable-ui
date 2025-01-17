@@ -4,10 +4,10 @@ import { Button } from "@/components/ui/button"
 import { ArrowDown, ArrowUp, ChevronsUpDown, EyeOff } from "lucide-react"
 import {
     DropdownMenu,
-    DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuSeparator,
     DropdownMenuTrigger,
+    DropdownMenuContent,
+    DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu"
 
 interface DataTableColumnHeaderProps<TData, TValue>
