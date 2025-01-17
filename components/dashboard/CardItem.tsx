@@ -3,9 +3,9 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 interface Props {
     email: string;
-    accountName: string;
     amount: string;
     username: string;
+    accountName: string;
     description: string;
 }
 
