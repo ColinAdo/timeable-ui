@@ -20,11 +20,11 @@ import {
 
 import {
     Table,
+    TableRow,
     TableBody,
     TableCell,
     TableHead,
     TableHeader,
-    TableRow,
 } from "@/components/ui/table"
 
 interface DataTableProps<TData, TValue> {
