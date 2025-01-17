@@ -18,11 +18,11 @@ import {
 
 import {
   DropdownMenu,
-  DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 
 export default function Navbar() {
