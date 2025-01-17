@@ -9,10 +9,10 @@ import {
 
 import {
     Select,
-    SelectContent,
     SelectItem,
-    SelectTrigger,
     SelectValue,
+    SelectContent,
+    SelectTrigger,
 } from "@/components/ui/select"
 
 interface DataTablePaginationProps<TData> {
