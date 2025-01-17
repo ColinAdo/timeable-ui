@@ -10,8 +10,8 @@ import {
 interface Accounts {
     id: string;
     name: string;
-    description: string;
     amount: number
+    description: string;
 }
 
 interface Props {
