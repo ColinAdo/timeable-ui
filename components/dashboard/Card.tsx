@@ -1,6 +1,4 @@
 import Link from "next/link";
-import { toast } from "sonner";
-import { CardItem } from "@/components/dashboard/";
 import { MoreVertical, Trash2, Settings } from "lucide-react";
 import {
     DropdownMenu,
