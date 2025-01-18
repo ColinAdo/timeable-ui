@@ -15,7 +15,6 @@ import {
   useLogoutMutation,
   useRetrieveUserQuery,
 } from "@/redux/features/authApiSlice";
-
 import {
   DropdownMenu,
   DropdownMenuItem,
