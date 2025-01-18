@@ -1,12 +1,12 @@
 import {
-  ArrowDown,
-  ArrowRight,
-  ArrowUp,
-  CheckCircle,
-  Circle,
-  CircleOff,
-  HelpCircle,
   Timer,
+  Circle,
+  ArrowUp,
+  CircleOff,
+  ArrowDown,
+  HelpCircle,
+  ArrowRight,
+  CheckCircle,
 } from "lucide-react"
 
 export const labels = [
