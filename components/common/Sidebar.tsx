@@ -9,7 +9,6 @@ import {
     LogOut,
     Trash2,
     Archive,
-    ArchiveX,
     Settings,
     BadgePlus,
     DiamondPlus,
