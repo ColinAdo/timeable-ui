@@ -80,15 +80,8 @@ export default function Sidebar() {
                         href: "/users",
                     },
                     {
-                        title: "Junk",
-                        label: "23",
-                        icon: ArchiveX,
-                        variant: "ghost",
-                        href: "#",
-                    },
-                    {
                         title: "Trash",
-                        label: "",
+                        label: "23",
                         icon: Trash2,
                         variant: "ghost",
                         href: "#",
