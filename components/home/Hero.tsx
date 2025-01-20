@@ -5,7 +5,7 @@ const Hero = () => {
         <>
             <section
                 id="home"
-                className="relative z-10 overflow-hidden bg-white pb-16 pt-[120px] dark:bg-gray-dark md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
+                className="relative dark:bg-zinc-950 z-10 overflow-hidden bg-white pb-16 pt-[120px] dark:bg-gray-dark md:pb-[120px] md:pt-[150px] xl:pb-[160px] xl:pt-[180px] 2xl:pb-[200px] 2xl:pt-[210px]"
             >
                 <div className="container">
                     <div className="-mx-4 flex flex-wrap">
@@ -24,16 +24,16 @@ const Hero = () => {
                                 </p>
                                 <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
                                     <Link
-                                        href="https://nextjstemplates.com/templates/saas-starter-startup"
-                                        className="rounded-sm bg-primary px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
-                                    >
-                                        🔥 Get Pro
-                                    </Link>
-                                    <Link
-                                        href="https://github.com/NextJSTemplates/startup-nextjs"
+                                        href="/auth/login"
                                         className="inline-block rounded-sm bg-black px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-black/90 dark:bg-white/10 dark:text-white dark:hover:bg-white/5"
                                     >
-                                        Star on GitHub
+                                        Free trial
+                                    </Link>
+                                    <Link
+                                        href="/auth/login"
+                                        className="rounded-sm bg-primary px-8 py-4 text-base font-semibold dark:text-black text-white duration-300 ease-in-out hover:bg-primary/80"
+                                    >
+                                        🔥 Get Pro
                                     </Link>
                                 </div>
                             </div>
