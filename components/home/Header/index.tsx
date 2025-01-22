@@ -7,6 +7,15 @@ import menuData from "./menuData";
 import { GraduationCap } from 'lucide-react';
 
 const Header = () => {
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, path: string) => {
+    if (path.startsWith("#")) {
+      e.preventDefault();
+      const target = document.querySelector(path);
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
   // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
   const navbarToggleHandler = () => {
@@ -91,6 +100,8 @@ const Header = () => {
                         {menuItem.path ? (
                           <Link
                             href={menuItem.path}
+                            onClick={(e) => handleClick(e, `${menuItem.path}`)}
+                            target={menuItem.newTab ? "_blank" : "_self"}
                             className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${usePathName === menuItem.path
                               ? "text-primary dark:text-white"
                               : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
