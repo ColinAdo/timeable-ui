@@ -2,7 +2,7 @@ import { SectionTitle } from "@/components/common";
 import SingleBlog from "./SingleBlog";
 import blogData from "./blogData";
 
-const Blog = () => {
+export default function Blog() {
   return (
     <section
       id="blog"
@@ -26,5 +26,3 @@ const Blog = () => {
     </section>
   );
 };
-
-export default Blog;
