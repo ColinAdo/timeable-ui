@@ -1,5 +1,4 @@
 import { Hero, Video } from "@/components/home";
-import { ScrollUp } from "@/components/home/";
 import Blog from "@/components/home/Blog/index";
 import Brands from "@/components/home/Brands/index";
 import Contact from "@/components/home/Contact";
@@ -18,7 +17,6 @@ export default function Home() {
   return (
     <>
       <Header />
-      <ScrollUp />
       <Hero />
       <Features />
       <Video />
