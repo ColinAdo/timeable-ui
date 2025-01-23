@@ -1,6 +1,6 @@
 import { useTheme } from "next-themes";
 
-const ThemeToggler = () => {
+export default function ThemeToggler() {
   const { theme, setTheme } = useTheme();
   return (
     <button aria-label='theme toggler'
@@ -39,5 +39,3 @@ const ThemeToggler = () => {
     </button>
   );
 };
-
-export default ThemeToggler;
