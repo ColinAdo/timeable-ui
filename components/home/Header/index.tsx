@@ -57,16 +57,16 @@ const Header = () => {
       >
         <div className="container">
           <div className="relative flex items-center justify-between">
-            <div className="w-60 max-w-full px-4 xl:mr-12">
+            <div className="w-20 max-w-full xl:mr-12">
               <Link
                 href="/"
                 className={` block w-full ${sticky ? "py-5 lg:py-2" : "py-8"
                   } `}
               >
-                <GraduationCap className="dark:text-white" />
+                <GraduationCap className="mx-auto h-10 w-auto dark:text-white" />
               </Link>
             </div>
-            <div className="flex w-full items-center justify-between px-4">
+            <div className="flex w-full items-center justify-between">
               <div>
                 <button
                   onClick={navbarToggleHandler}
