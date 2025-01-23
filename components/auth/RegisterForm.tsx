@@ -8,10 +8,10 @@ import { Button } from "@/components/ui/button";
 import SocialButtons from "@/components/auth/SocialButtons";
 import {
     Card,
-    CardHeader,
     CardTitle,
-    CardDescription,
+    CardHeader,
     CardContent,
+    CardDescription,
 } from "@/components/ui/card";
 
 import {
