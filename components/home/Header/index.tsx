@@ -6,7 +6,7 @@ import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
 import { GraduationCap } from 'lucide-react';
 
-const Header = () => {
+export default function Header() {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, path: string) => {
     if (path.startsWith("#")) {
       e.preventDefault();
@@ -159,5 +159,3 @@ const Header = () => {
     </>
   );
 };
-
-export default Header;
