@@ -1,6 +1,6 @@
-import { SectionTitle } from "@/components/common";
-import SingleBlog from "./SingleBlog";
 import blogData from "./blogData";
+import SingleBlog from "./SingleBlog";
+import { SectionTitle } from "@/components/common";
 
 export default function Blog() {
   return (
