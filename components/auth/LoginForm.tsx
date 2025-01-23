@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { useLogin } from "@/hooks";
+import SocialButtons from "./SocialButtons";
 import { Spinner } from "@/components/common";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import SocialButtons from "./SocialButtons";
 import {
     Card,
     CardTitle,
