@@ -2,7 +2,7 @@
 
 import { useTheme } from "next-themes";
 
-const NewsLatterBox = () => {
+export default function NewsLatterBox() {
   const { theme } = useTheme();
 
   return (
@@ -256,5 +256,3 @@ const NewsLatterBox = () => {
     </div>
   );
 };
-
-export default NewsLatterBox;
