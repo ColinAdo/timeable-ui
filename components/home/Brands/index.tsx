@@ -2,7 +2,7 @@ import Image from "next/image";
 import { Brand } from "@/types/brand";
 import brandsData from "./brandsData";
 
-const Brands = () => {
+export default function Brands() {
   return (
     <section className="pt-16">
       <div className="container">
@@ -19,8 +19,6 @@ const Brands = () => {
     </section>
   );
 };
-
-export default Brands;
 
 const SingleBrand = ({ brand }: { brand: Brand }) => {
   const { href, image, imageLight, name } = brand;
