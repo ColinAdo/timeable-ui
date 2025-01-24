@@ -1,4 +1,4 @@
-const SharePost = () => {
+export default function SharePost() {
   return (
     <>
       <a
@@ -56,5 +56,3 @@ const SharePost = () => {
     </>
   );
 };
-
-export default SharePost;
