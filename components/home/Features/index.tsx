@@ -1,6 +1,6 @@
-import { SectionTitle } from "@/components/common";
-import SingleFeature from "./SingleFeature";
 import featuresData from "./featuresData";
+import SingleFeature from "./SingleFeature";
+import { SectionTitle } from "@/components/common";
 
 const Features = () => {
   return (
