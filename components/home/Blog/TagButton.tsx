@@ -1,4 +1,4 @@
-const TagButton = ({ href = "#0", text }: { href?: string; text: string }) => {
+export default function TagButton({ href = "#0", text }: { href?: string; text: string }) {
   return (
     <a
       href={href}
@@ -8,5 +8,3 @@ const TagButton = ({ href = "#0", text }: { href?: string; text: string }) => {
     </a>
   );
 };
-
-export default TagButton;
