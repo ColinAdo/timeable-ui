@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Blog } from "@/types/blog";
 
-const SingleBlog = ({ blog }: { blog: Blog }) => {
+export default function SingleBlog({ blog }: { blog: Blog }) {
   const { title, image, paragraph, author, tags, publishDate } = blog;
   return (
     <>
@@ -54,5 +54,3 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
     </>
   );
 };
-
-export default SingleBlog;
