@@ -4,7 +4,7 @@ import { SectionTitle } from "@/components/common";
 import OfferList from "./OfferList";
 import PricingBox from "./PricingBox";
 
-const Pricing = () => {
+export default function Pricing() {
   const [isMonthly, setIsMonthly] = useState(true);
 
   return (
@@ -142,5 +142,3 @@ const Pricing = () => {
     </section>
   );
 };
-
-export default Pricing;
