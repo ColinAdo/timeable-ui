@@ -2,7 +2,7 @@ import featuresData from "./featuresData";
 import SingleFeature from "./SingleFeature";
 import { SectionTitle } from "@/components/common";
 
-const Features = () => {
+export default function Features() {
   return (
     <>
       <section id="features" className="py-16 md:py-20 lg:py-28">
@@ -23,5 +23,3 @@ const Features = () => {
     </>
   );
 };
-
-export default Features;
