@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import OfferList from "./OfferList";
 import PricingBox from "./PricingBox";
