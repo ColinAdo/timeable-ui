@@ -1,10 +1,10 @@
-const PricingBox = (props: {
+export default function PricingBox(props: {
   price: string;
   duration: string;
   packageName: string;
   subtitle: string;
   children: React.ReactNode;
-}) => {
+}) {
   const { price, duration, packageName, subtitle, children } = props;
 
   return (
@@ -76,5 +76,3 @@ const PricingBox = (props: {
     </div>
   );
 };
-
-export default PricingBox;
