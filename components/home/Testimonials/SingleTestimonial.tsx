@@ -7,7 +7,7 @@ const starIcon = (
   </svg>
 );
 
-const SingleTestimonial = ({ testimonial }: { testimonial: Testimonial }) => {
+export default function SingleTestimonial({ testimonial }: { testimonial: Testimonial }) {
   const { star, name, image, content, designation } = testimonial;
 
   let ratingIcons = [];
@@ -41,5 +41,3 @@ const SingleTestimonial = ({ testimonial }: { testimonial: Testimonial }) => {
     </div>
   );
 };
-
-export default SingleTestimonial;
