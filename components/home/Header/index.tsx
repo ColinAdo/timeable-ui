@@ -158,7 +158,7 @@ export default function Header() {
                 >
                   Sign Up
                 </Link>
-                <div className={`${isLoginPage}` ? "ml-12" : ""}>
+                <div>
                   <ThemeToggler />
                 </div>
               </div>
