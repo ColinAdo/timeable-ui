@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { Check } from 'lucide-react'
-import { useTheme } from 'next-themes'
 import { Switch } from '@/components/ui/switch'
 import { Button } from '@/components/ui/button'
 import {
