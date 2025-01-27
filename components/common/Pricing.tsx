@@ -13,6 +13,7 @@ import {
     CardContent,
     CardDescription,
 } from '@/components/ui/card'
+import { usePathname } from 'next/navigation'
 
 interface Props {
     title: string;
@@ -21,9 +22,10 @@ interface Props {
     features: string[];
     buttonText: string;
     isPremium?: boolean;
+    isHome?: boolean;
 }
 
-const PricingCard = ({ title, price, description, features, buttonText, isPremium = false }: Props) => (
+const PricingCard = ({ title, price, description, features, buttonText, isPremium = false, isHome }: Props) => (
     <Card className={`w-full max-w-sm ${isPremium ? 'border-primary' : ''}`}>
         <CardHeader>
             <CardTitle className="text-2xl font-bold">{title}</CardTitle>
@@ -44,7 +46,7 @@ const PricingCard = ({ title, price, description, features, buttonText, isPremiu
             </ul>
         </CardContent>
         <CardFooter>
-            <Button className="w-full" variant={isPremium ? 'default' : 'outline'}>
+            <Button className="w-full" variant={isPremium || isHome ? 'default' : 'outline'}>
                 {buttonText}
             </Button>
         </CardFooter>
@@ -53,11 +55,10 @@ const PricingCard = ({ title, price, description, features, buttonText, isPremiu
 
 export default function Pricing() {
     const [isYearly, setIsYearly] = useState(false)
-    const { theme, setTheme } = useTheme()
+    const pathname = usePathname();
+    const isHome = pathname === '/';
 
-    const toggleTheme = () => {
-        setTheme(theme === 'light' ? 'dark' : 'light')
-    }
+    console.log("pathname", isHome);
 
     return (
         <div id="pricing" className="container mx-auto px-4 py-16">
@@ -79,7 +80,8 @@ export default function Pricing() {
                         'Up to 1,000 subscribers',
                         'Email support'
                     ]}
-                    buttonText="Your current plan"
+                    buttonText={`${isHome}` === "true" ? "Get started" : "Your current plan"}
+                    isHome={isHome}
                 />
                 <PricingCard
                     title="Premium"
@@ -92,7 +94,7 @@ export default function Pricing() {
                         'Priority support',
                         'Custom branding'
                     ]}
-                    buttonText="Upgrade to Premium"
+                    buttonText={`${isHome}` === "true" ? "Get started" : "Upgrade to Premium"}
                     isPremium={true}
                 />
             </div>
