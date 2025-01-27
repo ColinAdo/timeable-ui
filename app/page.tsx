@@ -4,7 +4,7 @@ import Brands from "@/components/home/Brands/index";
 import Contact from "@/components/home/Contact";
 import Features from "@/components/home/Features";
 import Header from "@/components/home/Header";
-import Pricing from "@/components/home/Pricing";
+import { Pricing } from "@/components/common";
 import Testimonials from "@/components/home/Testimonials";
 import { Metadata } from "next";
 
