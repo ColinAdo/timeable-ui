@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-const Hero = () => {
+export default function Hero() {
     return (
         <>
             <section
@@ -44,5 +44,3 @@ const Hero = () => {
         </>
     );
 };
-
-export default Hero;
