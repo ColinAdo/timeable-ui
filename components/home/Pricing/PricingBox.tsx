@@ -1,8 +1,8 @@
 export default function PricingBox(props: {
   price: string;
   duration: string;
-  packageName: string;
   subtitle: string;
+  packageName: string;
   children: React.ReactNode;
 }) {
   const { price, duration, packageName, subtitle, children } = props;
