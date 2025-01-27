@@ -47,6 +47,8 @@ export default function Header() {
 
   const usePathName = usePathname();
 
+  console.log("usePathName", usePathName);
+
   return (
     <>
       <header
@@ -98,17 +100,23 @@ export default function Header() {
                     {menuData.map((menuItem, index) => (
                       <li key={index} className="group relative">
                         {menuItem.path ? (
-                          <Link
-                            href={menuItem.path}
-                            onClick={(e) => handleClick(e, `${menuItem.path}`)}
-                            target={menuItem.newTab ? "_blank" : "_self"}
-                            className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${usePathName === menuItem.path
-                              ? "text-primary dark:text-white"
-                              : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
-                              }`}
-                          >
-                            {menuItem.title}
-                          </Link>
+                          <>
+                            {usePathName === "/auth/login" ? (
+                              <h2></h2>
+                            ) : (
+                              <Link
+                                href={menuItem.path}
+                                onClick={(e) => handleClick(e, `${menuItem.path}`)}
+                                target={menuItem.newTab ? "_blank" : "_self"}
+                                className={`flex py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 ${usePathName === menuItem.path
+                                  ? "text-primary dark:text-white"
+                                  : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
+                                  }`}
+                              >
+                                {menuItem.title}
+                              </Link>
+                            )}
+                          </>
                         ) : (
                           <>
                             <p
