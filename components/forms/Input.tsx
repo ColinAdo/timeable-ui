@@ -1,5 +1,5 @@
-import { ChangeEvent } from "react";
 import Link from "next/link";
+import { ChangeEvent } from "react";
 
 interface Props {
   labeId: string;
