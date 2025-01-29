@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { Check } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 import { Switch } from '@/components/ui/switch'
 import { Button } from '@/components/ui/button'
 import {
@@ -12,7 +13,6 @@ import {
     CardContent,
     CardDescription,
 } from '@/components/ui/card'
-import { usePathname } from 'next/navigation'
 
 interface Props {
     title: string;
