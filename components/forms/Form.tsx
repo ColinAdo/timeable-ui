@@ -1,6 +1,6 @@
-import { ChangeEvent, FormEvent } from "react";
 import { Input } from "@/components/forms";
 import { Spinner } from "@/components/common";
+import { ChangeEvent, FormEvent } from "react";
 
 interface Config {
   labelText: string;
