@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+import { ChevronsLeft, ChevronsRight } from "lucide-react";
 import {
     Line,
     XAxis,
@@ -18,9 +20,6 @@ import {
     CardContent,
     CardDescription,
 } from "@/components/ui/card";
-
-import { useState } from "react";
-import { ChevronsLeft, ChevronsRight } from "lucide-react";
 
 const data = [
     {
