@@ -38,9 +38,10 @@ export default function Navbar() {
   };
 
   return (
-    <div className="text-black px-5 flex justify-between">
+    <div className="text-black fixed w-full left-0 right-0 lg:px-10 px-5 mt-4 flex justify-between items-center">
+
       <Link href="/dashboard">
-        <GraduationCap className="dark:text-white" />
+        <GraduationCap className="mx-auto h-10 w-auto dark:text-white" />
       </Link>
 
       <div className="flex item-center">

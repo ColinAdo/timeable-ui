@@ -32,7 +32,7 @@ export default function Sidebar() {
     }
 
     return (
-        <div className="relative min-w-[80px] border-r px-3 pt-20 pb-10">
+        <div className="relative min-w-[80px] border-r px-3 pt-20 pb-10 mt-12">
             {!mobilewidth && (
                 <div className="absolute top-7">
                     <Button

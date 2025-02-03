@@ -57,7 +57,7 @@ export default function Page() {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop })
 
   return (
-    <div className="flex flex-col gap-5 w-full">
+    <div className="flex flex-col gap-5 w-full mt-12">
       <PageTitle title="Dashboard" />
       {/* File Upload Area - Replaces the cards */}
       <div className="mb-6">
