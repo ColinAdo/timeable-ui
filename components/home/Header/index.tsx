@@ -53,10 +53,10 @@ export default function Header() {
   return (
     <>
       <header
-        className={`header left-0 sm:left-8 top-0 z-40 flex w-full items-center ${sticky
-          ? "dark:bg-black fixed z-[9999] bg-white !bg-opacity-80 shadow-sticky backdrop-blur-sm transition"
-          : "absolute bg-transparent"
-          }`}
+        className={`header left-0 sm:left-8 top-0 z-40 flex justify-between w-full items-center
+          "dark:bg-black fixed z-[9999] bg-white !bg-opacity-80 shadow-sticky backdrop-blur-sm transition"
+          "absolute bg-transparent"
+         `}
       >
         <div className="container">
           <div className="relative flex items-center justify-between">
