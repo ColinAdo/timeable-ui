@@ -38,13 +38,18 @@ export default function Navbar() {
   };
 
   return (
-    <div className="text-black fixed w-full left-0 right-0 lg:px-14 px-5 mt-4 flex justify-between items-center">
+    <div
+      className={`header left-0 sm:left-8 p-2 top-0 z-40 flex justify-between w-full items-center
+         "dark:bg-black fixed z-[9999] bg-white !bg-opacity-80 shadow-sticky backdrop-blur-sm transition"
+         "absolute bg-transparent"
+        `}
+    >
 
       <Link href="/dashboard">
         <GraduationCap className="mx-auto h-10 w-auto dark:text-white" />
       </Link>
 
-      <div className="flex item-center">
+      <div className="flex item-center lg:px-14">
         <DropdownMenu>
           <DropdownMenuTrigger className="focus:outline-none">
             <Avatar>
