@@ -6,6 +6,7 @@ import { useAppDispatch } from "@/redux/hook";
 import { ThemeToggler } from "@/components/common";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { logout as setLogout } from "@/redux/features/authSlice";
+import { usePathname } from "next/navigation";
 import {
   LogOut,
   Settings,
@@ -25,6 +26,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export default function Navbar() {
+  const pathname = usePathname();
   const dispatch = useAppDispatch();
   const [logout] = useLogoutMutation();
   const { data: user } = useRetrieveUserQuery();
@@ -40,7 +42,7 @@ export default function Navbar() {
   return (
     <div
       className={`header left-0 sm:left-8 p-2 top-0 z-40 flex justify-between w-full items-center
-         "dark:bg-black fixed z-[9999] bg-white !bg-opacity-80 shadow-sticky backdrop-blur-sm transition"
+         "dark:bg-black fixed z-[9999] bg-white ${pathname === "/dashboard/create/timetable" ? "!bg-transparent" : ""} !bg-opacity-80 shadow-sticky backdrop-blur-sm transition"
          "absolute bg-transparent"
         `}
     >
