@@ -8,6 +8,7 @@ import { CardContent } from "@/components/dashboard/Card";
 import { PageTitle, AnalyticLineChart } from "@/components/dashboard";
 import { CardItem } from "@/components/dashboard/";
 import { useState, useCallback } from "react";
+import { Button } from "@/components/ui/button";
 
 interface Props {
   name: string;
@@ -53,29 +54,38 @@ export default function Page() {
 
       {/* File Upload Area */}
       <div className="mb-6">
-        <Card
-          {...getRootProps()}
-          className="w-full p-8 border-dashed border-2 cursor-pointer hover:border-primary transition-colors"
-        >
-          <input {...getInputProps()} />
-          <div className="flex flex-col items-center justify-center gap-2 text-muted-foreground">
-            <Upload className="h-10 w-10" />
-            {isDragActive ? (
-              <p>Drop the file here ...</p>
-            ) : (
-              <>
-                <p className="font-medium">Drag & drop a .xlsx file here, or click to select</p>
-                <p className="text-sm">Only one .xlsx file is allowed</p>
-              </>
-            )}
-            {file && (
-              <div className="mt-4">
-                <p className="font-medium text-foreground">Selected file:</p>
-                <p>{file.name}</p>
-              </div>
-            )}
-          </div>
-        </Card>
+        <form action="">
+          <Card
+            {...getRootProps()}
+            className="w-full p-8 border-dashed border-2 cursor-pointer hover:border-primary transition-colors"
+          >
+            <input {...getInputProps()} />
+            <div className="flex flex-col items-center justify-center gap-2 text-muted-foreground">
+              <Upload className="h-10 w-10" />
+              {isDragActive ? (
+                <p>Drop the file here ...</p>
+              ) : (
+                <>
+                  <p className="font-medium">Drag & drop a .xlsx file here, or click to select</p>
+                  <p className="text-sm">Only one .xlsx file is allowed</p>
+                </>
+              )}
+              {file && (
+                <div className="mt-4">
+                  <p className="font-medium text-foreground">Selected file:</p>
+                  <p>{file.name}</p>
+                </div>
+              )}
+            </div>
+          </Card>
+
+          {/* Centered Submit Button, only visible if file is selected */}
+          {file && (
+            <div className="flex justify-center mt-4">
+              <Button className="px-6 py-2">Upload</Button>
+            </div>
+          )}
+        </form>
       </div>
 
       <section className="grid grid-cols-1 gap-4 lg:grid-cols-2 transition-all">
