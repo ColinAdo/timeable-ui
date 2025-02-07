@@ -15,7 +15,32 @@ const timetableSlice = apiSlice.injectEndpoints({
                 };
             },
         }),
+        generateTimetable: builder.mutation({
+            query: ({
+                batch_id,
+                start_time,
+                end_time,
+                first_constrain,
+                second_constrain,
+                duration,
+                prompt }) => ({
+                    url: "generate/timetable/",
+                    method: "POST",
+                    body: {
+                        batch_id,
+                        start_time,
+                        end_time,
+                        first_constrain,
+                        second_constrain,
+                        duration,
+                        prompt,
+                    },
+                }),
+        }),
     }),
 });
 
-export const { useUploadFileMutation } = timetableSlice;
+export const {
+    useUploadFileMutation,
+    useGenerateTimetableMutation
+} = timetableSlice;
