@@ -7,10 +7,8 @@ import { useRouter } from "next/navigation";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { createTransactionSchema } from "@/lib/schemas";
-// import { useWebSocketContext } from "@/hooks/WebSocketContext";
-// import { useGetAccountsQuery } from "@/redux/features/accountSlice";
-
+import { createTimetableSchema } from "@/lib/schemas";
+import { useGenerateTimetableMutation } from "@/redux/features/timtableSlice";
 import {
     Form,
     FormItem,
@@ -20,47 +18,54 @@ import {
     FormControl,
 } from "@/components/ui/form";
 
-export default function CreateTransactionForm() {
-    //   const { data: accounts } = useGetAccountsQuery();
-    //   const { sendJsonMessage } = useWebSocketContext();
-    const router = useRouter();
+interface Props {
+    batchId: string;
+}
 
-    const form = useForm<z.infer<typeof createTransactionSchema>>({
-        resolver: zodResolver(createTransactionSchema),
+export default function CreateTransactionForm({ batchId }: Props) {
+    const router = useRouter();
+    const [generateTimetable] = useGenerateTimetableMutation();
+
+    const form = useForm<z.infer<typeof createTimetableSchema>>({
+        resolver: zodResolver(createTimetableSchema),
         defaultValues: {
-            accountName: "",
-            transactionType: "",
-            description: "",
-            amount: "",
+            batch_id: batchId,
+            start_time: "",
+            end_time: "",
+            first_constrain: "",
+            second_constrain: "",
+            duration: "",
+            prompt: "",
         },
     });
 
-    const onSubmit = async (data: z.infer<typeof createTransactionSchema>) => {
-        // sendJsonMessage({
-        //   event: "create_transaction",
-        //   data,
-        // });
-        // toast.success("transaction created successfully");
-        // router.push("/dashboard");
-        // console.log("Submitted data :", data)
+    const onSubmit = async (data: z.infer<typeof createTimetableSchema>) => {
+        generateTimetable(data)
+            .unwrap()
+            .then(() => {
+                toast.success("timetable created successfully");
+                // router.push("/dashboard");
+            }).catch((err) => {
+                toast.error("failed to create timetable");
+                console.log("BatchId", batchId);
+                console.log("Error", err);
+            });
     };
-
-    //   if (!accounts) {
-    //     return
-    //   }
 
     return (
         <>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <input type="hidden" name="batch_id" value={batchId} />
+
                     {/* Wrap Start Time & End Time in a flex container */}
                     <div className="flex gap-x-4">
                         {/* Start Time Field */}
                         <FormField
                             control={form.control}
-                            name="accountName"
+                            name="start_time"
                             render={({ field }) => (
-                                <FormItem className="w-1/2"> {/* Each field takes half width */}
+                                <FormItem className="w-1/2">
                                     <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white">
                                         Start time
                                     </FormLabel>
@@ -79,7 +84,7 @@ export default function CreateTransactionForm() {
                         {/* End Time Field */}
                         <FormField
                             control={form.control}
-                            name="accountName"
+                            name="end_time"
                             render={({ field }) => (
                                 <FormItem className="w-1/2">
                                     <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white">
@@ -108,7 +113,7 @@ export default function CreateTransactionForm() {
                             {/* Start Time Field */}
                             <FormField
                                 control={form.control}
-                                name="accountName"
+                                name="first_constrain"
                                 render={({ field }) => (
                                     <FormItem className="w-1/2">
                                         <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white">
@@ -129,7 +134,7 @@ export default function CreateTransactionForm() {
                             {/* End Time Field */}
                             <FormField
                                 control={form.control}
-                                name="accountName"
+                                name="second_constrain"
                                 render={({ field }) => (
                                     <FormItem className="w-1/2">
                                         <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white">
@@ -152,7 +157,7 @@ export default function CreateTransactionForm() {
                     {/* duration field */}
                     <FormField
                         control={form.control}
-                        name="amount"
+                        name="duration"
                         render={({ field }) => (
                             <FormItem>
                                 <div className="flex justify-between items-center">
@@ -176,7 +181,7 @@ export default function CreateTransactionForm() {
                     {/* Additional constrain Field */}
                     <FormField
                         control={form.control}
-                        name="description"
+                        name="prompt"
                         render={({ field }) => (
                             <FormItem>
                                 <div className="flex justify-between items-center">
