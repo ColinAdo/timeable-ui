@@ -54,23 +54,6 @@ export const resetPasswordConfirmSchema = z.object({
     }),
 });
 
-export const accountSchema = z.object({
-    accountName: z.string()
-        .min(1, "Account name is required.")
-        .max(13, "Account name must be at most 13 characters"),
-    description: z.string().max(18, "Description must be at most 19 characters.").optional(),
-    amount: z.string().min(1, "Account amount is required."),
-});
-
-export const editAccountSchema = z.object({
-    id: z.string().optional(),
-    accountName: z.string()
-        .min(1, "Account name is required.")
-        .max(13, "Account name must be at most 13 characters"),
-    description: z.string().max(18, "Description must be at most 19 characters.").optional(),
-});
-
-
 export const createTimetableSchema = z.object({
     batch_id: z.string().min(1, "Batch ID is required."),
     start_time: z.string().min(1, "Start time is required."),
