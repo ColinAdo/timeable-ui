@@ -10,7 +10,7 @@ import { CardItem } from "@/components/dashboard/";
 import { useState, useCallback, FormEvent } from "react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { useUploadFileMutation } from "@/redux/features/timtableSlice";
 
 interface Props {
@@ -29,6 +29,7 @@ const SalesData: Props[] = [
 ];
 
 export default function Page() {
+  const router = useRouter();
   const [uploadFile] = useUploadFileMutation();
   const [file, setFile] = useState<File | null>(null);
   const [batchId] = useState(`timetable_${Math.floor(100000000 + Math.random() * 900000000)}`);
@@ -67,12 +68,10 @@ export default function Page() {
       .unwrap()
       .then(() => {
         toast.success("File uploaded successfully");
+        router.push(`/dashboard/create/timetable?batchId=${batchId}`);
       })
-      .catch((err) => {
+      .catch(() => {
         toast.error("Failed to upload!");
-        console.log("Log:", file.name);
-        console.log("Log:", batchId);
-        console.error("Upload Failed:", err);
       });
   };
 
