@@ -7,8 +7,11 @@ import { useDropzone } from 'react-dropzone';
 import { CardContent } from "@/components/dashboard/Card";
 import { PageTitle, AnalyticLineChart } from "@/components/dashboard";
 import { CardItem } from "@/components/dashboard/";
-import { useState, useCallback } from "react";
+import { useState, useCallback, FormEvent } from "react";
 import { Button } from "@/components/ui/button";
+import { toast } from "sonner";
+import { useRouter } from "next/router";
+import { useUploadFileMutation } from "@/redux/features/timtableSlice";
 
 interface Props {
   name: string;
@@ -26,7 +29,9 @@ const SalesData: Props[] = [
 ];
 
 export default function Page() {
+  const [uploadFile] = useUploadFileMutation();
   const [file, setFile] = useState<File | null>(null);
+  const [batchId] = useState(`timetable_${Math.floor(100000000 + Math.random() * 900000000)}`);
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     if (acceptedFiles.length > 0) {
@@ -42,11 +47,34 @@ export default function Page() {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: {
-      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": []
+      "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet": [],
     },
-    multiple: false, // Allow only one file
+    multiple: false,
   });
 
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!file) {
+      toast.error("No file selected!");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("batchId", batchId);
+    formData.append("file", file);
+
+    uploadFile({ batchId, file })
+      .unwrap()
+      .then(() => {
+        toast.success("File uploaded successfully");
+      })
+      .catch((err) => {
+        toast.error("Failed to upload!");
+        console.log("Log:", file.name);
+        console.log("Log:", batchId);
+        console.error("Upload Failed:", err);
+      });
+  };
 
   return (
     <div className="flex flex-col gap-5 w-full mt-12">
@@ -54,7 +82,8 @@ export default function Page() {
 
       {/* File Upload Area */}
       <div className="mb-6">
-        <form action="">
+        <form onSubmit={handleSubmit}>
+          <input type="hidden" name="batch_id" value={batchId} />
           <Card
             {...getRootProps()}
             className="w-full p-8 border-dashed border-2 cursor-pointer hover:border-primary transition-colors"
