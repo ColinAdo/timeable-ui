@@ -1,13 +1,39 @@
+import { Facebook, Twitter, Instagram, Linkedin, Github } from "lucide-react"
+import Link from "next/link";
+import type React from "react";
+
 export default function Footer() {
   return (
-    <footer className="h-16">
-      <div className="h-full px-2">
-        <div className="flex items-center justify-center h-full">
-          <p className="text-gray-500 text-xs">
-            &copy; 2024 Monie, Inc. All rights reserved.
-          </p>
+    <footer className="bg-black/50 backdrop-blur-md border-t border-white/10 py-8">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="mb-4 md:mb-0">
+            <p className="text-white text-sm">&copy; 2023 ResearchAI. All rights reserved.</p>
+          </div>
+          <div className="flex space-x-4">
+            <SocialLink href="https://facebook.com" icon={<Facebook size={20} />} label="Facebook" />
+            <SocialLink href="https://twitter.com" icon={<Twitter size={20} />} label="Twitter" />
+            <SocialLink href="https://instagram.com" icon={<Instagram size={20} />} label="Instagram" />
+            <SocialLink href="https://linkedin.com" icon={<Linkedin size={20} />} label="LinkedIn" />
+            <SocialLink href="https://github.com" icon={<Github size={20} />} label="GitHub" />
+          </div>
         </div>
       </div>
     </footer>
-  );
+  )
 }
+
+function SocialLink({ href, icon, label }: { href: string; icon: React.ReactNode; label: string }) {
+  return (
+    <Link
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="text-gray-400 hover:text-white transition-colors"
+    >
+      <span className="sr-only">{label}</span>
+      {icon}
+    </Link>
+  )
+}
+
