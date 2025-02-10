@@ -1,11 +1,9 @@
 import { GraduationCap } from "lucide-react";
 import { AuthTabs } from "@/components/auth";
-import Header from "@/components/home/Header";
 
 export default function Page() {
     return (
         <>
-            <Header />
             <div className="flex min-h-full mt-10 flex-1 flex-col justify-center px-6 py-16 lg:px-8">
                 <div className="sm:mx-auto sm:w-full sm:max-w-sm mb-0">
                     <GraduationCap className="mx-auto h-10 w-auto" />
