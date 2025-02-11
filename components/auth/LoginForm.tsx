@@ -47,7 +47,7 @@ export default function LoginForm() {
                                         <Input
                                             placeholder="Enter Email"
                                             {...field}
-                                            className="bg-black/10 dark:bg-zinc-950 text-blak dark:text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
+                                            className="bg-black/10 focus-visible:ring-0 focus-visible:ring-offset-0"
                                         />
                                     </FormControl>
                                     <FormMessage />
