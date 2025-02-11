@@ -45,14 +45,14 @@ export default function Navbar() {
     >
 
       <Link href="/dashboard">
-        <GraduationCap className="mx-auto h-10 w-auto text-white" />
+        <GraduationCap className="w-8 h-8 text-purple-500" />
       </Link>
 
       <div className="flex item-center lg:px-14">
         <DropdownMenu>
           <DropdownMenuTrigger className="focus:outline-none">
             <Avatar>
-              <AvatarFallback className="text-black bg-purple-300 font-bold">
+              <AvatarFallback className="text-black bg-pink-300 font-bold">
                 {user?.username[0]}
               </AvatarFallback>
             </Avatar>
