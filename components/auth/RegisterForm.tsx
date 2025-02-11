@@ -123,9 +123,9 @@ export default function RegisterForm() {
                         </Button>
                     </form>
                     <div className="relative flex items-center my-3 font-bold">
-                        <span className="flex-grow border-t border-gray-950 dark:border-gray-300"></span>
+                        <span className="flex-grow border-t border-white"></span>
                         <span className="mx-3">OR</span>
-                        <span className="flex-grow border-t border-gray-950 dark:border-gray-300"></span>
+                        <span className="flex-grow border-t border-white"></span>
                     </div>
                     <SocialButtons />
                 </Form>
