@@ -8,7 +8,7 @@ interface Props {
 
 export default function SocialButton({ provider, children, ...rest }: Props) {
     const className = cn(
-        "flex-1 text-light dark:text-white rounded-md px-3 py-2 font-medium hover:bg-neutral-400 hover:text-black border border-black dark:border-amber-100"
+        "flex-1 text-light rounded-md px-3 py-2 font-medium border border-black dark:border-amber-100"
     );
 
     return (
