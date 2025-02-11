@@ -11,7 +11,7 @@ export default function Layout({ children }: Props) {
     <RequireAuth>
       {/* <WebSocketProvider> */}
       <Navbar />
-      <div className="flex">
+      <div className="flex bg-black/[0.96] antialiased bg-grid-white/[0.02]">
         <div className="hidden md:block">
           <Sidebar />
         </div>

@@ -41,23 +41,23 @@ export default function Navbar() {
 
   return (
     <div
-      className="sticky top-0 z-50 flex items-center justify-between px-6 py-4 backdrop-blur-md bg-black/50 border-b border-white/10"
+      className="bg-black/[0.96] sticky top-0 z-50 flex items-center justify-between px-6 py-4 backdrop-blur-md bg-black/50 border-b border-white/10"
     >
 
       <Link href="/dashboard">
-        <GraduationCap className="mx-auto h-10 w-auto dark:text-white" />
+        <GraduationCap className="mx-auto h-10 w-auto text-white" />
       </Link>
 
       <div className="flex item-center lg:px-14">
         <DropdownMenu>
           <DropdownMenuTrigger className="focus:outline-none">
             <Avatar>
-              <AvatarFallback className="text-black bg-slate-300 font-bold">
+              <AvatarFallback className="text-black bg-purple-300 font-bold">
                 {user?.username[0]}
               </AvatarFallback>
             </Avatar>
           </DropdownMenuTrigger>
-          <DropdownMenuContent>
+          <DropdownMenuContent className="bg-black/[0.96] rounded border-purple-400">
             <DropdownMenuLabel>{user?.username}</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
