@@ -23,7 +23,7 @@ export default function PasswordResetConfirmForm({ uid, token }: Props) {
   const { form, isLoading, onSubmit } = useResetPasswordConfirm(uid, token);
 
   return (
-    <Card>
+    <Card className="bg-black w-[400px]">
       <CardHeader>
         <CardTitle>Request reset password</CardTitle>
       </CardHeader>
@@ -43,7 +43,7 @@ export default function PasswordResetConfirmForm({ uid, token }: Props) {
                       type="password"
                       placeholder="Enter new password"
                       {...field}
-                      className="bg-slate-100 dark:bg-zinc-950 text-blak dark:text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
+                      className="bg-black/10 focus-visible:ring-0 focus-visible:ring-offset-0"
                     />
                   </FormControl>
                   <FormMessage />
@@ -64,7 +64,7 @@ export default function PasswordResetConfirmForm({ uid, token }: Props) {
                       type="password"
                       placeholder="Enter confirm new password"
                       {...field}
-                      className="bg-slate-100 dark:bg-zinc-950 text-blak dark:text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
+                      className="bg-black/10 focus-visible:ring-0 focus-visible:ring-offset-0"
                     />
                   </FormControl>
                   <FormMessage />
@@ -73,7 +73,7 @@ export default function PasswordResetConfirmForm({ uid, token }: Props) {
             />
 
             <Button
-              className="w-full dark:text-black dark:bg-white font-bold"
+              className="w-full bg-gradient-to-r from-purple-500 rounded to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
               disabled={isLoading}
             >
               {isLoading ? <Spinner sm /> : "Reset password"}
