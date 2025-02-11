@@ -41,10 +41,7 @@ export default function Navbar() {
 
   return (
     <div
-      className={`header left-0 sm:left-8 p-2 top-0 z-40 flex justify-between w-full items-center
-         "dark:bg-black fixed z-[9999] bg-white ${pathname === "/dashboard/create/timetable" ? "!bg-transparent" : ""} !bg-opacity-80 shadow-sticky backdrop-blur-sm transition"
-         "absolute bg-transparent"
-        `}
+      className="sticky top-0 z-50 flex items-center justify-between px-6 py-4 backdrop-blur-md bg-black/50 border-b border-white/10"
     >
 
       <Link href="/dashboard">
