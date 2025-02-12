@@ -23,7 +23,7 @@ export default function Page() {
             <FormDialog
                 requiredRoute={isCreatePage}
                 onOpenChange={onOpenChange}
-                dialogTitle="Create new transaction"
+                dialogTitle="Generate Timetable"
             >
                 <CreateTimetableForm batchId={batchId} />
             </FormDialog>

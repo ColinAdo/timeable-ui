@@ -73,7 +73,7 @@ export default function CreateTransactionForm({ batchId }: Props) {
                                         <Input
                                             type="time"
                                             {...field}
-                                            className="dark:bg-zinc-950 text-black dark:text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
+                                            className="bg-purple-300 rounded focus-visible:ring-0 focus-visible:ring-offset-0"
                                         />
                                     </FormControl>
                                     <FormMessage />
@@ -94,7 +94,7 @@ export default function CreateTransactionForm({ batchId }: Props) {
                                         <Input
                                             type="time"
                                             {...field}
-                                            className="dark:bg-zinc-950 text-black dark:text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
+                                            className="bg-purple-300 rounded focus-visible:ring-0 focus-visible:ring-offset-0"
                                         />
                                     </FormControl>
                                     <FormMessage />
@@ -103,7 +103,7 @@ export default function CreateTransactionForm({ batchId }: Props) {
                         />
                     </div>
                     {/* No classes shoul take place by */}
-                    <div className="border p-4 rounded-lg bg-gray-50 dark:bg-zinc-800">
+                    <div className="border border-purple-400 p-4 rounded bg-black/[0.96] dark:bg-zinc-800">
                         <span className="mt-2 block text-sm uppercase text-xs font-bold text-zinc-500 dark:text-white">
                             No class should be
                         </span>
@@ -123,7 +123,7 @@ export default function CreateTransactionForm({ batchId }: Props) {
                                             <Input
                                                 type="time"
                                                 {...field}
-                                                className="dark:bg-zinc-950 text-black dark:text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
+                                                className="bg-purple-300 rounded focus-visible:ring-0 focus-visible:ring-offset-0"
                                             />
                                         </FormControl>
                                         <FormMessage />
@@ -144,7 +144,7 @@ export default function CreateTransactionForm({ batchId }: Props) {
                                             <Input
                                                 type="time"
                                                 {...field}
-                                                className="dark:bg-zinc-950 text-black dark:text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
+                                                className="bg-purple-300 rounded focus-visible:ring-0 focus-visible:ring-offset-0"
                                             />
                                         </FormControl>
                                         <FormMessage />
@@ -170,7 +170,7 @@ export default function CreateTransactionForm({ batchId }: Props) {
                                         type="number"
                                         placeholder="Enter account amount"
                                         {...field}
-                                        className="dark:bg-zinc-950  text-black dark:text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
+                                        className="text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
                                     />
                                 </FormControl>
                                 <FormMessage />
@@ -194,7 +194,7 @@ export default function CreateTransactionForm({ batchId }: Props) {
                                         type="text"
                                         placeholder="E.g Make ucc 101 be on mondays"
                                         {...field}
-                                        className="dark:bg-zinc-950 text-black dark:text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
+                                        className="text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
                                     />
                                 </FormControl>
                                 <FormMessage />
@@ -203,7 +203,7 @@ export default function CreateTransactionForm({ batchId }: Props) {
                     />
 
                     {/* Submit Button */}
-                    <Button className="w-full dark:text-black font-bold dark:bg-white">
+                    <Button className="w-full bg-gradient-to-r from-purple-500 rounded to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
                         Submit
                     </Button>
                 </form>
