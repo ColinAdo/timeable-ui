@@ -8,13 +8,13 @@ import {
     Brain,
     LogOut,
     Trash2,
-    Archive,
     Settings,
     BadgePlus,
     DiamondPlus,
     ChevronRight,
     LayoutDashboard,
-    BadgeDollarSign
+    BadgeDollarSign,
+    CircleFadingArrowUp,
 } from "lucide-react";
 
 export default function Sidebar() {
@@ -32,12 +32,13 @@ export default function Sidebar() {
     }
 
     return (
-        <div className="relative min-w-[80px] border-r px-3 pt-20 pb-10 mt-12">
+        <div className="relative min-w-[80px] px-8 pt-20 pb-10 mt-12">
+
             {!mobilewidth && (
-                <div className="absolute top-7">
+                <div className="left-10 absolute top-7">
                     <Button
                         onClick={toggleSidebar}
-                        className="dark:bg-zinc-800 dark:text-white text-white hover:text-white hover:bg-black"
+                        className="flex justify-center w-[40px] bg-gradient-to-r from-purple-500 rounded to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
                     >
                         <ChevronRight />
                     </Button>
@@ -59,7 +60,7 @@ export default function Sidebar() {
                         href: "/dashboard/create/account",
                     },
                     {
-                        title: "Pricing",
+                        title: "Billing",
                         label: "",
                         icon: BadgeDollarSign,
                         variant: "ghost",
@@ -86,16 +87,16 @@ export default function Sidebar() {
                         href: "#",
                     },
                     {
-                        title: "Archive",
+                        title: "Ask AI",
                         label: "",
-                        icon: Archive,
+                        icon: Brain,
                         variant: "ghost",
                         href: "#",
                     },
                     {
-                        title: "Ask AI",
+                        title: "Upgrade",
                         label: "",
-                        icon: Brain,
+                        icon: CircleFadingArrowUp,
                         variant: "ghost",
                         href: "#",
                     },
