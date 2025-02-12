@@ -15,7 +15,7 @@ export default function Spinner({ sm, md, lg }: Props) {
   });
   return (
     <div role="status">
-      <ImSpinner3 className={classNames} />
+      <ImSpinner3 className={`text-purple-500 ${classNames}`} />
       <span className="sr-only">Loading...</span>
     </div>
   );
