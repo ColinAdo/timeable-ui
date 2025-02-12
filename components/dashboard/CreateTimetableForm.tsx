@@ -17,6 +17,7 @@ import {
     FormMessage,
     FormControl,
 } from "@/components/ui/form";
+import { Spinner } from "@/components/common";
 
 interface Props {
     batchId: string;
@@ -24,7 +25,7 @@ interface Props {
 
 export default function CreateTransactionForm({ batchId }: Props) {
     const router = useRouter();
-    const [generateTimetable] = useGenerateTimetableMutation();
+    const [generateTimetable, { isLoading }] = useGenerateTimetableMutation();
 
     const form = useForm<z.infer<typeof createTimetableSchema>>({
         resolver: zodResolver(createTimetableSchema),
@@ -204,7 +205,7 @@ export default function CreateTransactionForm({ batchId }: Props) {
 
                     {/* Submit Button */}
                     <Button className="w-full bg-gradient-to-r from-purple-500 rounded to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
-                        Submit
+                        {isLoading ? <Spinner sm /> : "Submit"}
                     </Button>
                 </form>
             </Form>

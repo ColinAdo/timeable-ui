@@ -6,10 +6,11 @@ import { useRouter } from "next/navigation";
 import { useUploadFileMutation } from "@/redux/features/timtableSlice";
 import { FormEvent, useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
+import { Spinner } from "@/components/common";
 
 export default function UploadFile() {
     const router = useRouter();
-    const [uploadFile] = useUploadFileMutation();
+    const [uploadFile, { isLoading }] = useUploadFileMutation();
     const [file, setFile] = useState<File | null>(null);
     const [batchId] = useState(`timetable_${Math.floor(100000000 + Math.random() * 900000000)}`);
 
@@ -86,7 +87,7 @@ export default function UploadFile() {
                 {file && (
                     <div className="flex justify-center mt-4">
                         <Button className="flex justify-center mt-4 bg-gradient-to-r from-purple-500 rounded to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
-                            Upload
+                            {isLoading ? <Spinner sm /> : "Upload"}
                         </Button>
                     </div>
                 )}
