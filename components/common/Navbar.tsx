@@ -41,7 +41,7 @@ export default function Navbar() {
 
   return (
     <div
-      className="bg-black/[0.96] sticky top-0 z-50 flex items-center justify-between px-10 py-4 backdrop-blur-md bg-black/50 border-b border-white/10"
+      className="bg-black/[0.96] sticky top-0 z-50 flex items-center justify-between md:px-10 px-2 py-4 backdrop-blur-md bg-black/50 border-b border-white/10"
     >
 
       <Link href="/dashboard">
