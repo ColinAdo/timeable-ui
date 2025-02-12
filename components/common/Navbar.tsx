@@ -41,14 +41,14 @@ export default function Navbar() {
 
   return (
     <div
-      className="bg-black/[0.96] sticky top-0 z-50 flex items-center justify-between px-6 py-4 backdrop-blur-md bg-black/50 border-b border-white/10"
+      className="bg-black/[0.96] sticky top-0 z-50 flex items-center justify-between px-10 py-4 backdrop-blur-md bg-black/50 border-b border-white/10"
     >
 
       <Link href="/dashboard">
         <GraduationCap className="w-8 h-8 text-purple-500" />
       </Link>
 
-      <div className="flex item-center lg:px-14">
+      <div className="flex item-center">
         <DropdownMenu>
           <DropdownMenuTrigger className="focus:outline-none">
             <Avatar>
