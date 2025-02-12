@@ -1,12 +1,11 @@
 import "@/styles/globals.css";
 import type { Metadata } from "next";
 
-import { Toaster } from "sonner";
+import { Footer } from "@/components/common";
+import { SetUp } from "@/components/utils";
 import Provider from "@/redux/provider";
 import { Inter } from "next/font/google";
-import { SetUp } from "@/components/utils";
-import { Footer } from "@/components/common";
-import { ThemeProvider } from "@/components/common/ThemeProvider";
+import { Toaster } from "sonner";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,18 +25,10 @@ export default function RootLayout({
         <Provider>
           <SetUp />
           <div className="mx-auto max-h-7xl">
-            {/* <div className="mx-auto max-h-7xl px-2 sm:px-6 lg:px-8 mt-0"> */}
-            <ThemeProvider
-              attribute="class"
-              defaultTheme="system"
-              enableSystem
-              disableTransitionOnChange
-            >
-              {children}
-            </ThemeProvider>
+            {children}
             <Toaster position="top-center" richColors />
+            <Footer />
           </div>
-          <Footer />
         </Provider>
       </body>
     </html>

@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { GraduationCap } from "lucide-react";
 import { useAppDispatch } from "@/redux/hook";
-import { ThemeToggler } from "@/components/common";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { logout as setLogout } from "@/redux/features/authSlice";
 import { usePathname } from "next/navigation";
@@ -75,9 +74,6 @@ export default function Navbar() {
                 <span className="ml-2">Create</span>
               </Link>
             </DropdownMenuItem>
-            <div className="ml-2 dark:ml-1 mt-2">
-              <ThemeToggler />
-            </div>
             <DropdownMenuItem>
               <LogOut className="h-[1.2rem] w-[1.2rem]" />
               <button onClick={handleLogout}>Logout</button>
