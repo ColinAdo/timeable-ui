@@ -56,7 +56,7 @@ export default function Navbar() {
               </AvatarFallback>
             </Avatar>
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="bg-black/[0.96] rounded border-purple-400">
+          <DropdownMenuContent className="bg-black/[0.96] mr-8 rounded border-purple-400">
             <DropdownMenuLabel>{user?.username}</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
