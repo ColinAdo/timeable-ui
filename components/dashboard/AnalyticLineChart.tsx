@@ -74,7 +74,7 @@ export default function AnalyticCard() {
     };
 
     return (
-        <Card>
+        <Card className="bg-black/[0.96] bg-grid-white[0.02] border-purple-400">
             <CardHeader>
                 <CardTitle>Transaction Analytics</CardTitle>
                 <CardDescription>
