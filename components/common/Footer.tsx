@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-4 md:mb-0">
-            <p className="text-white text-sm">&copy; 2025 Timeable. All rights reserved.</p>
+            <p className="text-gray-300 text-sm">&copy; 2025 Timeable. All rights reserved.</p>
           </div>
           <div className="flex space-x-4">
             <SocialLink href="https://facebook.com" icon={<Facebook size={20} />} label="Facebook" />
