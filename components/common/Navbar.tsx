@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 import { GraduationCap } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { useAppDispatch } from "@/redux/hook";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { logout as setLogout } from "@/redux/features/authSlice";
-import { usePathname } from "next/navigation";
 import {
   LogOut,
   Settings,
