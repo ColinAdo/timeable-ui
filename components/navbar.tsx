@@ -1,10 +1,10 @@
 "use client"
 
-import { Button } from "@/components/ui/button"
-import { GraduationCap } from "lucide-react"
-import { motion } from "framer-motion"
 import Link from "next/link"
 import type React from "react"
+import { motion } from "framer-motion"
+import { GraduationCap } from "lucide-react"
+import { Button } from "@/components/ui/button"
 
 export default function Navbar() {
     return (
