@@ -25,6 +25,7 @@ import {
     Trash2,
     ChevronsLeft,
     ChevronsRight,
+    Eye,
 } from "lucide-react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
@@ -103,7 +104,7 @@ export default function SleekTable() {
 
     return (
         <div className="p-4 space-y-4">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between gap-2 items-center">
                 <Input
                     placeholder="Search..."
                     value={searchTerm}
@@ -113,8 +114,8 @@ export default function SleekTable() {
                 <div className="flex space-x-2">
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                            <Button variant="outline" className="w-[100px] rounded bg-purple-500/15 text-gray-300 hover:bg-purple-500/20">
-                                View
+                            <Button variant="outline" className="w-[78px] rounded bg-purple-500/15 text-gray-300 hover:bg-purple-500/20">
+                                <Eye />View
                             </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className="w-50 rounded border-purple-500">
@@ -138,7 +139,7 @@ export default function SleekTable() {
                     </DropdownMenu>
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
-                            <Button variant="outline" className="rounded bg-purple-500/15 text-gray-300 hover:bg-purple-500/20">Table Actions</Button>
+                            <Button variant="outline" className="rounded w-[96px] bg-purple-500/15 text-gray-300 hover:bg-purple-500/20">Table Actions</Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent className="rounded border-purple-500">
                             <DropdownMenuItem onClick={() => handleTableAction("download")}>Download</DropdownMenuItem>
@@ -198,7 +199,7 @@ export default function SleekTable() {
                     </TableHeader>
                     <TableBody>
                         {paginatedData.map((row) => (
-                            <TableRow key={row.id} className={selectedRows.includes(row.id) ? "bg-gray-600" : ""}>
+                            <TableRow key={row.id} className={selectedRows.includes(row.id) ? "bg-gray-600" : "border-none"}>
                                 <TableCell>
                                     <Checkbox
                                         className="border-purple-500 rounded"
@@ -213,7 +214,7 @@ export default function SleekTable() {
                                         <Input
                                             value={row.unit_code}
                                             onChange={(e) => handleCellEdit(row.id, "unit_code", e.target.value)}
-                                            className="text-gray-300"
+                                            className="text-gray-300 w-20 border border-transparent focus:border-gray-200 focus:rounded"
                                         />
                                     </TableCell>
                                 )}
@@ -222,43 +223,57 @@ export default function SleekTable() {
                                         <Input
                                             value={row.unit_name}
                                             onChange={(e) => handleCellEdit(row.id, "unit_name", e.target.value)}
-                                            className="text-gray-300"
+                                            className="text-gray-300 w-50 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
                                         />
                                     </TableCell>
                                 )}
                                 {visibleColumns.includes("day") && (
                                     <TableCell>
-                                        <Input className="text-gray-300" value={row.day} onChange={(e) => handleCellEdit(row.id, "day", e.target.value)} />
+                                        <Input value={row.day} onChange={(e) => handleCellEdit(row.id, "day", e.target.value)}
+                                            className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
+                                        />
                                     </TableCell>
                                 )}
                                 {visibleColumns.includes("time") && (
                                     <TableCell>
-                                        <Input className="text-gray-300" value={row.time} onChange={(e) => handleCellEdit(row.id, "time", e.target.value)} />
+                                        <Input value={row.time} onChange={(e) => handleCellEdit(row.id, "time", e.target.value)}
+                                            className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
+                                        />
                                     </TableCell>
                                 )}
                                 {visibleColumns.includes("lecturer") && (
                                     <TableCell>
-                                        <Input className="text-gray-300" value={row.lecturer} onChange={(e) => handleCellEdit(row.id, "lecturer", e.target.value)} />
+                                        <Input value={row.lecturer} onChange={(e) => handleCellEdit(row.id, "lecturer", e.target.value)}
+                                            className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
+                                        />
                                     </TableCell>
                                 )}
                                 {visibleColumns.includes("campus") && (
                                     <TableCell>
-                                        <Input className="text-gray-300" value={row.campus} onChange={(e) => handleCellEdit(row.id, "campus", e.target.value)} />
+                                        <Input value={row.campus} onChange={(e) => handleCellEdit(row.id, "campus", e.target.value)}
+                                            className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
+                                        />
                                     </TableCell>
                                 )}
                                 {visibleColumns.includes("mode") && (
                                     <TableCell>
-                                        <Input className="text-gray-300" value={row.mode} onChange={(e) => handleCellEdit(row.id, "mode", e.target.value)} />
+                                        <Input value={row.mode} onChange={(e) => handleCellEdit(row.id, "mode", e.target.value)}
+                                            className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
+                                        />
                                     </TableCell>
                                 )}
                                 {visibleColumns.includes("room") && (
                                     <TableCell>
-                                        <Input className="text-gray-300" value={row.room} onChange={(e) => handleCellEdit(row.id, "room", e.target.value)} />
+                                        <Input value={row.room} onChange={(e) => handleCellEdit(row.id, "room", e.target.value)}
+                                            className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
+                                        />
                                     </TableCell>
                                 )}
                                 {visibleColumns.includes("group") && (
                                     <TableCell>
-                                        <Input className="text-gray-300" value={row.group} onChange={(e) => handleCellEdit(row.id, "group", e.target.value)} />
+                                        <Input value={row.group} onChange={(e) => handleCellEdit(row.id, "group", e.target.value)}
+                                            className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
+                                        />
                                     </TableCell>
                                 )}
                                 <TableCell>
