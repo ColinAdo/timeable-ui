@@ -11,7 +11,7 @@ export const initialData: RowData[] = [
         campus: "Main",
         mode: "In-person",
         room: "A101",
-        group: "Group A",
+        group: "1",
     },
     {
         id: "2",
@@ -23,7 +23,7 @@ export const initialData: RowData[] = [
         campus: "South",
         mode: "Online",
         room: "Virtual",
-        group: "Group B",
+        group: "2",
     },
     // Add more initial data as needed
 ]
