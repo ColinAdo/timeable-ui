@@ -25,7 +25,7 @@ interface Props {
 }
 
 const PricingCard = ({ title, price, description, features, buttonText, isPremium = false, isHome }: Props) => (
-    <Card className={`w-full max-w-sm ${isPremium ? 'border-primary' : ''}`}>
+    <Card className={`w-full max-w-sm bg-black/[0.96] ${isPremium ? 'border-purple-400' : ''}`}>
         <CardHeader>
             <CardTitle className="text-2xl font-bold">{title}</CardTitle>
             <CardDescription>{description}</CardDescription>
@@ -45,7 +45,7 @@ const PricingCard = ({ title, price, description, features, buttonText, isPremiu
             </ul>
         </CardContent>
         <CardFooter>
-            <Button className="w-full" variant={isPremium || isHome ? 'default' : 'outline'}>
+            <Button className="w-full rounded bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white" variant={isPremium || isHome ? 'default' : 'outline'}>
                 {buttonText}
             </Button>
         </CardFooter>
@@ -62,11 +62,11 @@ export default function Pricing() {
     return (
         <div id="pricing" className="container mx-auto px-4 py-16">
             <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold mb-4">Simple, transparent pricing</h2>
+                <h2 className="text-3xl text-gray-300 font-bold mb-4">Simple, transparent pricing</h2>
                 <div className="flex items-center justify-center mt-6">
-                    <span className="mr-3">Monthly</span>
-                    <Switch checked={isYearly} onCheckedChange={setIsYearly} />
-                    <span className="ml-3">Yearly (Save 20%)</span>
+                    <span className="mr-3 text-gray-400">Monthly</span>
+                    <Switch className='text-gray-300' checked={isYearly} onCheckedChange={setIsYearly} />
+                    <span className="ml-3 text-gray-400">Yearly (Save 20%)</span>
                 </div>
             </div>
             <div className="grid md:grid-cols-2 gap-4 md:ml-32 justify-center">
