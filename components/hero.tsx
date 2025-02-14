@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import { FileText, Sparkles, Check } from "lucide-react"
 import { FloatingPaper } from "@/components/floating-paper"
 import { ResponsiveTable } from "@/components/responsive-table"
+import { Pricing } from "@/components/common"
 
 export default function Hero() {
     return (
@@ -54,59 +55,7 @@ export default function Hero() {
                 </div>
 
                 {/* Pricing Section */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5, delay: 0.6 }}
-                    className="grid md:grid-cols-2 gap-8 md:w-[800px] mb-12 mx-auto flex justify-center"
-                >
-
-                    {/* Free Plan */}
-                    <div className="bg-white/10 backdrop-blur-sm rounded p-6 border border-purple-500/20">
-                        <h3 className="text-2xl font-bold text-white mb-4">Free Plan</h3>
-                        <ul className="space-y-2 mb-6">
-                            <li className="flex items-center text-gray-300">
-                                <Check className="mr-2 h-5 w-5 text-green-500" />
-                                Basic AI-powered summaries
-                            </li>
-                            <li className="flex items-center text-gray-300">
-                                <Check className="mr-2 h-5 w-5 text-green-500" />
-                                Limited paper uploads (5/month)
-                            </li>
-                            <li className="flex items-center text-gray-300">
-                                <Check className="mr-2 h-5 w-5 text-green-500" />
-                                Standard support
-                            </li>
-                        </ul>
-                        <Button className="w-full rounded bg-purple-600 hover:bg-purple-700 text-white">Get Started</Button>
-                    </div>
-
-                    {/* Premium Plan */}
-                    <div className="bg-purple-900/30 backdrop-blur-sm rounded p-6 border border-purple-500/50">
-                        <h3 className="text-2xl font-bold text-white mb-4">Premium Plan</h3>
-                        <ul className="space-y-2 mb-6">
-                            <li className="flex items-center text-gray-300">
-                                <Check className="mr-2 h-5 w-5 text-green-500" />
-                                Advanced AI-powered summaries and insights
-                            </li>
-                            <li className="flex items-center text-gray-300">
-                                <Check className="mr-2 h-5 w-5 text-green-500" />
-                                Unlimited paper uploads
-                            </li>
-                            <li className="flex items-center text-gray-300">
-                                <Check className="mr-2 h-5 w-5 text-green-500" />
-                                Priority support
-                            </li>
-                            <li className="flex items-center text-gray-300">
-                                <Check className="mr-2 h-5 w-5 text-green-500" />
-                                Custom AI model training
-                            </li>
-                        </ul>
-                        <Button className="w-full rounded bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
-                            Upgrade to Premium
-                        </Button>
-                    </div>
-                </motion.div>
+                <Pricing />
 
                 {/* Responsive Table */}
                 <motion.div
