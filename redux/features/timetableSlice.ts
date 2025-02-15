@@ -15,6 +15,11 @@ const timetableSlice = apiSlice.injectEndpoints({
                 };
             },
         }),
+        retrieveTimetable: builder.query<void, string>({
+            query: (batchId) => ({
+                url: `/timetable/${batchId}/`,
+            }),
+        }),
         generateTimetable: builder.mutation({
             query: ({
                 batch_id,
@@ -42,5 +47,6 @@ const timetableSlice = apiSlice.injectEndpoints({
 
 export const {
     useUploadFileMutation,
-    useGenerateTimetableMutation
+    useRetrieveTimetableQuery,
+    useGenerateTimetableMutation,
 } = timetableSlice;
