@@ -28,4 +28,4 @@ export const initialData: RowData[] = [
     // Add more initial data as needed
 ]
 
-export const allColumns = ["unit_code", "unit_name", "day", "time", "lecturer", "campus", "mode", "room", "group"]
+export const allColumns = ["unit_code", "unit_name", "day", "start_time", "end_time", "lecturer", "campus", "mode", "room", "group"]
