@@ -1,12 +1,19 @@
 "use client"
 
 import { useState } from "react"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Checkbox } from "@/components/ui/checkbox"
+import { RowData } from "@/types/exports"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
 import { initialData, allColumns } from "@/lib/data"
-import { RowData } from "@/types/exports"
+import {
+    Table,
+    TableRow,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+} from "@/components/ui/table"
 import {
     DropdownMenu,
     DropdownMenuCheckboxItem,
