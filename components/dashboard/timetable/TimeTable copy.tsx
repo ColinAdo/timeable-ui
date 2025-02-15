@@ -24,15 +24,15 @@ import {
     DropdownMenuItem,
 } from "@/components/ui/dropdown-menu"
 import {
+    Eye,
+    Trash2,
     ChevronUp,
     ChevronDown,
-    MoreHorizontal,
     ChevronLeft,
     ChevronRight,
-    Trash2,
     ChevronsLeft,
     ChevronsRight,
-    Eye,
+    MoreHorizontal,
 } from "lucide-react"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
