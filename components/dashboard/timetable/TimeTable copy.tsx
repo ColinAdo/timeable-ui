@@ -15,6 +15,13 @@ import {
     TableHeader,
 } from "@/components/ui/table"
 import {
+    Select,
+    SelectItem,
+    SelectValue,
+    SelectContent,
+    SelectTrigger,
+} from "@/components/ui/select"
+import {
     DropdownMenu,
     DropdownMenuCheckboxItem,
     DropdownMenuContent,
@@ -34,7 +41,6 @@ import {
     ChevronsRight,
     MoreHorizontal,
 } from "lucide-react"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 
 
 export default function SleekTable() {
