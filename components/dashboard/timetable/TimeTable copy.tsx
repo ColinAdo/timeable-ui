@@ -1,14 +1,12 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { initialData, allColumns } from "@/lib/data"
-import { TimetableType } from "@/types/exports"
-import { useRetrieveTimetableQuery } from "@/redux/features/timetableSlice"
-import { useSearchParams } from "next/navigation"
+import { RowData } from "@/types/exports"
 import {
     DropdownMenu,
     DropdownMenuCheckboxItem,
@@ -33,31 +31,15 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 
 
 export default function SleekTable() {
+    const [data, setData] = useState<RowData[]>(initialData)
     const [selectedRows, setSelectedRows] = useState<string[]>([])
     const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc")
     const [visibleColumns, setVisibleColumns] = useState(allColumns)
     const [searchTerm, setSearchTerm] = useState("")
     const [currentPage, setCurrentPage] = useState(1)
     const [itemsPerPage, setItemsPerPage] = useState(5)
-    const searchParams = useSearchParams();
-    const batchId = searchParams.get("batchId");
 
-    const { data: timetableData } = useRetrieveTimetableQuery(batchId || "");
-    const [data, setData] = useState<TimetableType[]>([]);
-
-    useEffect(() => {
-        if (timetableData) {
-            setData(timetableData);
-        }
-    }, [timetableData]);
-
-    if (!batchId || !timetableData) {
-        return null;
-    }
-
-
-
-    const handleCellEdit = (id: string, field: keyof TimetableType, value: string) => {
+    const handleCellEdit = (id: string, field: keyof RowData, value: string) => {
         setData(data.map((row) => (row.id === id ? { ...row, [field]: value } : row)))
     }
 
@@ -114,11 +96,8 @@ export default function SleekTable() {
     }
 
     const filteredData = data.filter((row) =>
-        Object.values(row).some((value) =>
-            typeof value === "string" && value.toLowerCase().includes(searchTerm.toLowerCase())
-        )
-    );
-
+        Object.values(row).some((value) => value.toLowerCase().includes(searchTerm.toLowerCase())),
+    )
 
     const pageCount = Math.ceil(filteredData.length / itemsPerPage)
     const paginatedData = filteredData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage)
@@ -209,13 +188,12 @@ export default function SleekTable() {
                                     </div>
                                 </TableHead>
                             )}
-                            {visibleColumns.includes("start_time") && <TableHead className="uppercase text-gray-200">From</TableHead>}
-                            {visibleColumns.includes("end_time") && <TableHead className="uppercase text-gray-200">To</TableHead>}
-                            {/* {visibleColumns.includes("lecturer") && <TableHead className="uppercase text-gray-200">Lecturer</TableHead>} */}
-                            {/* {visibleColumns.includes("campus") && <TableHead className="uppercase text-gray-200">Campus</TableHead>} */}
-                            {/* {visibleColumns.includes("mode") && <TableHead className="uppercase text-gray-200">Mode</TableHead>} */}
-                            {/* {visibleColumns.includes("room") && <TableHead className="uppercase text-gray-200">Room</TableHead>} */}
-                            {/* {visibleColumns.includes("group") && <TableHead className="uppercase text-gray-200">Group</TableHead>} */}
+                            {visibleColumns.includes("time") && <TableHead className="uppercase text-gray-200">Time</TableHead>}
+                            {visibleColumns.includes("lecturer") && <TableHead className="uppercase text-gray-200">Lecturer</TableHead>}
+                            {visibleColumns.includes("campus") && <TableHead className="uppercase text-gray-200">Campus</TableHead>}
+                            {visibleColumns.includes("mode") && <TableHead className="uppercase text-gray-200">Mode</TableHead>}
+                            {visibleColumns.includes("room") && <TableHead className="uppercase text-gray-200">Room</TableHead>}
+                            {visibleColumns.includes("group") && <TableHead className="uppercase text-gray-200">Group</TableHead>}
                             <TableHead className="w-[100px] uppercase text-gray-200">Actions</TableHead>
                         </TableRow>
                     </TableHeader>
@@ -256,55 +234,48 @@ export default function SleekTable() {
                                         />
                                     </TableCell>
                                 )}
-                                {visibleColumns.includes("start_time") && (
+                                {visibleColumns.includes("time") && (
                                     <TableCell>
-                                        <Input value={row.start_time} onChange={(e) => handleCellEdit(row.id, "start_time", e.target.value)}
+                                        <Input value={row.time} onChange={(e) => handleCellEdit(row.id, "time", e.target.value)}
                                             className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
                                         />
                                     </TableCell>
                                 )}
-                                {visibleColumns.includes("end_time") && (
-                                    <TableCell>
-                                        <Input value={row.end_time} onChange={(e) => handleCellEdit(row.id, "end_time", e.target.value)}
-                                            className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
-                                        />
-                                    </TableCell>
-                                )}
-                                {/* {visibleColumns.includes("lecturer") && (
+                                {visibleColumns.includes("lecturer") && (
                                     <TableCell>
                                         <Input value={row.lecturer} onChange={(e) => handleCellEdit(row.id, "lecturer", e.target.value)}
                                             className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
                                         />
                                     </TableCell>
-                                )} */}
-                                {/* {visibleColumns.includes("campus") && (
+                                )}
+                                {visibleColumns.includes("campus") && (
                                     <TableCell>
                                         <Input value={row.campus} onChange={(e) => handleCellEdit(row.id, "campus", e.target.value)}
                                             className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
                                         />
                                     </TableCell>
-                                )} */}
-                                {/* {visibleColumns.includes("mode") && (
+                                )}
+                                {visibleColumns.includes("mode") && (
                                     <TableCell>
                                         <Input value={row.mode} onChange={(e) => handleCellEdit(row.id, "mode", e.target.value)}
                                             className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
                                         />
                                     </TableCell>
-                                )} */}
-                                {/* {visibleColumns.includes("room") && (
+                                )}
+                                {visibleColumns.includes("room") && (
                                     <TableCell>
                                         <Input value={row.room} onChange={(e) => handleCellEdit(row.id, "room", e.target.value)}
                                             className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
                                         />
                                     </TableCell>
-                                )} */}
-                                {/* {visibleColumns.includes("group") && (
+                                )}
+                                {visibleColumns.includes("group") && (
                                     <TableCell>
                                         <Input value={row.group} onChange={(e) => handleCellEdit(row.id, "group", e.target.value)}
                                             className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
                                         />
                                     </TableCell>
-                                )} */}
+                                )}
                                 <TableCell>
                                     <DropdownMenu>
                                         <DropdownMenuTrigger asChild>
