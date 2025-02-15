@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { createTimetableSchema } from "@/lib/schemas";
-import { useGenerateTimetableMutation } from "@/redux/features/timtableSlice";
+import { useGenerateTimetableMutation } from "@/redux/features/timetableSlice";
 import {
     Form,
     FormItem,

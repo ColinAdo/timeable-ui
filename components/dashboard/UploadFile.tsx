@@ -3,7 +3,7 @@ import { Card } from '@/components/ui/card';
 import { Button } from "../ui/button";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
-import { useUploadFileMutation } from "@/redux/features/timtableSlice";
+import { useUploadFileMutation } from "@/redux/features/timetableSlice";
 import { FormEvent, useCallback, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { Spinner } from "@/components/common";
