@@ -1,36 +1,35 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { Checkbox } from "@/components/ui/checkbox"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
-import { initialData, allColumns } from "@/lib/data"
-import { TimetableType } from "@/types/exports"
-import { useRetrieveTimetableQuery } from "@/redux/features/timetableSlice"
 import { useSearchParams } from "next/navigation"
+import { Checkbox } from "@/components/ui/checkbox"
 import {
     DropdownMenu,
     DropdownMenuCheckboxItem,
     DropdownMenuContent,
+    DropdownMenuItem,
     DropdownMenuLabel,
     DropdownMenuSeparator,
     DropdownMenuTrigger,
-    DropdownMenuItem,
 } from "@/components/ui/dropdown-menu"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
+import { allColumns } from "@/lib/data"
+import { useRetrieveTimetableQuery } from "@/redux/features/timetableSlice"
+import { TimetableType } from "@/types/exports"
 import {
-    ChevronUp,
     ChevronDown,
-    MoreHorizontal,
     ChevronLeft,
     ChevronRight,
-    Trash2,
     ChevronsLeft,
     ChevronsRight,
+    ChevronUp,
     Eye,
+    MoreHorizontal,
+    Trash2,
 } from "lucide-react"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-
 
 export default function SleekTable() {
     const [selectedRows, setSelectedRows] = useState<string[]>([])
