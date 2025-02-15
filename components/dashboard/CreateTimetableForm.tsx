@@ -45,7 +45,7 @@ export default function CreateTransactionForm({ batchId }: Props) {
             .unwrap()
             .then(() => {
                 toast.success("timetable created successfully");
-                // router.push("/dashboard");
+                router.push(`/dashboard/timetable?batchId=${batchId}`);
             }).catch((err) => {
                 toast.error("failed to create timetable");
                 console.log("Error", err);
