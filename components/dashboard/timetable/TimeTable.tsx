@@ -67,8 +67,6 @@ export default function SleekTable() {
         return null;
     }
 
-
-
     const handleCellEdit = (id: string, field: keyof TimetableType, value: string) => {
         setData(data.map((row) => (row.id === id ? { ...row, [field]: value } : row)))
     }
