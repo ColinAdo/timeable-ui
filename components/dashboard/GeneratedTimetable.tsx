@@ -1,8 +1,8 @@
 "use client";
 
-import { CardItem } from "@/components/dashboard/";
+import Link from "next/link";
 import { useState } from "react";
-
+import { CardItem } from "@/components/dashboard/";
 import {
     Card,
     CardContent,
@@ -10,7 +10,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card";
-import Link from "next/link";
+
 interface Props {
     name: string;
     email: string;
