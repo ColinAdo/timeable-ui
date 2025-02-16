@@ -1,12 +1,12 @@
-import { Upload } from "lucide-react";
-import { Card } from '@/components/ui/card';
-import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
+import { Upload } from "lucide-react";
 import { useRouter } from "next/navigation";
-import { useUploadFileMutation } from "@/redux/features/timetableSlice";
-import { FormEvent, useCallback, useState } from "react";
+import { Card } from '@/components/ui/card';
 import { useDropzone } from "react-dropzone";
 import { Spinner } from "@/components/common";
+import { Button } from "@/components/ui/button";
+import { FormEvent, useCallback, useState } from "react";
+import { useUploadFileMutation } from "@/redux/features/timetableSlice";
 
 export default function UploadFile() {
     const router = useRouter();
