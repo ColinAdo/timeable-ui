@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import {
     Dialog,
     DialogTitle,
@@ -7,7 +8,6 @@ import {
     DialogContent,
 } from "@/components/ui/dialog";
 
-import React from "react";
 
 interface Props {
     requiredRoute: boolean;
