@@ -33,15 +33,15 @@ import {
     DropdownMenuCheckboxItem,
 } from "@/components/ui/dropdown-menu"
 import {
+    Eye,
+    Trash2,
+    ChevronUp,
     ChevronDown,
     ChevronLeft,
     ChevronRight,
     ChevronsLeft,
     ChevronsRight,
-    ChevronUp,
-    Eye,
     MoreHorizontal,
-    Trash2,
 } from "lucide-react"
 
 export default function SleekTable() {
