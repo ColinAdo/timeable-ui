@@ -1,6 +1,6 @@
 import { Upload } from "lucide-react";
 import { Card } from '@/components/ui/card';
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { useUploadFileMutation } from "@/redux/features/timetableSlice";
