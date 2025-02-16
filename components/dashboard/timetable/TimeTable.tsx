@@ -10,10 +10,10 @@ import { Checkbox } from "@/components/ui/checkbox"
 import { useRetrieveTimetableQuery } from "@/redux/features/timetableSlice"
 import {
     Select,
-    SelectContent,
     SelectItem,
+    SelectValue,
     SelectTrigger,
-    SelectValue
+    SelectContent,
 } from "@/components/ui/select"
 import {
     Table,
