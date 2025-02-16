@@ -1,24 +1,37 @@
 "use client"
 
+import { allColumns } from "@/lib/data"
 import { useEffect, useState } from "react"
 import { Input } from "@/components/ui/input"
+import { TimetableType } from "@/types/exports"
 import { Button } from "@/components/ui/button"
 import { useSearchParams } from "next/navigation"
 import { Checkbox } from "@/components/ui/checkbox"
+import { useRetrieveTimetableQuery } from "@/redux/features/timetableSlice"
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue
+} from "@/components/ui/select"
+import {
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableHeader,
+    TableRow
+} from "@/components/ui/table"
 import {
     DropdownMenu,
-    DropdownMenuCheckboxItem,
-    DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuLabel,
-    DropdownMenuSeparator,
+    DropdownMenuContent,
     DropdownMenuTrigger,
+    DropdownMenuSeparator,
+    DropdownMenuCheckboxItem,
 } from "@/components/ui/dropdown-menu"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
-import { allColumns } from "@/lib/data"
-import { useRetrieveTimetableQuery } from "@/redux/features/timetableSlice"
-import { TimetableType } from "@/types/exports"
 import {
     ChevronDown,
     ChevronLeft,
