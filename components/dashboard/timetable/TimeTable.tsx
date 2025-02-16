@@ -17,11 +17,11 @@ import {
 } from "@/components/ui/select"
 import {
     Table,
+    TableRow,
     TableBody,
     TableCell,
     TableHead,
     TableHeader,
-    TableRow
 } from "@/components/ui/table"
 import {
     DropdownMenu,
