@@ -13,6 +13,7 @@ export type RowData = {
 
 export type TimetableType = {
     id: string
+    name: string
     unit_code: string
     unit_name: string
     day: string
