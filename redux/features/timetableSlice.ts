@@ -1,3 +1,4 @@
+import { TimetableType } from "@/types/exports";
 import { apiSlice } from "../services/apiSlice";
 
 const timetableSlice = apiSlice.injectEndpoints({
@@ -15,7 +16,7 @@ const timetableSlice = apiSlice.injectEndpoints({
                 };
             },
         }),
-        retrieveTimetable: builder.query<void, string>({
+        retrieveTimetable: builder.query<TimetableType[], string>({
             query: (batchId) => ({
                 url: `/timetable/${batchId}/`,
             }),
