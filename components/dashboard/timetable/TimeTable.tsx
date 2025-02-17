@@ -8,7 +8,10 @@ import { TimetableType } from "@/types/exports"
 import { Button } from "@/components/ui/button"
 import { useSearchParams } from "next/navigation"
 import { Checkbox } from "@/components/ui/checkbox"
-import { useRetrieveTimetableQuery } from "@/redux/features/timetableSlice"
+import {
+    useRetrieveTimetableQuery,
+    useExportTimetableMutation
+} from "@/redux/features/timetableSlice"
 import {
     Select,
     SelectItem,
@@ -45,6 +48,7 @@ import {
     MoreHorizontal,
 } from "lucide-react"
 import { toast } from "sonner"
+import { batch } from 'react-redux';
 
 export default function SleekTable() {
     const [selectedRows, setSelectedRows] = useState<string[]>([])
@@ -57,6 +61,7 @@ export default function SleekTable() {
     const batchId = searchParams.get("batchId");
 
     const { data: timetableData } = useRetrieveTimetableQuery(batchId || "");
+    const [exportTimetable] = useExportTimetableMutation();
     const [data, setData] = useState<TimetableType[]>([]);
 
     useEffect(() => {
@@ -131,6 +136,15 @@ export default function SleekTable() {
                 break;
 
             case "export":
+                exportTimetable({ batch_id: batchId, email: "colindeveloper4@gmail.com" })
+                    .unwrap()
+                    .then(() => {
+                        toast.success("Exported successfully");
+                    })
+                    .catch((error) => {
+                        toast.success("Exporte failed");
+                        console.log("Exporte failed", error);
+                    });
                 console.log("Exporting table to email...");
                 break;
             case "delete":
