@@ -1,5 +1,6 @@
 "use client"
 
+import * as XLSX from 'xlsx';
 import { allColumns } from "@/lib/data"
 import { useEffect, useState } from "react"
 import { Input } from "@/components/ui/input"
@@ -43,6 +44,7 @@ import {
     ChevronsRight,
     MoreHorizontal,
 } from "lucide-react"
+import { toast } from "sonner"
 
 export default function SleekTable() {
     const [selectedRows, setSelectedRows] = useState<string[]>([])
@@ -105,18 +107,51 @@ export default function SleekTable() {
     const handleTableAction = (action: string) => {
         switch (action) {
             case "download":
-                // Implement download functionality
-                console.log("Downloading table...")
-                break
+                // Create a worksheet from timetable data
+                const filteredData = timetableData.map(({ id, name, ...rest }) => rest);
+                const ws = XLSX.utils.json_to_sheet(filteredData);
+
+                // Create a workbook with the worksheet
+                const wb = XLSX.utils.book_new();
+                XLSX.utils.book_append_sheet(wb, ws, "Timetable");
+
+                // Generate an Excel file as a Blob
+                const excelFile = XLSX.write(wb, { bookType: "xlsx", type: "binary" });
+
+                // Create a Blob from the binary string
+                const blob = new Blob([s2ab(excelFile)], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
+
+                // Create a download link and trigger the download
+                const link = document.createElement("a");
+                link.href = URL.createObjectURL(blob);
+                link.download = `${batchId}.xlsx`;
+                link.click();
+
+                toast.success("Downloaded successfully");
+                break;
+
             case "export":
-                // Implement export to email functionality
-                console.log("Exporting table to email...")
-                break
+                console.log("Exporting table to email...");
+                break;
             case "delete":
-                setData([])
-                break
+                setData([]);
+                break;
+            default:
+                break;
         }
-    }
+    };
+
+    // Helper function to convert a binary string to an array buffer
+    const s2ab = (s: string) => {
+        const buf = new ArrayBuffer(s.length);
+        const view = new Uint8Array(buf);
+        for (let i = 0; i < s.length; i++) {
+            view[i] = s.charCodeAt(i) & 0xFF;
+        }
+        return buf;
+    };
+
+
 
     const handleDeleteSelected = () => {
         setData(data.filter((row) => !selectedRows.includes(row.id)))
