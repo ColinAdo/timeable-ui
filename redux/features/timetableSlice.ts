@@ -43,11 +43,22 @@ const timetableSlice = apiSlice.injectEndpoints({
                     },
                 }),
         }),
+        exportTimetable: builder.mutation({
+            query: ({ batch_id, email }) => ({
+                url: "export/timetable/",
+                method: "POST",
+                body: {
+                    batch_id,
+                    email,
+                },
+            }),
+        }),
     }),
 });
 
 export const {
     useUploadFileMutation,
     useRetrieveTimetableQuery,
+    useExportTimetableMutation,
     useGenerateTimetableMutation,
 } = timetableSlice;
