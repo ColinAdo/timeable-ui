@@ -6,10 +6,7 @@ import { usePathname } from "next/navigation";
 import { useAppDispatch } from "@/redux/hook";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { logout as setLogout } from "@/redux/features/authSlice";
-import {
-  LogOut,
-  Settings,
-} from "lucide-react";
+import { LogOut, Settings } from "lucide-react";
 import {
   useLogoutMutation,
   useRetrieveUserQuery,
