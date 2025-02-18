@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { GraduationCap } from "lucide-react";
+import { BadgeDollarSign, GraduationCap } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useAppDispatch } from "@/redux/hook";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
@@ -9,7 +9,6 @@ import { logout as setLogout } from "@/redux/features/authSlice";
 import {
   LogOut,
   Settings,
-  BadgePlus,
 } from "lucide-react";
 import {
   useLogoutMutation,
@@ -70,8 +69,8 @@ export default function Navbar() {
                 href="/dashboard/create/account"
                 className="flex justify-between"
               >
-                <BadgePlus className="h-[1.2rem] w-[1.2rem]" />
-                <span className="ml-2">Create</span>
+                <BadgeDollarSign className="h-[1.2rem] w-[1.2rem]" />
+                <span className="ml-2">Billing</span>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
