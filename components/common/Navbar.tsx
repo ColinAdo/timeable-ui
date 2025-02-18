@@ -4,9 +4,9 @@ import Link from "next/link";
 import { BadgeDollarSign, GraduationCap } from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useAppDispatch } from "@/redux/hook";
+import { LogOut, Settings } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { logout as setLogout } from "@/redux/features/authSlice";
-import { LogOut, Settings } from "lucide-react";
 import { useLogoutMutation, useRetrieveUserQuery, } from "@/redux/features/authApiSlice";
 import {
   DropdownMenu,
