@@ -5,10 +5,10 @@ import { useState } from "react";
 import { CardItem } from "@/components/dashboard/";
 import {
     Card,
+    CardTitle,
+    CardHeader,
     CardContent,
     CardDescription,
-    CardHeader,
-    CardTitle,
 } from "@/components/ui/card";
 
 interface Props {
