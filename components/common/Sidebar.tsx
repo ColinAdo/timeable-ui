@@ -98,7 +98,7 @@ export default function Sidebar() {
                         label: "",
                         icon: CircleFadingArrowUp,
                         variant: "ghost",
-                        href: "#",
+                        href: "/dashboard/pricing",
                     },
                     {
                         title: "Log out",
