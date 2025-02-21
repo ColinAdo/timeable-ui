@@ -20,3 +20,7 @@ export type TimetableType = {
     start_time: string
     end_time: string
 }
+
+export type TimetableNameType = {
+    batch_id: string
+}
