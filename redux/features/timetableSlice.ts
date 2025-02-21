@@ -1,5 +1,5 @@
-import { TimetableType } from "@/types/exports";
 import { apiSlice } from "../services/apiSlice";
+import { TimetableType, TimetableNameType } from "@/types/exports";
 
 const timetableSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
@@ -19,6 +19,11 @@ const timetableSlice = apiSlice.injectEndpoints({
         retrieveTimetable: builder.query<TimetableType[], string>({
             query: (batchId) => ({
                 url: `/timetable/${batchId}/`,
+            }),
+        }),
+        getTimetableNames: builder.query<TimetableNameType[], void>({
+            query: () => ({
+                url: "/timetable/names/",
             }),
         }),
         generateTimetable: builder.mutation({
@@ -59,6 +64,7 @@ const timetableSlice = apiSlice.injectEndpoints({
 export const {
     useUploadFileMutation,
     useRetrieveTimetableQuery,
+    useGetTimetableNamesQuery,
     useExportTimetableMutation,
     useGenerateTimetableMutation,
 } = timetableSlice;
