@@ -10,12 +10,6 @@ import {
     CardContent,
 } from "@/components/ui/card";
 
-interface Props {
-    name: string;
-    email: string;
-    amount: string;
-}
-
 export default function AnalyticCard() {
     const { data: timetableNames } = useGetTimetableNamesQuery();
 
