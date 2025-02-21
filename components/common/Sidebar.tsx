@@ -67,12 +67,6 @@ export default function Sidebar() {
                         href: "/dashboard/pricing",
                     },
                     {
-                        title: "Transact",
-                        icon: DiamondPlus,
-                        variant: "ghost",
-                        href: "/dashboard/create/transaction",
-                    },
-                    {
                         title: "Settings",
                         label: "",
                         icon: Settings,
