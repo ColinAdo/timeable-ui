@@ -1,12 +1,11 @@
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import Link from "next/link";
 // import { Timestamp } from "@/components/dashboard";
 
 interface Props {
-    email: string;
-    amount: string;
     username: string;
-    accountName: string;
-    description: string;
+    create_at: string;
+    timetableName: string;
 }
 
 export default function CardItem(props: Props) {
@@ -18,16 +17,15 @@ export default function CardItem(props: Props) {
                         {props.username[0]}
                     </AvatarFallback>
                 </Avatar>
-                <div className="text-sm">
-                    <p>{props.accountName}</p>
-                    <div className="hidden sm:block text-ellipsis overflow-hidden whitespace-nowrap w-[120px] sm:w-auto text-gray-500">
-                        <p>{props.description}</p>
-                    </div>
+                <div className="mt-3 text-sm">
+                    <Link href="#">
+                        <p>{props.timetableName}</p>
+                    </Link>
                 </div>
             </section>
-            <div className="flex flex-col items-center">
-                <span>{props.amount}</span>
+            <div className="mt-3 flex flex-col items-center">
                 <span className="hidden sm:block text-ellipsis overflow-hidden whitespace-nowrap w-[120px] sm:w-auto text-gray-500">
+                    {props.create_at}
                     {/* <Timestamp createdAt={props.create_at} /> */}
                 </span>
             </div>

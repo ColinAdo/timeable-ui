@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import { CardItem } from "@/components/dashboard/";
+import { useGetTimetableNamesQuery } from "@/redux/features/timetableSlice";
 import {
     Card,
     CardTitle,
@@ -27,34 +28,34 @@ const SalesData: Props[] = [
 ];
 
 export default function AnalyticCard() {
+    const { data: timetableNames } = useGetTimetableNamesQuery();
     const [year, setYear] = useState(new Date().getFullYear());
 
     const handleYearChange = (newYear: number) => {
         setYear(newYear);
     };
 
+    if (!timetableNames) return null;
+
     return (
         <Card className="bg-black/[0.96] bg-grid-white[0.02] border-purple-400">
             <CardHeader>
-                <CardTitle>Transaction Analytics</CardTitle>
-                <CardDescription>
-                    Line Chart showing analytics for your monthly transactions in {year}
-                </CardDescription>
+                <CardTitle>Generated Timetables</CardTitle>
             </CardHeader>
             <CardContent>
-                {SalesData.map((d, i) => (
+                {timetableNames.slice(0, 6).map((d, i) => (
                     <CardItem
                         key={i}
-                        accountName={d.name}
-                        email={d.email}
-                        amount={d.amount}
                         username="Colin"
-                        description="Some description"
+                        create_at="12/Jan/2024"
+                        timetableName={d.batch_id}
                     />
                 ))}
-                <Link className="flex justify-end text-blue-400" href="#">
-                    See all
-                </Link>
+                {timetableNames.length > 5 && (
+                    <Link className="flex justify-end text-blue-400" href="#">
+                        See all
+                    </Link>
+                )}
             </CardContent>
         </Card>
     );
