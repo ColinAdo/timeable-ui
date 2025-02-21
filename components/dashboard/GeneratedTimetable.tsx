@@ -1,22 +1,20 @@
 "use client";
 
+import Link from "next/link";
 import { CardItem } from "@/components/dashboard/";
+import { useGetTimetableNamesQuery } from "@/redux/features/timetableSlice";
 import {
     Card,
-    CardContent,
+    CardTitle,
     CardHeader,
-    CardTitle
+    CardContent,
 } from "@/components/ui/card";
-import { useGetTimetableNamesQuery } from "@/redux/features/timetableSlice";
-import Link from "next/link";
 
 interface Props {
     name: string;
     email: string;
     amount: string;
 }
-
-
 
 export default function AnalyticCard() {
     const { data: timetableNames } = useGetTimetableNamesQuery();
