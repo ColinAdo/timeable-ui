@@ -1,7 +1,8 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
 import { Nav } from "@/components/ui/nav";
+import { useEffect, useState } from "react";
+import { Button } from "@/components/ui/button";
 import { useWindowWidth } from "@react-hook/window-size";
 import {
     Brain,
@@ -14,7 +15,6 @@ import {
     BadgeDollarSign,
     CircleFadingArrowUp,
 } from "lucide-react";
-import { useEffect, useState } from "react";
 
 export default function Sidebar() {
     const [isCollapsed, setIsCollapsed] = useState(false);
