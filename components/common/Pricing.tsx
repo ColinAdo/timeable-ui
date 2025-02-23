@@ -17,11 +17,11 @@ import {
 interface Props {
     title: string;
     price: string;
-    description: string;
+    isHome?: boolean;
     features: string[];
     buttonText: string;
+    description: string;
     isPremium?: boolean;
-    isHome?: boolean;
 }
 
 const PricingCard = ({ title, price, description, features, buttonText, isPremium = false, isHome }: Props) => (
