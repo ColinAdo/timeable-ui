@@ -48,7 +48,6 @@ import {
     MoreHorizontal,
 } from "lucide-react"
 import { toast } from "sonner"
-import { batch } from 'react-redux';
 
 export default function SleekTable() {
     const [selectedRows, setSelectedRows] = useState<string[]>([])
