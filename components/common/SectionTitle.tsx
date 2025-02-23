@@ -1,9 +1,9 @@
 interface Props {
+    mb?: string;
     title: string;
-    paragraph: string;
     width?: string;
     center?: boolean;
-    mb?: string;
+    paragraph: string;
 }
 
 export default function SectionTitle({
