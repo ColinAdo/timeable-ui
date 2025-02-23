@@ -1,11 +1,11 @@
 import Link from "next/link";
 import type React from "react";
 import {
-  Facebook,
+  Github,
   Twitter,
-  Instagram,
   Linkedin,
-  Github
+  Facebook,
+  Instagram,
 } from "lucide-react"
 
 export default function Footer() {
