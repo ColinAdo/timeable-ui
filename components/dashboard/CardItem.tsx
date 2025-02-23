@@ -1,5 +1,5 @@
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import Link from "next/link";
+import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 // import { Timestamp } from "@/components/dashboard";
 
 interface Props {
