@@ -4,15 +4,15 @@ import { Button } from "@/components/ui/button";
 import { Nav } from "@/components/ui/nav";
 import { useWindowWidth } from "@react-hook/window-size";
 import {
-    BadgeDollarSign,
-    BadgePlus,
     Brain,
-    ChevronRight,
-    CircleFadingArrowUp,
-    LayoutDashboard,
+    Trash2,
     LogOut,
     Settings,
-    Trash2
+    BadgePlus,
+    ChevronRight,
+    LayoutDashboard,
+    BadgeDollarSign,
+    CircleFadingArrowUp,
 } from "lucide-react";
 import { useEffect, useState } from "react";
 
