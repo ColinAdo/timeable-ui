@@ -3,10 +3,10 @@ import { Spinner } from "@/components/common";
 import { ChangeEvent, FormEvent } from "react";
 
 interface Config {
-  labelText: string;
-  labelId: string;
   type: string;
   value: string;
+  labelId: string;
+  labelText: string;
   link?: {
     linkText: string;
     linkUrl: string;
