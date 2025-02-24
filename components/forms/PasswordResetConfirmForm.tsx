@@ -7,11 +7,11 @@ import { useResetPasswordConfirm } from "@/hooks";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import {
   Form,
-  FormControl,
-  FormField,
   FormItem,
   FormLabel,
+  FormField,
   FormMessage,
+  FormControl,
 } from "@/components/ui/form";
 
 interface Props {
