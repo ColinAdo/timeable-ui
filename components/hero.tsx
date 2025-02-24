@@ -1,11 +1,11 @@
 "use client"
 
+import { motion } from "framer-motion"
 import { Pricing } from "@/components/common"
+import { Button } from "@/components/ui/button"
+import { FileText, Sparkles } from "lucide-react"
 import { FloatingPaper } from "@/components/floating-paper"
 import { ResponsiveTable } from "@/components/responsive-table"
-import { Button } from "@/components/ui/button"
-import { motion } from "framer-motion"
-import { FileText, Sparkles } from "lucide-react"
 
 export default function Hero() {
     return (
