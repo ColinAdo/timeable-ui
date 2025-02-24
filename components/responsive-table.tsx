@@ -3,8 +3,8 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 interface Unit {
     code: string
     name: string
-    startTime: string
     endTime: string
+    startTime: string
     modeOfStudy: string
 }
 
