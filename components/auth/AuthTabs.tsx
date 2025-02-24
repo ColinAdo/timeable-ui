@@ -2,8 +2,8 @@ import LoginForm from "./LoginForm";
 import RegisterForm from "./RegisterForm";
 import {
     Tabs,
-    TabsContent,
     TabsList,
+    TabsContent,
     TabsTrigger
 } from "@/components/ui/tabs";
 
