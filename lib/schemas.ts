@@ -63,6 +63,3 @@ export const createTimetableSchema = z.object({
     duration: z.string().min(1, "Class duration is required."),
     prompt: z.string().optional(),
 });
-
-
-export type Task = z.infer<typeof taskSchema>
