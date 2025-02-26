@@ -1,12 +1,11 @@
-import { Mutex } from "async-mutex";
-import { setAuth, logout } from "../features/authSlice";
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type {
   BaseQueryFn,
   FetchArgs,
   FetchBaseQueryError,
 } from "@reduxjs/toolkit/query";
-import build from "next/dist/build";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { Mutex } from "async-mutex";
+import { logout, setAuth } from "../features/authSlice";
 
 // create a new mutex
 const mutex = new Mutex();
