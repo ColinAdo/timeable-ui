@@ -26,7 +26,6 @@ export default function AnalyticCard() {
                         key={i}
                         id={d.batch_id}
                         username="Colin"
-                        create_at="12/Jan/2024"
                         timetableName={d.batch_id}
                     />
                 ))}
