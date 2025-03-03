@@ -24,6 +24,7 @@ export default function AnalyticCard() {
                 {timetableNames.slice(0, 6).map((d, i) => (
                     <CardItem
                         key={i}
+                        id={d.batch_id}
                         username="Colin"
                         create_at="12/Jan/2024"
                         timetableName={d.batch_id}
