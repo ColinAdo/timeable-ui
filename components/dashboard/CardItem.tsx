@@ -3,6 +3,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 // import { Timestamp } from "@/components/dashboard";
 
 interface Props {
+    id: string;
     username: string;
     create_at: string;
     timetableName: string;
@@ -18,7 +19,7 @@ export default function CardItem(props: Props) {
                     </AvatarFallback>
                 </Avatar>
                 <div className="mt-3 text-sm">
-                    <Link href="#">
+                    <Link href={`/dashboard/timetable?batchId=${props.id}`}>
                         <p>{props.timetableName}</p>
                     </Link>
                 </div>
