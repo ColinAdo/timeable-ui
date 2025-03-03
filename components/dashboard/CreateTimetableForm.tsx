@@ -174,7 +174,7 @@ export default function CreateTransactionForm({ batchId }: Props) {
                                     <FormControl>
                                         <Input
                                             type="number"
-                                            placeholder="Enter account amount"
+                                            placeholder="Enter class durations"
                                             {...field}
                                             className="text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
                                         />
