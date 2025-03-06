@@ -39,7 +39,7 @@ export default function CardItem(props: Props) {
                 </div>
             </section>
             <div className="mt-3 flex flex-col items-center">
-                <span className="hidden sm:block text-ellipsis overflow-hidden whitespace-nowrap w-[120px] sm:w-auto text-gray-500">
+                <span className="text-ellipsis overflow-hidden whitespace-nowrap w-auto text-gray-500">
                     <DropdownMenu>
                         <DropdownMenuTrigger asChild>
                             <Button variant="ghost" className="h-8 w-8 p-0 rounded">
