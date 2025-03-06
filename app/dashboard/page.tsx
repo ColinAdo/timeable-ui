@@ -1,10 +1,10 @@
 "use client";
 
 import {
+  PageTitle,
+  UploadFile,
   AnalyticLineChart,
   GeneratedTimetable,
-  PageTitle,
-  UploadFile
 } from "@/components/dashboard";
 
 export default function Page() {
