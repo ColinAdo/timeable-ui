@@ -10,7 +10,7 @@ import {
     CardContent,
 } from "@/components/ui/card";
 
-export default function AnalyticCard() {
+export default function GeneratedTimetable() {
     const { data: timetableNames } = useGetTimetableNamesQuery();
 
     if (!timetableNames) return null;
