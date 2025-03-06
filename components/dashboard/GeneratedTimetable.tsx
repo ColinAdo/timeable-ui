@@ -26,7 +26,7 @@ export default function GeneratedTimetable() {
                         key={i}
                         id={d.batch_id}
                         username="Colin"
-                        timetableName={d.batch_id}
+                        timetableName={d.name}
                     />
                 ))}
                 {timetableNames.length > 5 && (

@@ -23,4 +23,5 @@ export type TimetableType = {
 
 export type TimetableNameType = {
     batch_id: string
+    name: string
 }
