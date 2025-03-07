@@ -7,6 +7,13 @@ import { MoreHorizontal } from "lucide-react";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter, DialogClose } from "@/components/ui/dialog";
 import { useState } from "react";
 import { toast } from "sonner";
+import { Form, FormProvider, useForm } from "react-hook-form";
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { renameSchema } from "@/lib/schemas";
+import { useWebSocketContext } from "@/hooks/webSocketContext";
+import { useRouter } from "next/navigation";
 
 interface Props {
     id: string;
@@ -15,13 +22,30 @@ interface Props {
 }
 
 export default function CardItem(props: Props) {
+    const router = useRouter();
     const [open, setOpen] = useState(false);
-    const [newName, setNewName] = useState("");
+    const { sendJsonMessage } = useWebSocketContext();
 
-    const handleRename = () => {
-        console.log("New name:", newName); // Replace with API call or state update
+
+    const form = useForm<z.infer<typeof renameSchema>>({
+        resolver: zodResolver(renameSchema),
+        defaultValues: {
+            name: "",
+        },
+    });
+
+    const onSubmit = async (data: z.infer<typeof renameSchema>) => {
+        const sendData = {
+            name: data.name,
+            batch_id: props.id,
+        }
+        sendJsonMessage({
+            event: "rename_timetable",
+            sendData,
+        });
         toast.success("Timetable renamed successfully");
-        setOpen(false); // Close the dialog after renaming
+        setOpen(false);
+
     };
 
     return (
@@ -57,26 +81,38 @@ export default function CardItem(props: Props) {
                 <Dialog open={open} onOpenChange={setOpen}>
                     <DialogContent className="w-[460px] bg-black !rounded">
                         <DialogHeader>
-                            <DialogTitle className="text-white">Rename Item</DialogTitle>
+                            <DialogTitle className="text-white">Rename timetable</DialogTitle>
                         </DialogHeader>
-                        <Input
-                            value={newName}
-                            onChange={(e) => setNewName(e.target.value)}
-                            placeholder="Enter new name"
-                            className="mt-2 rounded text-gray-200"
-                        />
-                        <DialogFooter>
-                            <div className="w-full flex justify-between">
-                                <Button className="text-white rounded" variant="outline" onClick={() => setOpen(false)}>Cancel</Button>
-                                <Button
-                                    className=" bg-gradient-to-r from-purple-500 rounded to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
-                                    onClick={handleRename}
-                                >
-                                    Save
-                                </Button>
-                            </div>
-                        </DialogFooter>
+                        <FormProvider {...form}>
+                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                                <FormField
+                                    control={form.control}
+                                    name="name"
+                                    render={({ field }) => (
+                                        <FormItem>
+                                            <FormControl>
+                                                <Input
+                                                    type="text"
+                                                    placeholder="Enter new name"
+                                                    {...field}
+                                                    className="rounded text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
+                                                />
+                                            </FormControl>
+                                            <FormMessage />
+                                        </FormItem>
+                                    )}
+                                />
 
+                                <div className="w-full flex justify-between">
+                                    <Button type="button" className="text-white rounded" variant="outline" onClick={() => setOpen(false)}>Cancel</Button>
+                                    <Button
+                                        className=" bg-gradient-to-r from-purple-500 rounded to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
+                                    >
+                                        Save
+                                    </Button>
+                                </div>
+                            </form>
+                        </FormProvider>
 
                     </DialogContent>
                 </Dialog>
