@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { CardItem } from "@/components/dashboard/";
+import { useWebSocketContext } from "@/hooks/webSocketContext";
 import { useGetTimetableNamesQuery } from "@/redux/features/timetableSlice";
 import {
     Card,
@@ -9,12 +10,18 @@ import {
     CardHeader,
     CardContent,
 } from "@/components/ui/card";
+import { useEffect } from "react";
 
 export default function GeneratedTimetable() {
-    const { data: timetableNames } = useGetTimetableNamesQuery();
+    const { lastJsonMessage } = useWebSocketContext();
+    const { data: timetableNames, refetch } = useGetTimetableNamesQuery();
+
+
+    useEffect(() => {
+        refetch();
+    }, [lastJsonMessage]);
 
     if (!timetableNames) return null;
-
     return (
         <Card className="bg-black/[0.96] bg-grid-white[0.02] border-purple-400">
             <CardHeader>
