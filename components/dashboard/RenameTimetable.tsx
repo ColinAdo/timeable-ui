@@ -1,5 +1,4 @@
 import { Button } from "@/components/ui/button";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
 import { useWebSocketContext } from "@/hooks/webSocketContext";
 import { renameSchema } from "@/lib/schemas";
@@ -8,6 +7,12 @@ import { useRouter } from "next/navigation";
 import { FormProvider, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
+import {
+    Dialog,
+    DialogTitle,
+    DialogHeader,
+    DialogContent,
+} from "@/components/ui/dialog";
 import {
     FormItem,
     FormField,
