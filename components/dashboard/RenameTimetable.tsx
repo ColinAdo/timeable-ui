@@ -8,7 +8,12 @@ import { useRouter } from "next/navigation";
 import { FormProvider, useForm } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
-import { FormControl, FormField, FormItem, FormMessage } from "../ui/form";
+import {
+    FormItem,
+    FormField,
+    FormControl,
+    FormMessage
+} from "@/components/ui/form";
 
 interface Props {
     id: string;
