@@ -26,12 +26,12 @@ import {
     useRetrieveTimetableQuery
 } from "@/redux/features/timetableSlice";
 import {
+    Eye,
+    Trash2,
     ChevronLeft,
     ChevronRight,
     ChevronsLeft,
     ChevronsRight,
-    Eye,
-    Trash2
 } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
