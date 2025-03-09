@@ -4,6 +4,7 @@ import * as XLSX from "xlsx";
 import { toast } from "sonner";
 import TableData from "./TableData";
 import { allColumns } from "@/lib/data";
+import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { TimetableType } from "@/types/exports";
@@ -36,7 +37,6 @@ import {
     ChevronsRight,
 } from "lucide-react";
 import { useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
 
 export default function SleekTable() {
     const [selectedRows, setSelectedRows] = useState<string[]>([])
