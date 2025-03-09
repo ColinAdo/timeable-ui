@@ -1,7 +1,8 @@
 "use client"
 
-import * as XLSX from 'xlsx';
-import TableData from './TableData';
+import * as XLSX from "xlsx";
+import { toast } from "sonner";
+import TableData from "./TableData";
 import { allColumns } from "@/lib/data";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -36,7 +37,6 @@ import {
 } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import { toast } from "sonner";
 
 export default function SleekTable() {
     const [selectedRows, setSelectedRows] = useState<string[]>([])
