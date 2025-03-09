@@ -14,10 +14,10 @@ import {
 } from "@/components/ui/dropdown-menu";
 import {
     Select,
-    SelectContent,
     SelectItem,
-    SelectTrigger,
     SelectValue,
+    SelectTrigger,
+    SelectContent,
 } from "@/components/ui/select";
 import { allColumns } from "@/lib/data";
 import {
