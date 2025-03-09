@@ -4,6 +4,7 @@ import TableData from './TableData';
 import { allColumns } from "@/lib/data";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { TimetableType } from "@/types/exports";
 import {
     DropdownMenu,
     DropdownMenuItem,
@@ -24,7 +25,6 @@ import {
     useExportTimetableMutation,
     useRetrieveTimetableQuery
 } from "@/redux/features/timetableSlice";
-import { TimetableType } from "@/types/exports";
 import {
     ChevronLeft,
     ChevronRight,
