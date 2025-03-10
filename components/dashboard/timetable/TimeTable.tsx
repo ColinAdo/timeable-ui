@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { TimetableType } from "@/types/exports";
+import { useSearchParams } from "next/navigation";
 import {
     DropdownMenu,
     DropdownMenuItem,
@@ -36,7 +37,6 @@ import {
     ChevronsLeft,
     ChevronsRight,
 } from "lucide-react";
-import { useSearchParams } from "next/navigation";
 
 export default function SleekTable() {
     const [selectedRows, setSelectedRows] = useState<string[]>([])
