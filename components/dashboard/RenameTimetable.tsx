@@ -4,8 +4,8 @@ import { useRouter } from "next/navigation";
 import { renameSchema } from "@/lib/schemas";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { useWebSocketContext } from "@/hooks/webSocketContext";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useWebSocketContext } from "@/hooks/webSocketContext";
 import { FormProvider, useForm } from "react-hook-form";
 import {
     Dialog,
