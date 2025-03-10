@@ -10,6 +10,10 @@ import { Button } from "@/components/ui/button";
 import { TimetableType } from "@/types/exports";
 import { useSearchParams } from "next/navigation";
 import {
+    useExportTimetableMutation,
+    useRetrieveTimetableQuery
+} from "@/redux/features/timetableSlice";
+import {
     DropdownMenu,
     DropdownMenuItem,
     DropdownMenuLabel,
@@ -25,10 +29,6 @@ import {
     SelectTrigger,
     SelectContent,
 } from "@/components/ui/select";
-import {
-    useExportTimetableMutation,
-    useRetrieveTimetableQuery
-} from "@/redux/features/timetableSlice";
 import {
     Eye,
     Trash2,
