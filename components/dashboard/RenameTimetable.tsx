@@ -5,8 +5,8 @@ import { renameSchema } from "@/lib/schemas";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useWebSocketContext } from "@/hooks/webSocketContext";
 import { FormProvider, useForm } from "react-hook-form";
+import { useWebSocketContext } from "@/hooks/webSocketContext";
 import {
     Dialog,
     DialogTitle,
