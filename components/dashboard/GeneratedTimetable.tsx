@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect } from "react";
 import { CardItem } from "@/components/dashboard/";
 import { useWebSocketContext } from "@/hooks/webSocketContext";
 import { useGetTimetableNamesQuery } from "@/redux/features/timetableSlice";
@@ -10,7 +11,6 @@ import {
     CardHeader,
     CardContent,
 } from "@/components/ui/card";
-import { useEffect } from "react";
 
 export default function GeneratedTimetable() {
     const { lastJsonMessage } = useWebSocketContext();
