@@ -10,7 +10,7 @@ import { ResponsiveTable } from "@/components/responsive-table"
 export default function Hero() {
     return (
         <div className="flex-grow relative flex flex-col items-center">
-            {/* Floating papers background */}
+            {/* Floating papers background animation */}
             <div className="absolute inset-0 overflow-hidden">
                 <FloatingPaper count={6} />
             </div>
