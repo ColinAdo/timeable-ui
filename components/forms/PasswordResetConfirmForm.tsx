@@ -6,8 +6,8 @@ import { Button } from "@/components/ui/button";
 import { useResetPasswordConfirm } from "@/hooks";
 import {
   Card,
-  CardHeader,
   CardTitle,
+  CardHeader,
   CardContent
 } from "@/components/ui/card";
 import {
