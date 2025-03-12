@@ -2,9 +2,9 @@ import Link from "next/link";
 import { ChangeEvent } from "react";
 
 interface Props {
-  labeId: string;
   type: string;
   value: string;
+  labeId: string;
   link?: {
     linkText: string;
     linkUrl: string;
