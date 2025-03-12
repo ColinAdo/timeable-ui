@@ -1,9 +1,9 @@
 import cn from "classnames";
 
 interface Props {
-  provider: "google" | "github";
-  children: React.ReactNode;
   [rest: string]: any;
+  children: React.ReactNode;
+  provider: "google" | "github";
 }
 
 export default function SocialButton({ provider, children, ...rest }: Props) {
