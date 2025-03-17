@@ -8,7 +8,7 @@ import { useEffect, useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { TimetableType } from "@/types/exports";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import {
     useExportTimetableMutation,
     useRetrieveTimetableQuery
@@ -37,6 +37,7 @@ import {
     ChevronsLeft,
     ChevronsRight,
 } from "lucide-react";
+import { useWebSocketContext } from "@/hooks/webSocketContext";
 
 export default function SleekTable() {
     const [selectedRows, setSelectedRows] = useState<string[]>([])
@@ -47,6 +48,8 @@ export default function SleekTable() {
     const [itemsPerPage, setItemsPerPage] = useState(10)
     const searchParams = useSearchParams();
     const batchId = searchParams.get("batchId");
+    const { sendJsonMessage } = useWebSocketContext();
+    const router = useRouter();
 
     const { data: timetableData } = useRetrieveTimetableQuery(batchId || "");
     const [exportTimetable] = useExportTimetableMutation();
@@ -97,6 +100,17 @@ export default function SleekTable() {
         }
     }
 
+    const onDelete = () => {
+        const sendData = {
+            batch_id: batchId,
+        }
+        sendJsonMessage({
+            event: "delete_timetable",
+            sendData,
+        });
+        toast.success("Timetable deleted successfully");
+    };
+
     const handleTableAction = (action: string) => {
         switch (action) {
             case "download":
@@ -136,7 +150,8 @@ export default function SleekTable() {
                 console.log("Exporting table to email...");
                 break;
             case "delete":
-                setData([]);
+                onDelete();
+                router.push("/dashboard");
                 break;
             default:
                 break;
