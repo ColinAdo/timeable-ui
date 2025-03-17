@@ -3,7 +3,6 @@
 import {
   PageTitle,
   UploadFile,
-  AnalyticLineChart,
   GeneratedTimetable,
 } from "@/components/dashboard";
 
@@ -14,7 +13,6 @@ export default function Page() {
       <UploadFile />
       <section className="grid grid-cols-1 gap-4 lg:grid-cols-2 transition-all">
         <GeneratedTimetable />
-        <AnalyticLineChart />
       </section>
     </div>
   );
