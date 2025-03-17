@@ -45,7 +45,7 @@ export default function Hero() {
                     >
                         <Button size="lg" className="bg-purple-600 rounded hover:bg-purple-700 text-white px-8">
                             <FileText className="mr-2 h-5 w-5" />
-                            Upload Paper
+                            Upload excel file
                         </Button>
                         <Button size="lg" variant="outline" className="text-white rounded border-purple-500 hover:bg-purple-500/20">
                             <Sparkles className="mr-2 h-5 w-5" />
