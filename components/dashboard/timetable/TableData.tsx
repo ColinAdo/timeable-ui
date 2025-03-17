@@ -6,9 +6,9 @@ import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
     DropdownMenu,
-    DropdownMenuContent,
     DropdownMenuItem,
-    DropdownMenuTrigger
+    DropdownMenuTrigger,
+    DropdownMenuContent,
 } from "@/components/ui/dropdown-menu";
 import { Input } from "@/components/ui/input";
 import {
