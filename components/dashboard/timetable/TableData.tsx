@@ -3,8 +3,6 @@
 import { Checkbox } from "@/components/ui/checkbox";
 import { allColumns } from "@/lib/data";
 import { useState } from "react";
-
-
 import { Button } from "@/components/ui/button";
 import {
     DropdownMenu,
@@ -34,12 +32,9 @@ interface Props {
     paginatedData: TimetableType[];
     handleCellEdit: (id: string, field: keyof TimetableType, value: string) => void;
     handleRowAction: (action: string, id: string) => void;
-    selectedRows: string[];  // ✅ Add selectedRows state
+    selectedRows: string[];
     setSelectedRows: React.Dispatch<React.SetStateAction<string[]>>;
 }
-
-
-
 
 
 export default function TableData({
@@ -192,12 +187,6 @@ export default function TableData({
                                         </Button>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent align="end" className="rounded border-purple-500">
-                                        <DropdownMenuItem onClick={() => handleRowAction("addAbove", row.id)}>
-                                            Add row above
-                                        </DropdownMenuItem>
-                                        <DropdownMenuItem onClick={() => handleRowAction("addBelow", row.id)}>
-                                            Add row below
-                                        </DropdownMenuItem>
                                         <DropdownMenuItem onClick={() => handleRowAction("delete", row.id)}>
                                             Delete
                                         </DropdownMenuItem>
