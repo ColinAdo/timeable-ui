@@ -84,7 +84,7 @@ export default function Pricing() {
                 />
                 <PricingCard
                     title="Premium"
-                    price={isYearly ? '$79' : '$99'}
+                    price={isYearly ? '$4' : '$5'}
                     description="For professionals and growing businesses"
                     features={[
                         'All Free features',
