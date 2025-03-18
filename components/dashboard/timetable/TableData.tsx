@@ -1,5 +1,6 @@
 "use client";
 
+import { allColumns } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
@@ -16,7 +17,6 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
-import { allColumns } from "@/lib/data";
 import { TimetableType } from "@/types/exports";
 import {
     ChevronDown,
