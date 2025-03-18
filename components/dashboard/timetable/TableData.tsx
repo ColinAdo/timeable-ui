@@ -180,7 +180,7 @@ export default function TableData({
                                             <MoreHorizontal className="h-4 w-4 text-purple-300" />
                                         </Button>
                                     </DropdownMenuTrigger>
-                                    <DropdownMenuContent align="end" className="rounded border-purple-500">
+                                    <DropdownMenuContent align="end" className="w-[70px] min-w-[70px] rounded border-purple-500">
                                         <DropdownMenuItem onClick={() => handleRowAction("edit", row.id)}>
                                             Edit
                                         </DropdownMenuItem>
