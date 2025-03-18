@@ -48,10 +48,11 @@ export default function SleekTable() {
     const [itemsPerPage, setItemsPerPage] = useState(10)
     const searchParams = useSearchParams();
     const batchId = searchParams.get("batchId");
-    const { sendJsonMessage } = useWebSocketContext();
+    const { sendJsonMessage, lastJsonMessage } = useWebSocketContext();
+
     const router = useRouter();
 
-    const { data: timetableData } = useRetrieveTimetableQuery(batchId || "");
+    const { data: timetableData, refetch } = useRetrieveTimetableQuery(batchId || "");
     const [exportTimetable] = useExportTimetableMutation();
     const [data, setData] = useState<TimetableType[]>([]);
 
@@ -59,7 +60,8 @@ export default function SleekTable() {
         if (timetableData) {
             setData(timetableData);
         }
-    }, [timetableData]);
+        refetch();
+    }, [timetableData, lastJsonMessage]);
 
     if (!batchId || !timetableData) {
         return null;
@@ -79,6 +81,17 @@ export default function SleekTable() {
         )
     }
 
+    const onDeleteRow = (id: string) => {
+        const sendData = {
+            rowId: id,
+        }
+        sendJsonMessage({
+            event: "delete_row",
+            sendData,
+        });
+        toast.success("Row deleted successfully");
+    };
+
     const handleRowAction = (action: string, id: string) => {
         switch (action) {
             case "edit":
@@ -87,7 +100,7 @@ export default function SleekTable() {
                 setData([...data.slice(0, indexAbove), newRowAbove, ...data.slice(indexAbove)])
                 break
             case "delete":
-                setData(data.filter((row) => row.id !== id))
+                onDeleteRow(id)
                 break
         }
     }
