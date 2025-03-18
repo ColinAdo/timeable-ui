@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { allColumns } from "@/lib/data";
 import { Button } from "@/components/ui/button";
+import { TimetableType } from "@/types/exports";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
     DropdownMenu,
@@ -19,7 +20,6 @@ import {
     TableHead,
     TableHeader,
 } from "@/components/ui/table";
-import { TimetableType } from "@/types/exports";
 import {
     ChevronDown,
     ChevronUp,
