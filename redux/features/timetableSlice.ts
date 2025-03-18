@@ -21,6 +21,11 @@ const timetableSlice = apiSlice.injectEndpoints({
                 url: `/timetable/${batchId}/`,
             }),
         }),
+        retrieveTimetableData: builder.query<TimetableType, string>({
+            query: (rowId) => ({
+                url: `/timetable/get/${rowId}/`,
+            }),
+        }),
         getTimetableNames: builder.query<TimetableNameType[], void>({
             query: () => ({
                 url: "/timetable/names/",
@@ -67,4 +72,5 @@ export const {
     useGetTimetableNamesQuery,
     useExportTimetableMutation,
     useGenerateTimetableMutation,
+    useRetrieveTimetableDataQuery,
 } = timetableSlice;
