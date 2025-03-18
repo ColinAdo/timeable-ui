@@ -81,6 +81,11 @@ export default function SleekTable() {
         )
     }
 
+    const onEditRow = (id: string) => {
+        router.push(`/dashboard/edit/timetable?rowId=${id}`);
+
+    };
+
     const onDeleteRow = (id: string) => {
         const sendData = {
             rowId: id,
@@ -95,9 +100,7 @@ export default function SleekTable() {
     const handleRowAction = (action: string, id: string) => {
         switch (action) {
             case "edit":
-                const indexAbove = data.findIndex((row) => row.id === id)
-                const newRowAbove = { ...data[indexAbove], id: Date.now().toString() }
-                setData([...data.slice(0, indexAbove), newRowAbove, ...data.slice(indexAbove)])
+                onEditRow(id)
                 break
             case "delete":
                 onDeleteRow(id)
