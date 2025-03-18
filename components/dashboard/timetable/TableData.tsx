@@ -30,7 +30,6 @@ interface Props {
     data: TimetableType[];
     handleSort: () => void;
     paginatedData: TimetableType[];
-    handleCellEdit: (id: string, field: keyof TimetableType, value: string) => void;
     handleRowAction: (action: string, id: string) => void;
     selectedRows: string[];
     setSelectedRows: React.Dispatch<React.SetStateAction<string[]>>;
@@ -40,7 +39,6 @@ interface Props {
 export default function TableData({
     data,
     handleSort,
-    handleCellEdit,
     handleRowAction,
     paginatedData,
     selectedRows,
@@ -106,42 +104,38 @@ export default function TableData({
                                 />
                             </TableCell>
                             {visibleColumns.includes("unit_code") && (
-                                <TableCell>
-                                    <Input
-                                        value={row.unit_code}
-                                        onChange={(e) => handleCellEdit(row.id, "unit_code", e.target.value)}
-                                        className="text-gray-300 w-20 border border-transparent focus:border-gray-200 focus:rounded"
-                                    />
+                                <TableCell
+                                    className="text-gray-300 w-50  focus:w-50 focus:border-gray-200 focus:rounded"
+                                >
+                                    {row.unit_code}
                                 </TableCell>
                             )}
                             {visibleColumns.includes("unit_name") && (
-                                <TableCell>
-                                    <Input
-                                        value={row.unit_name}
-                                        onChange={(e) => handleCellEdit(row.id, "unit_name", e.target.value)}
-                                        className="text-gray-300 w-50 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
-                                    />
+                                <TableCell
+                                    className="text-gray-300 w-50  focus:w-50 focus:border-gray-200 focus:rounded"
+                                >
+                                    {row.unit_name}
                                 </TableCell>
                             )}
                             {visibleColumns.includes("day") && (
-                                <TableCell>
-                                    <Input value={row.day} onChange={(e) => handleCellEdit(row.id, "day", e.target.value)}
-                                        className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
-                                    />
+                                <TableCell
+                                    className="text-gray-300 w-50  focus:w-50 focus:border-gray-200 focus:rounded"
+                                >
+                                    {row.day}
                                 </TableCell>
                             )}
                             {visibleColumns.includes("start_time") && (
-                                <TableCell>
-                                    <Input value={row.start_time} onChange={(e) => handleCellEdit(row.id, "start_time", e.target.value)}
-                                        className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
-                                    />
+                                <TableCell
+                                    className="text-gray-300 w-50  focus:w-50 focus:border-gray-200 focus:rounded"
+                                >
+                                    {row.start_time}
                                 </TableCell>
                             )}
                             {visibleColumns.includes("end_time") && (
-                                <TableCell>
-                                    <Input value={row.end_time} onChange={(e) => handleCellEdit(row.id, "end_time", e.target.value)}
-                                        className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
-                                    />
+                                <TableCell
+                                    className="text-gray-300 w-50  focus:w-50 focus:border-gray-200 focus:rounded"
+                                >
+                                    {row.end_time}
                                 </TableCell>
                             )}
                             {/* {visibleColumns.includes("lecturer") && (
@@ -187,6 +181,9 @@ export default function TableData({
                                         </Button>
                                     </DropdownMenuTrigger>
                                     <DropdownMenuContent align="end" className="rounded border-purple-500">
+                                        <DropdownMenuItem onClick={() => handleRowAction("edit", row.id)}>
+                                            Edit
+                                        </DropdownMenuItem>
                                         <DropdownMenuItem onClick={() => handleRowAction("delete", row.id)}>
                                             Delete
                                         </DropdownMenuItem>
@@ -197,6 +194,6 @@ export default function TableData({
                     ))}
                 </TableBody>
             </Table>
-        </div>
+        </div >
     )
 }
