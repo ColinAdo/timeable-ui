@@ -1,30 +1,29 @@
 "use client";
 
-import { useState } from "react";
-import { allColumns } from "@/lib/data";
 import { Button } from "@/components/ui/button";
-import { TimetableType } from "@/types/exports";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
     DropdownMenu,
+    DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger,
-    DropdownMenuContent,
 } from "@/components/ui/dropdown-menu";
-import { Input } from "@/components/ui/input";
 import {
     Table,
-    TableRow,
     TableBody,
     TableCell,
     TableHead,
     TableHeader,
+    TableRow,
 } from "@/components/ui/table";
+import { allColumns } from "@/lib/data";
+import { TimetableType } from "@/types/exports";
 import {
     ChevronDown,
     ChevronUp,
     MoreHorizontal
 } from "lucide-react";
+import { useState } from "react";
 
 interface Props {
     data: TimetableType[];
