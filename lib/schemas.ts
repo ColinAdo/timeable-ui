@@ -64,6 +64,15 @@ export const createTimetableSchema = z.object({
     prompt: z.string().optional(),
 });
 
+export const EditTimetableSchema = z.object({
+    rowId: z.string().min(1, "RowId is required."),
+    start_time: z.string().min(1, "Start time is required."),
+    end_time: z.string().min(1, "End time is required."),
+    day: z.string().min(1, "Day is required."),
+    unit_name: z.string().min(1, "Unit name is required."),
+    unit_code: z.string().min(1, "Unit code is required."),
+});
+
 export const renameSchema = z.object({
     name: z.string().min(1, "This field is required."),
 });
