@@ -65,9 +65,6 @@ export default function SleekTable() {
         return null;
     }
 
-    const handleCellEdit = (id: string, field: keyof TimetableType, value: string) => {
-        setData(data.map((row) => (row.id === id ? { ...row, [field]: value } : row)))
-    }
 
     const handleSort = () => {
         setSortOrder(sortOrder === "asc" ? "desc" : "asc")
@@ -84,15 +81,10 @@ export default function SleekTable() {
 
     const handleRowAction = (action: string, id: string) => {
         switch (action) {
-            case "addAbove":
+            case "edit":
                 const indexAbove = data.findIndex((row) => row.id === id)
                 const newRowAbove = { ...data[indexAbove], id: Date.now().toString() }
                 setData([...data.slice(0, indexAbove), newRowAbove, ...data.slice(indexAbove)])
-                break
-            case "addBelow":
-                const indexBelow = data.findIndex((row) => row.id === id)
-                const newRowBelow = { ...data[indexBelow], id: Date.now().toString() }
-                setData([...data.slice(0, indexBelow + 1), newRowBelow, ...data.slice(indexBelow + 1)])
                 break
             case "delete":
                 setData(data.filter((row) => row.id !== id))
@@ -242,7 +234,6 @@ export default function SleekTable() {
                 setSelectedRows={setSelectedRows}
                 data={data}
                 handleSort={handleSort}
-                handleCellEdit={handleCellEdit}
                 handleRowAction={handleRowAction}
                 paginatedData={paginatedData} />
             <div className="flex items-center justify-between">
