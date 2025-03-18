@@ -13,11 +13,11 @@ import {
 import { Input } from "@/components/ui/input";
 import {
     Table,
+    TableRow,
     TableBody,
     TableCell,
     TableHead,
     TableHeader,
-    TableRow,
 } from "@/components/ui/table";
 import { TimetableType } from "@/types/exports";
 import {
