@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { TimetableType } from "@/types/exports";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useWebSocketContext } from "@/hooks/webSocketContext";
 import {
     useExportTimetableMutation,
     useRetrieveTimetableQuery
@@ -37,7 +38,6 @@ import {
     ChevronsLeft,
     ChevronsRight,
 } from "lucide-react";
-import { useWebSocketContext } from "@/hooks/webSocketContext";
 
 export default function SleekTable() {
     const [selectedRows, setSelectedRows] = useState<string[]>([])
