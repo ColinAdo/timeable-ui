@@ -1,7 +1,7 @@
 "use client";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { FormDialog, EditTimetableForm } from "@/components/dashboard";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useRetrieveTimetableDataQuery } from "@/redux/features/timetableSlice";
 
 export default function Page() {
