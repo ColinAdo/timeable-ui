@@ -1,25 +1,23 @@
 'use client';
 
-import * as z from "zod";
-import { toast } from "sonner";
-import { useForm } from "react-hook-form";
-import { useRouter } from "next/navigation";
-import { Spinner } from "@/components/common";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { EditTimetableSchema } from "@/lib/schemas";
-import { TimetableType } from "@/types/exports";
-import { useGenerateTimetableMutation } from "@/redux/features/timetableSlice";
 import {
     Form,
+    FormControl,
+    FormField,
     FormItem,
     FormLabel,
-    FormField,
     FormMessage,
-    FormControl,
 } from "@/components/ui/form";
+import { Input } from "@/components/ui/input";
 import { useWebSocketContext } from "@/hooks/webSocketContext";
+import { EditTimetableSchema } from "@/lib/schemas";
+import { TimetableType } from "@/types/exports";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import * as z from "zod";
 
 
 interface Props {
