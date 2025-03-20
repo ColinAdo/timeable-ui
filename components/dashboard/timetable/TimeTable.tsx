@@ -176,11 +176,15 @@ export default function SleekTable() {
         return buf;
     };
 
-
-
     const handleDeleteSelected = () => {
-        setData(data.filter((row) => !selectedRows.includes(row.id)))
-        setSelectedRows([])
+        const sendData = {
+            ids: selectedRows,
+        }
+        sendJsonMessage({
+            event: "delete_selected_rows",
+            sendData,
+        });
+        toast.success("Selected rows deleted successfully")
     }
 
     const filteredData = data.filter((row) =>
