@@ -33,11 +33,16 @@ export default function CreateTransactionForm({ data }: Props) {
     const form = useForm<z.infer<typeof EditTimetableSchema>>({
         resolver: zodResolver(EditTimetableSchema),
         defaultValues: {
-            start_time: data.start_time,
-            end_time: data.end_time,
-            day: data.day,
-            unit_name: data.unit_name,
-            unit_code: data.unit_code,
+            start_time: data.start_time || "",
+            end_time: data.end_time || "",
+            day: data.day || "",
+            unit_name: data.unit_name || "",
+            unit_code: data.unit_code || "",
+            lecturer: data.lecturer || "",
+            campus: data.campus || "",
+            mode: data.mode_of_study || "",
+            room: data.lecture_room || "",
+            group: data.group || "",
         },
     });
 
@@ -75,7 +80,6 @@ export default function CreateTransactionForm({ data }: Props) {
                                         <Input
                                             type="time"
                                             {...field}
-                                            value={field.value}
                                             className="bg-purple-300 rounded focus-visible:ring-0 focus-visible:ring-offset-0"
                                         />
                                     </FormControl>
@@ -106,76 +110,201 @@ export default function CreateTransactionForm({ data }: Props) {
                         />
                     </div>
 
-                    {/* duration field */}
-                    <FormField
-                        control={form.control}
-                        name="day"
-                        render={({ field }) => (
-                            <FormItem>
-                                <div className="flex justify-between items-center">
+                    <div className="flex gap-x-4">
+                        {/* day Field */}
+                        <FormField
+                            control={form.control}
+                            name="day"
+                            render={({ field }) => (
+                                <FormItem className="w-1/2">
                                     <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white">
                                         Class Day
                                     </FormLabel>
-                                </div>
-                                <FormControl>
-                                    <Input
-                                        type="text"
-                                        placeholder="E.g., Monday"
-                                        {...field}
-                                        className="text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
-                                    />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
+                                    <FormControl>
+                                        <Input
+                                            type="text"
+                                            {...field}
+                                            className="text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
 
-                    {/* Additional constrain Field */}
-                    <FormField
-                        control={form.control}
-                        name="unit_code"
-                        render={({ field }) => (
-                            <FormItem>
-                                <div className="flex justify-between items-center">
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+
+                        {/* unit code Field */}
+                        <FormField
+                            control={form.control}
+                            name="unit_code"
+                            render={({ field }) => (
+                                <FormItem className="w-1/2">
                                     <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white">
-                                        Unit Code
+                                        Unit code
                                     </FormLabel>
-                                </div>
-                                <FormControl>
-                                    <Input
-                                        type="text"
-                                        placeholder="E.g UCC 404"
-                                        {...field}
-                                        className="text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
-                                    />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
+                                    <FormControl>
+                                        <Input
+                                            type="text"
+                                            {...field}
+                                            className="text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
 
-                    <FormField
-                        control={form.control}
-                        name="unit_name"
-                        render={({ field }) => (
-                            <FormItem>
-                                <div className="flex justify-between items-center">
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                    </div>
+
+                    <div className="flex gap-x-4">
+                        {/* Room Field */}
+                        <FormField
+                            control={form.control}
+                            name="room"
+                            render={({ field }) => (
+                                <FormItem className="w-1/2">
+                                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white">
+                                        Room
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            type="text"
+                                            {...field}
+                                            placeholder="E.g BR 101"
+
+                                            className="text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
+
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+
+                        {/* Mode Field */}
+                        <FormField
+                            control={form.control}
+                            name="mode"
+                            render={({ field }) => (
+                                <FormItem className="w-1/2">
+                                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white">
+                                        Mode
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            type="text"
+                                            placeholder="E.g Online"
+
+                                            {...field}
+                                            className="text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
+
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                    </div>
+
+                    <div className="flex gap-x-4">
+                        {/* Campus Field */}
+                        <FormField
+                            control={form.control}
+                            name="campus"
+                            render={({ field }) => (
+                                <FormItem className="w-1/2">
+                                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white">
+                                        Campus
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            type="text"
+                                            {...field}
+                                            placeholder="E.g BR 101"
+
+                                            className="text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
+
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+
+                        {/* Group Field */}
+                        <FormField
+                            control={form.control}
+                            name="group"
+                            render={({ field }) => (
+                                <FormItem className="w-1/2">
+                                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white">
+                                        Group
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            type="number"
+                                            placeholder="E.g 1"
+
+                                            {...field}
+                                            className="text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
+
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                    </div>
+
+                    <div className="flex gap-x-4">
+                        {/* Unit name Field */}
+                        <FormField
+                            control={form.control}
+                            name="unit_name"
+                            render={({ field }) => (
+                                <FormItem className="w-1/2">
                                     <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white">
                                         Unit name
                                     </FormLabel>
-                                </div>
-                                <FormControl>
-                                    <Input
-                                        type="text"
-                                        placeholder="E.g Discrete Mathematics"
-                                        {...field}
-                                        className="text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
-                                    />
-                                </FormControl>
-                                <FormMessage />
-                            </FormItem>
-                        )}
-                    />
+                                    <FormControl>
+                                        <Input
+                                            type="text"
+                                            {...field}
+                                            placeholder="E.g Software Enginerring"
+
+                                            className="text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
+
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+
+                        {/* Lecturer Field */}
+                        <FormField
+                            control={form.control}
+                            name="lecturer"
+                            render={({ field }) => (
+                                <FormItem className="w-1/2">
+                                    <FormLabel className="uppercase text-xs font-bold text-zinc-500 dark:text-white">
+                                        Lecturer
+                                    </FormLabel>
+                                    <FormControl>
+                                        <Input
+                                            type="text"
+                                            placeholder="E.g Prof. Colin Ado"
+
+                                            {...field}
+                                            className="text-slate-100 focus-visible:ring-0 focus-visible:ring-offset-0"
+
+                                        />
+                                    </FormControl>
+                                    <FormMessage />
+                                </FormItem>
+                            )}
+                        />
+                    </div>
 
                     {/* Submit Button */}
                     <Button className="w-full bg-gradient-to-r from-purple-500 rounded to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
