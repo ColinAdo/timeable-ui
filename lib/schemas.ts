@@ -70,6 +70,11 @@ export const EditTimetableSchema = z.object({
     day: z.string().min(1, "Day is required."),
     unit_name: z.string().min(1, "Unit name is required."),
     unit_code: z.string().min(1, "Unit code is required."),
+    lecturer: z.string().optional(),
+    campus: z.string().optional(),
+    mode: z.string().optional(),
+    room: z.string().optional(),
+    group: z.string().optional(),
 });
 
 export const renameSchema = z.object({

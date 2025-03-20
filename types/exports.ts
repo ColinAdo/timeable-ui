@@ -23,7 +23,7 @@ export type TimetableType = {
     campus: string
     mode_of_study: string
     lecture_room: string
-    group: number
+    group: string
 }
 
 export type TimetableNameType = {
