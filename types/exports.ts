@@ -19,6 +19,11 @@ export type TimetableType = {
     day: string
     start_time: string
     end_time: string
+    lecturer: string
+    campus: string
+    mode_of_study: string
+    lecture_room: string
+    group: number
 }
 
 export type TimetableNameType = {

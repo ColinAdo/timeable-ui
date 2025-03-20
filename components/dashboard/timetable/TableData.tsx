@@ -80,11 +80,11 @@ export default function TableData({
                         )}
                         {visibleColumns.includes("start_time") && <TableHead className="uppercase text-gray-200">From</TableHead>}
                         {visibleColumns.includes("end_time") && <TableHead className="uppercase text-gray-200">To</TableHead>}
-                        {/* {visibleColumns.includes("lecturer") && <TableHead className="uppercase text-gray-200">Lecturer</TableHead>} */}
-                        {/* {visibleColumns.includes("campus") && <TableHead className="uppercase text-gray-200">Campus</TableHead>} */}
-                        {/* {visibleColumns.includes("mode") && <TableHead className="uppercase text-gray-200">Mode</TableHead>} */}
-                        {/* {visibleColumns.includes("room") && <TableHead className="uppercase text-gray-200">Room</TableHead>} */}
-                        {/* {visibleColumns.includes("group") && <TableHead className="uppercase text-gray-200">Group</TableHead>} */}
+                        {visibleColumns.includes("lecturer") && <TableHead className="uppercase text-gray-200">Lecturer</TableHead>}
+                        {visibleColumns.includes("campus") && <TableHead className="uppercase text-gray-200">Campus</TableHead>}
+                        {visibleColumns.includes("mode") && <TableHead className="uppercase text-gray-200">Mode</TableHead>}
+                        {visibleColumns.includes("room") && <TableHead className="uppercase text-gray-200">Room</TableHead>}
+                        {visibleColumns.includes("group") && <TableHead className="uppercase text-gray-200">Group</TableHead>}
                         <TableHead className="w-[100px] uppercase text-gray-200">Actions</TableHead>
                     </TableRow>
                 </TableHeader>
@@ -135,41 +135,46 @@ export default function TableData({
                                     {row.end_time}
                                 </TableCell>
                             )}
-                            {/* {visibleColumns.includes("lecturer") && (
-                                    <TableCell>
-                                        <Input value={row.lecturer} onChange={(e) => handleCellEdit(row.id, "lecturer", e.target.value)}
-                                            className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
-                                        />
-                                    </TableCell>
-                                )} */}
-                            {/* {visibleColumns.includes("campus") && (
-                                    <TableCell>
-                                        <Input value={row.campus} onChange={(e) => handleCellEdit(row.id, "campus", e.target.value)}
-                                            className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
-                                        />
-                                    </TableCell>
-                                )} */}
-                            {/* {visibleColumns.includes("mode") && (
-                                    <TableCell>
-                                        <Input value={row.mode} onChange={(e) => handleCellEdit(row.id, "mode", e.target.value)}
-                                            className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
-                                        />
-                                    </TableCell>
-                                )} */}
-                            {/* {visibleColumns.includes("room") && (
-                                    <TableCell>
-                                        <Input value={row.room} onChange={(e) => handleCellEdit(row.id, "room", e.target.value)}
-                                            className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
-                                        />
-                                    </TableCell>
-                                )} */}
-                            {/* {visibleColumns.includes("group") && (
-                                    <TableCell>
-                                        <Input value={row.group} onChange={(e) => handleCellEdit(row.id, "group", e.target.value)}
-                                            className="text-gray-300 border border-transparent focus:w-50 focus:border-gray-200 focus:rounded"
-                                        />
-                                    </TableCell>
-                                )} */}
+                            {visibleColumns.includes("lecturer") && (
+                                <TableCell
+                                    className="text-gray-300 w-50  focus:w-50 focus:border-gray-200 focus:rounded"
+
+                                >
+                                    {row.lecturer}
+                                </TableCell>
+                            )}
+                            {visibleColumns.includes("campus") && (
+                                <TableCell
+                                    className="text-gray-300 w-50  focus:w-50 focus:border-gray-200 focus:rounded"
+
+                                >
+                                    {row.campus}
+                                </TableCell>
+                            )}
+                            {visibleColumns.includes("mode") && (
+                                <TableCell
+                                    className="text-gray-300 w-50  focus:w-50 focus:border-gray-200 focus:rounded"
+
+                                >
+                                    {row.mode_of_study}
+                                </TableCell>
+                            )}
+                            {visibleColumns.includes("room") && (
+                                <TableCell
+                                    className="text-gray-300 w-50  focus:w-50 focus:border-gray-200 focus:rounded"
+
+                                >
+                                    {row.lecture_room}
+                                </TableCell>
+                            )}
+                            {visibleColumns.includes("group") && (
+                                <TableCell
+                                    className="text-gray-300 w-50  focus:w-50 focus:border-gray-200 focus:rounded"
+
+                                >
+                                    {row.group}
+                                </TableCell>
+                            )}
                             <TableCell>
                                 <DropdownMenu>
                                     <DropdownMenuTrigger asChild>
