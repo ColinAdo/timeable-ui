@@ -26,7 +26,6 @@ import {
 import { useState } from "react";
 
 interface Props {
-    data: TimetableType[];
     handleSort: () => void;
     paginatedData: TimetableType[];
     handleRowAction: (action: string, id: string) => void;
@@ -36,7 +35,6 @@ interface Props {
 
 
 export default function TableData({
-    data,
     handleSort,
     handleRowAction,
     paginatedData,

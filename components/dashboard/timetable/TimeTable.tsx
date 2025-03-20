@@ -252,7 +252,6 @@ export default function SleekTable() {
             <TableData
                 selectedRows={selectedRows}
                 setSelectedRows={setSelectedRows}
-                data={data}
                 handleSort={handleSort}
                 handleRowAction={handleRowAction}
                 paginatedData={paginatedData} />
