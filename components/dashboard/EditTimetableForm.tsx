@@ -4,11 +4,11 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { EditTimetableSchema } from "@/lib/schemas";
 import { TimetableType } from "@/types/exports";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import * as z from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useWebSocketContext } from "@/hooks/webSocketContext";
 import {
     Form,
