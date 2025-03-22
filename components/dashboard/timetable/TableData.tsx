@@ -7,8 +7,8 @@ import { TimetableType } from "@/types/exports";
 import { Checkbox } from "@/components/ui/checkbox";
 import {
     DropdownMenu,
-    DropdownMenuContent,
     DropdownMenuItem,
+    DropdownMenuContent,
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import {
