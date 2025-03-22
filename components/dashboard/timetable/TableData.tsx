@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { allColumns } from "@/lib/data";
 import { Button } from "@/components/ui/button";
 import { TimetableType } from "@/types/exports";
@@ -23,7 +24,6 @@ import {
     ChevronUp,
     MoreHorizontal
 } from "lucide-react";
-import { useState } from "react";
 
 interface Props {
     handleSort: () => void;
