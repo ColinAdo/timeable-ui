@@ -63,7 +63,6 @@ export default function CreateTransactionForm({ data }: Props) {
         <>
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                    {/* Wrap Start Time & End Time in a flex container */}
                     <div className="flex gap-x-4">
                         {/* Start Time Field */}
                         <FormField
