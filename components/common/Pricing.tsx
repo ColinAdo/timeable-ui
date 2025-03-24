@@ -13,9 +13,11 @@ import {
     CardContent,
     CardDescription,
 } from '@/components/ui/card'
+import Link from 'next/link'
 
 interface Props {
     title: string;
+    href: string;
     price: string;
     isHome?: boolean;
     features: string[];
@@ -24,7 +26,18 @@ interface Props {
     isPremium?: boolean;
 }
 
-const PricingCard = ({ title, price, description, features, buttonText, isPremium = false, isHome }: Props) => (
+interface Props {
+    title: string;
+    href: string;
+    price: string;
+    isHome?: boolean;
+    features: string[];
+    buttonText: string;
+    description: string;
+    isPremium?: boolean;
+}
+
+const PricingCard = ({ href, title, price, description, features, buttonText, isPremium = false, isHome }: Props) => (
     <Card className={`w-full max-w-sm bg-black/[0.96] ${isPremium ? 'border-purple-400' : ''}`}>
         <CardHeader>
             <CardTitle className="text-2xl font-bold">{title}</CardTitle>
@@ -45,9 +58,12 @@ const PricingCard = ({ title, price, description, features, buttonText, isPremiu
             </ul>
         </CardContent>
         <CardFooter>
-            <Button className="w-full rounded bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white" variant={isPremium || isHome ? 'default' : 'outline'}>
+            <Link
+                href={href}
+                className="w-full p-2 rounded text-center bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
+            >
                 {buttonText}
-            </Button>
+            </Link>
         </CardFooter>
     </Card>
 )
@@ -81,20 +97,21 @@ export default function Pricing() {
                     ]}
                     buttonText={`${isHome}` === "true" ? "Get started" : "Your current plan"}
                     isHome={isHome}
+                    href='#'
                 />
                 <PricingCard
                     title="Premium"
-                    price={isYearly ? '$4' : '$5'}
+                    price={isYearly ? 'Ksh 140' : 'ksh 150'}
                     description="For professionals and growing businesses"
                     features={[
-                        'All Free features',
-                        'Unlimited subscribers',
+                        'Unlimited timetables',
                         'Advanced analytics',
                         'Priority support',
                         'Custom branding'
                     ]}
                     buttonText={`${isHome}` === "true" ? "Get started" : "Upgrade to Premium"}
                     isPremium={true}
+                    href={`/dashboard/subscribe?yearly=${isYearly}`}
                 />
             </div>
         </div>
