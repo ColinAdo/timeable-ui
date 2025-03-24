@@ -24,7 +24,7 @@ interface Props {
     data: TimetableType;
 }
 
-export default function CreateTransactionForm({ data }: Props) {
+export default function EditTimetableForm({ data }: Props) {
     const { sendJsonMessage } = useWebSocketContext();
     const router = useRouter();
 
