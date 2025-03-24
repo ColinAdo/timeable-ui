@@ -1,8 +1,7 @@
 "use client";
 
 import { FormDialog, SubscribeForm } from "@/components/dashboard";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useRetrieveTimetableDataQuery } from "@/redux/features/timetableSlice";
+import { usePathname, useRouter } from "next/navigation";
 
 export default function Page() {
     const router = useRouter();
