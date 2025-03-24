@@ -80,3 +80,9 @@ export const EditTimetableSchema = z.object({
 export const renameSchema = z.object({
     name: z.string().min(1, "This field is required."),
 });
+
+export const SubscribeSchema = z.object({
+    phone_number: z.string().min(10, "Phone number is required or must be 10 characters."),
+    amount: z.string().min(1, "Amount is required."),
+    // user: z.string().min(1, "Unit code is required."),
+});
