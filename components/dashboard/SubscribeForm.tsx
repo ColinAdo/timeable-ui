@@ -1,24 +1,22 @@
 'use client';
 
-import * as z from "zod";
-import { toast } from "sonner";
-import { useForm } from "react-hook-form";
-import { useRouter, useSearchParams } from "next/navigation";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { TimetableType } from "@/types/exports";
-import { SubscribeSchema } from "@/lib/schemas";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useWebSocketContext } from "@/hooks/webSocketContext";
 import {
     Form,
+    FormControl,
+    FormField,
     FormItem,
     FormLabel,
-    FormField,
-    FormControl,
     FormMessage,
 } from "@/components/ui/form";
-import { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { useWebSocketContext } from "@/hooks/webSocketContext";
+import { SubscribeSchema } from "@/lib/schemas";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { toast } from "sonner";
+import * as z from "zod";
 
 
 export default function SubscribeForm() {
