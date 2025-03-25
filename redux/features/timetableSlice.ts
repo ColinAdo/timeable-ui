@@ -63,10 +63,22 @@ const timetableSlice = apiSlice.injectEndpoints({
                 },
             }),
         }),
+
+        subscribe: builder.mutation({
+            query: ({ phone_number, amount }) => ({
+                url: "/subscribe/",
+                method: "POST",
+                body: {
+                    phone_number,
+                    amount,
+                },
+            }),
+        }),
     }),
 });
 
 export const {
+    useSubscribeMutation,
     useUploadFileMutation,
     useRetrieveTimetableQuery,
     useGetTimetableNamesQuery,
