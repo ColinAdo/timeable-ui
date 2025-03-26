@@ -1,5 +1,5 @@
 import { apiSlice } from "../services/apiSlice";
-import { TimetableType, TimetableNameType } from "@/types/exports";
+import { TimetableType, TimetableNameType, SubscriptionType, unitsType } from "@/types/exports";
 
 const timetableSlice = apiSlice.injectEndpoints({
     endpoints: (builder) => ({
@@ -74,6 +74,16 @@ const timetableSlice = apiSlice.injectEndpoints({
                 },
             }),
         }),
+        getSubscription: builder.query<SubscriptionType, void>({
+            query: () => ({
+                url: "/user/subscription/",
+            }),
+        }),
+        getUnits: builder.query<unitsType, void>({
+            query: () => ({
+                url: "/user/units/",
+            }),
+        }),
     }),
 });
 
@@ -85,4 +95,6 @@ export const {
     useExportTimetableMutation,
     useGenerateTimetableMutation,
     useRetrieveTimetableDataQuery,
+    useGetSubscriptionQuery,
+    useGetUnitsQuery,
 } = timetableSlice;
