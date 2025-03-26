@@ -6,10 +6,12 @@ import { useDropzone } from "react-dropzone";
 import { Spinner } from "@/components/common";
 import { Button } from "@/components/ui/button";
 import { FormEvent, useCallback, useState } from "react";
-import { useUploadFileMutation } from "@/redux/features/timetableSlice";
+import { useUploadFileMutation, useGetSubscriptionQuery, useGetUnitsQuery } from "@/redux/features/timetableSlice";
 
 export default function UploadFile() {
     const router = useRouter();
+    const { data: units, refetch } = useGetUnitsQuery();
+    const { data: subscription } = useGetSubscriptionQuery();
     const [uploadFile, { isLoading }] = useUploadFileMutation();
     const [file, setFile] = useState<File | null>(null);
     const [batchId] = useState(`timetable_${Math.floor(100000000 + Math.random() * 900000000)}`);
@@ -35,9 +37,19 @@ export default function UploadFile() {
 
     const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
+
         if (!file) {
             toast.error("No file selected!");
             return;
+        }
+
+        // Prevent upload if user has reached batch limit on the basic plan
+        if (units?.batch_count !== undefined && units.batch_count === 2 && subscription?.tier === "basic") {
+            toast.error("Upgrade to premium to upload more than 2 files");
+            setTimeout(() => {
+                router.push("/dashboard/pricing");
+            }, 2000);
+            return; // Stop further execution
         }
 
         const formData = new FormData();
@@ -48,12 +60,14 @@ export default function UploadFile() {
             .unwrap()
             .then(() => {
                 toast.success("File uploaded successfully");
+                refetch();
                 router.push(`/dashboard/create/timetable?batchId=${batchId}`);
             })
             .catch(() => {
                 toast.error("Failed to upload!");
             });
     };
+
 
     return (
         <div className="mb-6">
@@ -86,11 +100,16 @@ export default function UploadFile() {
                 {/* Centered Submit Button, only visible if file is selected */}
                 {file && (
                     <div className="flex justify-center mt-4">
-                        <Button className="flex justify-center mt-4 bg-gradient-to-r from-purple-500 rounded to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
+                        <Button
+                            type="submit"
+                            className="flex justify-center mt-4 bg-gradient-to-r from-purple-500 rounded to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
+                            disabled={isLoading}
+                        >
                             {isLoading ? <Spinner sm /> : "Upload"}
                         </Button>
                     </div>
                 )}
+
             </form>
         </div>
     )
