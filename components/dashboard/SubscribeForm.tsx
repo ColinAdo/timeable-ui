@@ -12,14 +12,14 @@ import {
 import { Input } from "@/components/ui/input";
 import { useWebSocketContext } from "@/hooks/webSocketContext";
 import { SubscribeSchema } from "@/lib/schemas";
+import { useSubscribeMutation } from "@/redux/features/timetableSlice";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import * as z from "zod";
-import { useSubscribeMutation } from "@/redux/features/timetableSlice";
 import { Spinner } from "../common";
-import { useEffect, useState } from "react";
 
 
 export default function SubscribeForm() {
