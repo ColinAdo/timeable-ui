@@ -30,3 +30,12 @@ export type TimetableNameType = {
     batch_id: string
     name: string
 }
+
+export type SubscriptionType = {
+    status: string
+    tier: string
+}
+
+export type unitsType = {
+    batch_count: number
+}
