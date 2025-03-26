@@ -34,7 +34,7 @@ export default function SubscribeForm() {
     const calculatedAmount = isYearly ? 140 * 12 : 1;
 
     useEffect(() => {
-        if (lastJsonMessage?.event === "subscription_created") {
+        if (lastJsonMessage?.event === "subscription_updated") {
             console.log("Subscription successful!", lastJsonMessage);
             toast.success("Subscription successful!");
             router.push("/dashboard");
