@@ -17,15 +17,29 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import * as z from "zod";
+import { useSubscribeMutation } from "@/redux/features/timetableSlice";
+import { Spinner } from "../common";
+import { useEffect, useState } from "react";
 
 
 export default function SubscribeForm() {
-    const { sendJsonMessage } = useWebSocketContext();
+    const { sendJsonMessage, lastJsonMessage } = useWebSocketContext();
     const router = useRouter();
     const searchParams = useSearchParams();
     const isYearly = searchParams.get("yearly") === "true";
-    const calculatedAmount = isYearly ? 140 * 12 : 150;
+    const [subscribe, { isLoading }] = useSubscribeMutation();
 
+
+    // const calculatedAmount = isYearly ? 140 * 12 : 150;
+    const calculatedAmount = isYearly ? 140 * 12 : 1;
+
+    useEffect(() => {
+        if (lastJsonMessage?.event === "subscription_created") {
+            console.log("Subscription successful!", lastJsonMessage);
+            toast.success("Subscription successful!");
+            router.push("/dashboard");
+        }
+    }, [lastJsonMessage, router]);
 
     const form = useForm<z.infer<typeof SubscribeSchema>>({
         resolver: zodResolver(SubscribeSchema),
@@ -35,19 +49,18 @@ export default function SubscribeForm() {
         },
     });
 
-    const onSubmit = async (editData: z.infer<typeof SubscribeSchema>) => {
-        const sendData = {
-            dataSet: editData,
-
-        }
-        sendJsonMessage({
-            event: "edit_row",
-            sendData,
-        });
-        // router.back();
-        toast.success("Please enter your Mpesa PIN on your phone");
+    const onSubmit = async (editData: { phone_number: string; amount: string }) => {
+        subscribe(editData)
+            .unwrap()
+            .then((data) => {
+                toast.success("Please enter your Mpesa PIN on your phone");
+                console.log(data);
+            })
+            .catch((error) => {
+                toast.error("Something went wrong.");
+                console.log("ERROR", error);
+            });
     };
-
 
     return (
         <>
@@ -103,7 +116,7 @@ export default function SubscribeForm() {
 
                     {/* Submit Button */}
                     <Button className="w-full bg-gradient-to-r from-purple-500 rounded to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white">
-                        Pay Now
+                        {isLoading ? <Spinner sm /> : "Pay Now"}
                     </Button>
                 </form>
             </Form>
