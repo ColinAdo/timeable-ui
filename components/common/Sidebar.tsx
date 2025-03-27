@@ -53,19 +53,6 @@ export default function Sidebar() {
                         href: "/dashboard",
                     },
                     {
-                        title: "Create",
-                        icon: BadgePlus,
-                        variant: "ghost",
-                        href: "/dashboard/create/account",
-                    },
-                    {
-                        title: "Billing",
-                        label: "",
-                        icon: BadgeDollarSign,
-                        variant: "ghost",
-                        href: "/dashboard/pricing",
-                    },
-                    {
                         title: "Settings",
                         label: "",
                         icon: Settings,
