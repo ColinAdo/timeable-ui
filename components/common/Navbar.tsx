@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useAppDispatch } from "@/redux/hook";
-import { LogOut, Settings } from "lucide-react";
+import { CircleFadingArrowUp, LayoutDashboard, LogOut, Settings } from "lucide-react";
 import { BadgeDollarSign, GraduationCap } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { logout as setLogout } from "@/redux/features/authSlice";
@@ -53,18 +53,18 @@ export default function Navbar() {
             <DropdownMenuLabel>{user?.username}</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Link href="/" className="flex justify-between">
-                <Settings className="h-[1.2rem] w-[1.2rem]" />
-                <span className="ml-2">Settings</span>
+              <Link href="/dashboard" className="flex justify-between">
+                <LayoutDashboard className="h-[1.2rem] w-[1.2rem]" />
+                <span className="ml-2">Dashboard</span>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
               <Link
-                href="/dashboard/create/account"
+                href="/dashboard/pricing"
                 className="flex justify-between"
               >
-                <BadgeDollarSign className="h-[1.2rem] w-[1.2rem]" />
-                <span className="ml-2">Billing</span>
+                <CircleFadingArrowUp className="h-[1.2rem] w-[1.2rem]" />
+                <span className="ml-2">Upgrade</span>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>

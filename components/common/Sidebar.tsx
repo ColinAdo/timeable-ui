@@ -10,6 +10,7 @@ import {
     LayoutDashboard,
     LogOut,
     Settings,
+    Table,
     Trash2
 } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -51,18 +52,11 @@ export default function Sidebar() {
                         href: "/dashboard",
                     },
                     {
-                        title: "Settings",
-                        label: "",
-                        icon: Settings,
-                        variant: "ghost",
-                        href: "/users",
-                    },
-                    {
-                        title: "Trash",
+                        title: "Timetables",
                         label: "23",
-                        icon: Trash2,
+                        icon: Table,
                         variant: "ghost",
-                        href: "#",
+                        href: "/dashboard/timetables",
                     },
                     {
                         title: "Ask AI",
