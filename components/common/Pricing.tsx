@@ -13,6 +13,7 @@ import { Check } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
+import { useGetSubscriptionQuery } from '@/redux/features/timetableSlice'
 
 interface Props {
     title: string;
@@ -69,10 +70,11 @@ const PricingCard = ({ href, title, price, description, features, buttonText, is
 
 export default function Pricing() {
     const [isYearly, setIsYearly] = useState(false)
+    const { data: subscription } = useGetSubscriptionQuery();
     const pathname = usePathname();
     const isHome = pathname === '/';
 
-    console.log("pathname", isHome);
+    if (!subscription) return null;
 
     return (
         <div id="pricing" className="container mx-auto px-4 py-16">
@@ -94,9 +96,11 @@ export default function Pricing() {
                         'Up to 1,000 subscribers',
                         'Email support'
                     ]}
-                    buttonText={`${isHome}` === "true" ? "Get started" : "Your current plan"}
+                    buttonText={`${isHome}` === "true" ? "Get started" : subscription.tier === "Basic"
+                        ? "Your Current Plan"
+                        : "Basic Plan"}
                     isHome={isHome}
-                    href='#'
+                    href={`${isHome}` === "true" ? "/auth/login" : "#"}
                 />
                 <PricingCard
                     title="Premium"
@@ -108,9 +112,18 @@ export default function Pricing() {
                         'Priority support',
                         'Custom branding'
                     ]}
-                    buttonText={`${isHome}` === "true" ? "Get started" : "Upgrade to Premium"}
+                    buttonText={`${isHome}` === "true" ? "Get started" : subscription.tier === "Premium"
+                        ? "Your Current Plan"
+                        : "Upgrade Your Plan"}
                     isPremium={true}
-                    href={`/dashboard/subscribe?yearly=${isYearly}`}
+                    href={
+                        `${isHome}` === "true"
+                            ? "/auth/login"
+                            : subscription.tier === "Premium"
+                                ? "#"
+                                : `/dashboard/subscribe?yearly=${isYearly}`
+                    }
+
                 />
             </div>
         </div>
