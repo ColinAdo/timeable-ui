@@ -9,9 +9,7 @@ import {
     CircleFadingArrowUp,
     LayoutDashboard,
     LogOut,
-    Settings,
-    Table,
-    Trash2
+    Table
 } from "lucide-react";
 import { useEffect, useState } from "react";
 

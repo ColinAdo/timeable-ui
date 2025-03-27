@@ -1,21 +1,20 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useAppDispatch } from "@/redux/hook";
-import { CircleFadingArrowUp, LayoutDashboard, LogOut, Settings } from "lucide-react";
-import { BadgeDollarSign, GraduationCap } from "lucide-react";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { logout as setLogout } from "@/redux/features/authSlice";
-import { useLogoutMutation, useRetrieveUserQuery, } from "@/redux/features/authApiSlice";
 import {
   DropdownMenu,
+  DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
   DropdownMenuSeparator,
+  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { useLogoutMutation, useRetrieveUserQuery, } from "@/redux/features/authApiSlice";
+import { logout as setLogout } from "@/redux/features/authSlice";
+import { useAppDispatch } from "@/redux/hook";
+import { CircleFadingArrowUp, GraduationCap, LayoutDashboard, LogOut } from "lucide-react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const pathname = usePathname();
