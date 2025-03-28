@@ -74,7 +74,7 @@ export default function Pricing() {
     const pathname = usePathname();
     const isHome = pathname === '/';
 
-    if (!subscription) return null;
+    // if (!subscription) return null;
 
     return (
         <div id="pricing" className="container mx-auto px-4 py-16">
@@ -96,7 +96,7 @@ export default function Pricing() {
                         'Up to 1,000 subscribers',
                         'Email support'
                     ]}
-                    buttonText={`${isHome}` === "true" ? "Get started" : subscription.tier === "Basic"
+                    buttonText={`${isHome}` === "true" ? "Get started" : subscription?.tier === "Basic"
                         ? "Your Current Plan"
                         : "Basic Plan"}
                     isHome={isHome}
@@ -104,7 +104,7 @@ export default function Pricing() {
                 />
                 <PricingCard
                     title="Premium"
-                    price={isYearly ? 'Ksh 140' : 'ksh 150'}
+                    price={isYearly ? 'ksh 140' : 'ksh 150'}
                     description="For professionals and growing businesses"
                     features={[
                         'Unlimited timetables',
@@ -112,14 +112,14 @@ export default function Pricing() {
                         'Priority support',
                         'Custom branding'
                     ]}
-                    buttonText={`${isHome}` === "true" ? "Get started" : subscription.tier === "Premium"
+                    buttonText={`${isHome}` === "true" ? "Get started" : subscription?.tier === "Premium"
                         ? "Your Current Plan"
                         : "Upgrade Your Plan"}
                     isPremium={true}
                     href={
                         `${isHome}` === "true"
                             ? "/auth/login"
-                            : subscription.tier === "Premium"
+                            : subscription?.tier === "Premium"
                                 ? "#"
                                 : `/dashboard/subscribe?yearly=${isYearly}`
                     }
