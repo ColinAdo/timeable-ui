@@ -12,7 +12,7 @@ import {
 import { useLogoutMutation, useRetrieveUserQuery, } from "@/redux/features/authApiSlice";
 import { logout as setLogout } from "@/redux/features/authSlice";
 import { useAppDispatch } from "@/redux/hook";
-import { CircleFadingArrowUp, GraduationCap, LayoutDashboard, LogOut } from "lucide-react";
+import { Table, CircleFadingArrowUp, GraduationCap, LayoutDashboard, LogOut } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -55,6 +55,12 @@ export default function Navbar() {
               <Link href="/dashboard" className="flex justify-between">
                 <LayoutDashboard className="h-[1.2rem] w-[1.2rem]" />
                 <span className="ml-2">Dashboard</span>
+              </Link>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Link href="/dashboard/timetables" className="flex justify-between">
+                <Table className="h-[1.2rem] w-[1.2rem]" />
+                <span className="ml-2">Timetables</span>
               </Link>
             </DropdownMenuItem>
             <DropdownMenuItem>
