@@ -2,9 +2,9 @@
 
 import { Nav } from "@/components/ui/nav";
 import { Button } from "@/components/ui/button";
+import { useWindowWidth } from "@react-hook/window-size";
 import { useWebSocketContext } from "@/hooks/webSocketContext";
 import { useGetTimetableNamesQuery } from "@/redux/features/timetableSlice";
-import { useWindowWidth } from "@react-hook/window-size";
 
 import {
     Brain,
