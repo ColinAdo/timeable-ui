@@ -2,7 +2,10 @@
 
 import { Button } from "@/components/ui/button";
 import { Nav } from "@/components/ui/nav";
+import { useWebSocketContext } from "@/hooks/webSocketContext";
+import { useGetTimetableNamesQuery } from "@/redux/features/timetableSlice";
 import { useWindowWidth } from "@react-hook/window-size";
+
 import {
     Brain,
     ChevronRight,
@@ -14,6 +17,8 @@ import {
 import { useEffect, useState } from "react";
 
 export default function Sidebar() {
+    const { data: timetableNames, refetch } = useGetTimetableNamesQuery();
+    const { lastJsonMessage } = useWebSocketContext();
     const [isCollapsed, setIsCollapsed] = useState(false);
     const [mobilewidth, setMobileWidth] = useState(false);
     const onlyWidth = useWindowWidth();
@@ -21,7 +26,8 @@ export default function Sidebar() {
     useEffect(() => {
         // Update mobilewidth state when window width changes
         setMobileWidth(onlyWidth < 768);
-    }, [onlyWidth]);
+        refetch();
+    }, [onlyWidth, lastJsonMessage]);
 
     function toggleSidebar() {
         setIsCollapsed(!isCollapsed);
@@ -51,7 +57,7 @@ export default function Sidebar() {
                     },
                     {
                         title: "Timetables",
-                        label: "23",
+                        label: `${timetableNames?.length}`,
                         icon: Table,
                         variant: "ghost",
                         href: "/dashboard/timetables",
