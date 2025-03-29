@@ -125,14 +125,14 @@ export default function TableData({
                                 <TableCell
                                     className="text-gray-300 w-50  focus:w-50 focus:border-gray-200 focus:rounded"
                                 >
-                                    {row.start_time}
+                                    {row.start_time.slice(0, 5)}
                                 </TableCell>
                             )}
                             {visibleColumns.includes("end_time") && (
                                 <TableCell
                                     className="text-gray-300 w-50  focus:w-50 focus:border-gray-200 focus:rounded"
                                 >
-                                    {row.end_time}
+                                    {row.end_time.slice(0, 5)}
                                 </TableCell>
                             )}
                             {visibleColumns.includes("lecturer") && (
