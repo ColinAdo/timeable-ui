@@ -3,9 +3,9 @@
 import Image from "next/image"
 import { motion } from "framer-motion"
 import { Pricing } from "@/components/common"
-import { FloatingPaper } from "@/components/floating-paper"
 import { Button } from "@/components/ui/button"
 import { FileText, Sparkles } from "lucide-react"
+import { FloatingPaper } from "@/components/floating-paper"
 
 export default function Hero() {
     return (
