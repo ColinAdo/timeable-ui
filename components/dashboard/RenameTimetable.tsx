@@ -56,7 +56,7 @@ export default function RenameTimetable({ id, open, name, setOpen }: Props) {
     return (
         <>
             <Dialog open={open} onOpenChange={setOpen}>
-                <DialogContent className="w-[460px] bg-black !rounded">
+                <DialogContent className="w-[460px] bg-black !rounded border-purple-400">
                     <DialogHeader>
                         <DialogTitle className="text-white">Rename timetable</DialogTitle>
                     </DialogHeader>
