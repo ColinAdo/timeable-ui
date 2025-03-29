@@ -1,11 +1,11 @@
 "use client"
 
-import { motion } from "framer-motion"
 import { Pricing } from "@/components/common"
-import { Button } from "@/components/ui/button"
-import { FileText, Sparkles } from "lucide-react"
 import { FloatingPaper } from "@/components/floating-paper"
-import { ResponsiveTable } from "@/components/responsive-table"
+import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
+import { FileText, Sparkles } from "lucide-react"
+import Image from "next/image"
 
 export default function Hero() {
     return (
@@ -64,7 +64,16 @@ export default function Hero() {
                     transition={{ duration: 0.5, delay: 0.8 }}
                 >
                     <h3 className="flex uppercase justify-center text-2xl font-bold text-white mb-4">Teaching Timetable</h3>
-                    <ResponsiveTable />
+                    <div className="lg:w-[880px] mx-auto flex justify-center w-full overflow-auto rounded bg-purple-900/30 backdrop-blur-sm border border-purple-500/50">
+                        <Image src="/assets/timetable.png"
+                            alt="Timetable"
+                            width={880}
+                            height={500}
+                            className="rounded-lg shadow-lg">
+
+                        </Image>
+                    </div>
+
                 </motion.div>
             </div>
         </div>
