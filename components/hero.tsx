@@ -1,11 +1,11 @@
 "use client"
 
+import Image from "next/image"
 import { Pricing } from "@/components/common"
 import { FloatingPaper } from "@/components/floating-paper"
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { FileText, Sparkles } from "lucide-react"
-import Image from "next/image"
 
 export default function Hero() {
     return (
@@ -64,7 +64,7 @@ export default function Hero() {
                     transition={{ duration: 0.5, delay: 0.8 }}
                 >
                     <h3 className="flex uppercase justify-center text-2xl font-bold text-white mb-4">Teaching Timetable</h3>
-                    <div className="lg:w-[880px] mx-auto flex justify-center w-full overflow-auto rounded bg-purple-900/30 backdrop-blur-sm border border-purple-500/50">
+                    <div className="lg:w-[880px] mx-auto flex justify-center w-full overflow-auto rounded backdrop-blur-sm border border-purple-400">
                         <Image src="/assets/timetable.png"
                             alt="Timetable"
                             width={880}
