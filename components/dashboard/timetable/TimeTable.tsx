@@ -39,7 +39,7 @@ import {
     ChevronsRight,
 } from "lucide-react";
 
-export default function SleekTable() {
+export default function Timetable() {
     const [selectedRows, setSelectedRows] = useState<string[]>([])
     const [sortOrder, setSortOrder] = useState<"asc" | "desc">("asc")
     const [visibleColumns, setVisibleColumns] = useState(allColumns)
