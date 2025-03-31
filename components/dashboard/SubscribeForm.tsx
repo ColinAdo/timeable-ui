@@ -9,6 +9,7 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { useEffect } from "react";
+import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { SubscribeSchema } from "@/lib/schemas";
 import { Button } from "@/components/ui/button";
@@ -16,7 +17,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useWebSocketContext } from "@/hooks/webSocketContext";
 import { useSubscribeMutation } from "@/redux/features/timetableSlice";
-import { useForm } from "react-hook-form";
 import { toast } from "sonner";
 import * as z from "zod";
 import { Spinner } from "../common";
