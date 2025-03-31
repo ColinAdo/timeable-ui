@@ -1,6 +1,5 @@
 'use client';
 
-import { Button } from "@/components/ui/button";
 import {
     Form,
     FormItem,
@@ -9,6 +8,7 @@ import {
     FormControl,
     FormMessage,
 } from "@/components/ui/form";
+import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { useWebSocketContext } from "@/hooks/webSocketContext";
 import { SubscribeSchema } from "@/lib/schemas";
