@@ -11,9 +11,9 @@ import {
 import { Input } from "@/components/ui/input";
 import { SubscribeSchema } from "@/lib/schemas";
 import { Button } from "@/components/ui/button";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { useWebSocketContext } from "@/hooks/webSocketContext";
 import { useSubscribeMutation } from "@/redux/features/timetableSlice";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
