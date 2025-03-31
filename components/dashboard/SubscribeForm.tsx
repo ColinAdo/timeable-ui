@@ -9,9 +9,9 @@ import {
     FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
+import { SubscribeSchema } from "@/lib/schemas";
 import { Button } from "@/components/ui/button";
 import { useWebSocketContext } from "@/hooks/webSocketContext";
-import { SubscribeSchema } from "@/lib/schemas";
 import { useSubscribeMutation } from "@/redux/features/timetableSlice";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter, useSearchParams } from "next/navigation";
