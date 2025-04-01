@@ -1,8 +1,8 @@
 "use client";
 
 import { CardItem } from "@/components/dashboard/";
-import { useGetTimetableNamesQuery } from "@/redux/features/timetableSlice";
 import { useRetrieveUserQuery } from "@/redux/features/authApiSlice";
+import { useGetTimetableNamesQuery } from "@/redux/features/timetableSlice";
 import {
     Card,
     CardTitle,
