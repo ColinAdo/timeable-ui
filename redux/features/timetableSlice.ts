@@ -88,6 +88,7 @@ const timetableSlice = apiSlice.injectEndpoints({
 });
 
 export const {
+    useGetUnitsQuery,
     useSubscribeMutation,
     useUploadFileMutation,
     useRetrieveTimetableQuery,
@@ -96,5 +97,4 @@ export const {
     useGenerateTimetableMutation,
     useRetrieveTimetableDataQuery,
     useGetSubscriptionQuery,
-    useGetUnitsQuery,
 } = timetableSlice;
