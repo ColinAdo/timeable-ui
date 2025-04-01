@@ -91,10 +91,10 @@ export const {
     useGetUnitsQuery,
     useSubscribeMutation,
     useUploadFileMutation,
+    useGetSubscriptionQuery,
     useRetrieveTimetableQuery,
     useGetTimetableNamesQuery,
     useExportTimetableMutation,
     useGenerateTimetableMutation,
     useRetrieveTimetableDataQuery,
-    useGetSubscriptionQuery,
 } = timetableSlice;
