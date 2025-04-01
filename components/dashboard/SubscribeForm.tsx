@@ -23,7 +23,7 @@ import { useSubscribeMutation } from "@/redux/features/timetableSlice";
 
 
 export default function SubscribeForm() {
-    const { sendJsonMessage, lastJsonMessage } = useWebSocketContext();
+    const { lastJsonMessage } = useWebSocketContext();
     const router = useRouter();
     const searchParams = useSearchParams();
     const isYearly = searchParams.get("yearly") === "true";
