@@ -13,13 +13,13 @@ import { toast } from "sonner";
 import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Input } from "@/components/ui/input";
+import { Spinner } from "@/components/common";
 import { SubscribeSchema } from "@/lib/schemas";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useWebSocketContext } from "@/hooks/webSocketContext";
 import { useSubscribeMutation } from "@/redux/features/timetableSlice";
-import { Spinner } from "../common";
 
 
 export default function SubscribeForm() {
