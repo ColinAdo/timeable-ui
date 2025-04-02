@@ -1,16 +1,16 @@
 "use client";
 
-import { useEffect } from "react";
-import { CardItem } from "@/components/dashboard/";
-import { useWebSocketContext } from "@/hooks/webSocketContext";
-import { useRetrieveUserQuery } from "@/redux/features/authApiSlice";
-import { useGetTimetableNamesQuery } from "@/redux/features/timetableSlice";
 import {
     Card,
     CardTitle,
     CardHeader,
     CardContent,
 } from "@/components/ui/card";
+import { useEffect } from "react";
+import { CardItem } from "@/components/dashboard/";
+import { useWebSocketContext } from "@/hooks/webSocketContext";
+import { useRetrieveUserQuery } from "@/redux/features/authApiSlice";
+import { useGetTimetableNamesQuery } from "@/redux/features/timetableSlice";
 
 export default function Page() {
     const { data: timetableNames, refetch } = useGetTimetableNamesQuery();
