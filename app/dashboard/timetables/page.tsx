@@ -14,8 +14,8 @@ import { useGetTimetableNamesQuery } from "@/redux/features/timetableSlice";
 
 export default function Page() {
     const { data: user } = useRetrieveUserQuery();
-    const { data: timetableNames, refetch } = useGetTimetableNamesQuery();
     const { lastJsonMessage } = useWebSocketContext();
+    const { data: timetableNames, refetch } = useGetTimetableNamesQuery();
 
     useEffect(() => {
         refetch();
