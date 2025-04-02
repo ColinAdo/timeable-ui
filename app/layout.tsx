@@ -1,6 +1,5 @@
 import "@/styles/globals.css";
 import type { Metadata } from "next";
-
 import { Footer } from "@/components/common";
 import { SetUp } from "@/components/utils";
 import Provider from "@/redux/provider";
