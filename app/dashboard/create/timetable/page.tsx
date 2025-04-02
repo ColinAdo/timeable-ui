@@ -1,7 +1,7 @@
 "use client";
 
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { FormDialog, CreateTimetableForm } from "@/components/dashboard";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export default function Page() {
     const router = useRouter();
