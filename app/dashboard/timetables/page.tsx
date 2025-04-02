@@ -13,8 +13,8 @@ import { useRetrieveUserQuery } from "@/redux/features/authApiSlice";
 import { useGetTimetableNamesQuery } from "@/redux/features/timetableSlice";
 
 export default function Page() {
-    const { data: timetableNames, refetch } = useGetTimetableNamesQuery();
     const { data: user } = useRetrieveUserQuery();
+    const { data: timetableNames, refetch } = useGetTimetableNamesQuery();
     const { lastJsonMessage } = useWebSocketContext();
 
     useEffect(() => {
