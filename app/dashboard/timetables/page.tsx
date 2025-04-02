@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect } from "react"; git
+import { useEffect } from "react";
 import { CardItem } from "@/components/dashboard/";
+import { useWebSocketContext } from "@/hooks/webSocketContext";
 import { useRetrieveUserQuery } from "@/redux/features/authApiSlice";
 import { useGetTimetableNamesQuery } from "@/redux/features/timetableSlice";
 import {
@@ -10,7 +11,6 @@ import {
     CardHeader,
     CardContent,
 } from "@/components/ui/card";
-import { useWebSocketContext } from "@/hooks/webSocketContext";
 
 export default function Page() {
     const { data: timetableNames, refetch } = useGetTimetableNamesQuery();
