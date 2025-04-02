@@ -1,7 +1,7 @@
 "use client";
 
-import { FormDialog, SubscribeForm } from "@/components/dashboard";
 import { usePathname, useRouter } from "next/navigation";
+import { FormDialog, SubscribeForm } from "@/components/dashboard";
 
 export default function Page() {
     const router = useRouter();
