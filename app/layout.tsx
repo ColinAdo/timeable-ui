@@ -2,8 +2,8 @@ import "@/styles/globals.css";
 import { Toaster } from "sonner";
 import type { Metadata } from "next";
 import Provider from "@/redux/provider";
-import { SetUp } from "@/components/utils";
 import { Inter } from "next/font/google";
+import { SetUp } from "@/components/utils";
 import { Footer } from "@/components/common";
 
 const inter = Inter({ subsets: ["latin"] });
