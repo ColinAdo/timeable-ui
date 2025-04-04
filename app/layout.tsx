@@ -1,8 +1,8 @@
 import "@/styles/globals.css";
 import { Toaster } from "sonner";
 import type { Metadata } from "next";
-import { SetUp } from "@/components/utils";
 import Provider from "@/redux/provider";
+import { SetUp } from "@/components/utils";
 import { Inter } from "next/font/google";
 import { Footer } from "@/components/common";
 
