@@ -2,10 +2,10 @@
 
 import {
     Card,
-    CardContent,
     CardFooter,
     CardHeader,
     CardTitle,
+    CardContent,
     CardDescription,
 } from '@/components/ui/card'
 import { Switch } from '@/components/ui/switch'
