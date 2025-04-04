@@ -8,9 +8,9 @@ import {
     CardContent,
     CardDescription,
 } from '@/components/ui/card'
-import { Check } from 'lucide-react'
 import Link from 'next/link'
 import { useState } from 'react'
+import { Check } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 import { Switch } from '@/components/ui/switch'
 import { useGetSubscriptionQuery } from '@/redux/features/timetableSlice'
