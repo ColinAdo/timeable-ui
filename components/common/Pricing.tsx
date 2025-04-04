@@ -10,8 +10,8 @@ import {
 } from '@/components/ui/card'
 import { Check } from 'lucide-react'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 import { Switch } from '@/components/ui/switch'
 import { useGetSubscriptionQuery } from '@/redux/features/timetableSlice'
 
