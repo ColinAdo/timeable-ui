@@ -69,10 +69,10 @@ const PricingCard = ({ href, title, price, description, features, buttonText, is
 )
 
 export default function Pricing() {
-    const [isYearly, setIsYearly] = useState(false)
-    const { data: subscription } = useGetSubscriptionQuery();
     const pathname = usePathname();
     const isHome = pathname === '/';
+    const [isYearly, setIsYearly] = useState(false)
+    const { data: subscription } = useGetSubscriptionQuery();
 
     return (
         <div id="pricing" className="container mx-auto px-4 py-16">
