@@ -74,8 +74,6 @@ export default function Pricing() {
     const pathname = usePathname();
     const isHome = pathname === '/';
 
-    // if (!subscription) return null;
-
     return (
         <div id="pricing" className="container mx-auto px-4 py-16">
             <div className="text-center mb-12">
