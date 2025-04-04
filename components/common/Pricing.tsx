@@ -2,9 +2,9 @@
 
 import {
     Card,
+    CardTitle,
     CardFooter,
     CardHeader,
-    CardTitle,
     CardContent,
     CardDescription,
 } from '@/components/ui/card'
