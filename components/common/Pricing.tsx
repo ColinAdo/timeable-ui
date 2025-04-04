@@ -3,10 +3,10 @@
 import {
     Card,
     CardContent,
-    CardDescription,
     CardFooter,
     CardHeader,
     CardTitle,
+    CardDescription,
 } from '@/components/ui/card'
 import { Switch } from '@/components/ui/switch'
 import { Check } from 'lucide-react'
