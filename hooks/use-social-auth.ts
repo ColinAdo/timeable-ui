@@ -5,8 +5,8 @@ import { setAuth } from "@/redux/features/authSlice";
 import { useRouter, useSearchParams } from "next/navigation";
 
 export default function useSocialAuth(authenticate: any, provider: string) {
-  const dispatch = useAppDispatch();
   const router = useRouter();
+  const dispatch = useAppDispatch();
   const searchParams = useSearchParams();
   const effectRan = useRef(false);
 
