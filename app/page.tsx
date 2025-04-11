@@ -1,11 +1,11 @@
 import { Metadata } from "next";
+import Hero from "@/components/hero"
 
 export const metadata: Metadata = {
   title: "Timeable | Home",
   description: "home page",
 };
 
-import Hero from "@/components/hero"
 import Navbar from "@/components/navbar"
 
 export default function Page() {
