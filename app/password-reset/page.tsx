@@ -1,5 +1,5 @@
-import { PasswordResetForm } from "@/components/forms";
 import { GraduationCap } from "lucide-react";
+import { PasswordResetForm } from "@/components/forms";
 
 export default function Page() {
   return (
