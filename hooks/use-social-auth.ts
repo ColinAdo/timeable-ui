@@ -6,9 +6,9 @@ import { useRouter, useSearchParams } from "next/navigation";
 
 export default function useSocialAuth(authenticate: any, provider: string) {
   const router = useRouter();
+  const effectRan = useRef(false);
   const dispatch = useAppDispatch();
   const searchParams = useSearchParams();
-  const effectRan = useRef(false);
 
   useEffect(() => {
     const state = searchParams.get("state");
