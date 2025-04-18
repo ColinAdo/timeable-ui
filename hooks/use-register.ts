@@ -48,7 +48,7 @@ export default function useRegister() {
 
   return {
     form,
-    isLoading,
     onSubmit,
+    isLoading,
   };
 }
