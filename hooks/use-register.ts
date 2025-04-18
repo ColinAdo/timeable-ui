@@ -38,13 +38,10 @@ export default function useRegister() {
           } else {
             toast.error("Invalid input. Please check the form.");
           }
-
-          console.error("Registration failed!", err);
         } else if (err.status === 500) {
           toast.error("Server error, please try again later.");
         } else {
           toast.error("An unknown error occurred.");
-          console.error("Registration failed!", err);
         }
       });
   };
