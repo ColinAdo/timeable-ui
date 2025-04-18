@@ -36,7 +36,7 @@ export default function useLogin() {
 
   return {
     form,
-    isLoading,
     onSubmit,
+    isLoading,
   };
 }
