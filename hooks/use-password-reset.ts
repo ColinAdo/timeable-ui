@@ -28,7 +28,7 @@ export default function useResetPassword() {
 
   return {
     form,
-    isLoading,
     onSubmit,
+    isLoading,
   };
 }
