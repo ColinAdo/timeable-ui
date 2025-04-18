@@ -9,8 +9,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useLoginMutation } from "@/redux/features/authApiSlice";
 
 export default function useLogin() {
-  const dispatch = useAppDispatch();
   const router = useRouter();
+  const dispatch = useAppDispatch();
   const [login, { isLoading }] = useLoginMutation();
 
   const form = useForm<z.infer<typeof loginSchema>>({
