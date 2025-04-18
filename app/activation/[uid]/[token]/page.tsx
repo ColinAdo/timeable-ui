@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { useActivationMutation } from "@/redux/features/authApiSlice";
@@ -16,19 +16,24 @@ export default function Page({ params }: Props) {
   const router = useRouter();
   const [activation] = useActivationMutation();
 
+  const hasActivated = useRef(false);
+
   useEffect(() => {
+    if (hasActivated.current) return;
+    hasActivated.current = true;
+
     const { uid, token } = params;
 
     activation({ uid, token })
       .unwrap()
       .then(() => {
-        toast.success("Account activated");
+        toast.success('Account activated');
       })
       .catch(() => {
-        toast.error("Failed to activate account");
+        toast.error('Failed to activate account');
       })
       .finally(() => {
-        router.push("/auth/login");
+        router.push('/auth/login');
       });
   }, []);
 
