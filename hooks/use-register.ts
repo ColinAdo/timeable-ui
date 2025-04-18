@@ -28,7 +28,24 @@ export default function useRegister() {
         router.push("/auth/login");
       })
       .catch((err) => {
-        toast.error("Registration failed!");
+        if (err.status === 400) {
+          const errorData = err.data;
+
+          if (errorData?.email) {
+            toast.error(errorData.email[0]); // e.g. "user with this email already exists."
+          } else if (errorData?.password) {
+            toast.error(errorData.password[0]); // e.g. "This password is too common."
+          } else {
+            toast.error("Invalid input. Please check the form.");
+          }
+
+          console.error("Registration failed!", err);
+        } else if (err.status === 500) {
+          toast.error("Server error, please try again later.");
+        } else {
+          toast.error("An unknown error occurred.");
+          console.error("Registration failed!", err);
+        }
       });
   };
 
