@@ -32,9 +32,9 @@ export default function useRegister() {
           const errorData = err.data;
 
           if (errorData?.email) {
-            toast.error(errorData.email[0]); // e.g. "user with this email already exists."
+            toast.error(errorData.email[0]);
           } else if (errorData?.password) {
-            toast.error(errorData.password[0]); // e.g. "This password is too common."
+            toast.error(errorData.password[0]);
           } else {
             toast.error("Invalid input. Please check the form.");
           }
