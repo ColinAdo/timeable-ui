@@ -41,6 +41,24 @@ export default function CreateTransactionForm({ batchId }: Props) {
     });
 
     const onSubmit = async (data: z.infer<typeof createTimetableSchema>) => {
+        const start = new Date(`1970-01-01T${data.start_time}`);
+        const end = new Date(`1970-01-01T${data.end_time}`);
+
+        const durationInHours = (end.getTime() - start.getTime()) / (1000 * 60 * 60);
+
+        console.log("durationInHours:", durationInHours);
+        const normalizedDuration = durationInHours < 0 ? durationInHours + 24 : durationInHours;
+
+        if (data.start_time === data.end_time) {
+            toast.error("Start time and end time must be different");
+            return;
+        }
+
+        if (normalizedDuration > 12) {
+            toast.error("Time range must not exceed 12 hours");
+            return;
+        }
+
         generateTimetable(data)
             .unwrap()
             .then(() => {
@@ -48,6 +66,9 @@ export default function CreateTransactionForm({ batchId }: Props) {
                 router.push(`/dashboard/timetable?batchId=${batchId}`);
             }).catch((err) => {
                 if (err.status === 500) {
+                    console.log("500 Error", err);
+                    toast.error("Internal server error, contact admin");
+                } else if (data["start_time"] === data["end_time"]) {
                     toast.error("Start time and end time must be different");
                 } else {
                     toast.error("failed to create timetable");
