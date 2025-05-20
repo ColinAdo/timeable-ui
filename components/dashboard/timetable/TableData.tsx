@@ -64,6 +64,7 @@ export default function TableData({
                             />
 
                         </TableHead>
+                        {visibleColumns.includes("year") && <TableHead className="uppercase text-gray-200">Year</TableHead>}
                         {visibleColumns.includes("unit_code") && <TableHead className="uppercase text-gray-200">Unit Code</TableHead>}
                         {visibleColumns.includes("unit_name") && <TableHead className="uppercase text-gray-200">Unit Name</TableHead>}
                         {visibleColumns.includes("day") && (
@@ -100,6 +101,13 @@ export default function TableData({
                                     }}
                                 />
                             </TableCell>
+                            {visibleColumns.includes("year") && (
+                                <TableCell
+                                    className="text-gray-300 w-50  focus:w-50 focus:border-gray-200 focus:rounded"
+                                >
+                                    {row.year}
+                                </TableCell>
+                            )}
                             {visibleColumns.includes("unit_code") && (
                                 <TableCell
                                     className="text-gray-300 w-50  focus:w-50 focus:border-gray-200 focus:rounded"

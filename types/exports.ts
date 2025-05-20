@@ -9,6 +9,7 @@ export type RowData = {
     mode: string
     room: string
     group: string
+    year: string
 }
 
 export type TimetableType = {
@@ -24,6 +25,7 @@ export type TimetableType = {
     mode_of_study: string
     lecture_room: string
     group: string
+    year: string
 }
 
 export type TimetableNameType = {
