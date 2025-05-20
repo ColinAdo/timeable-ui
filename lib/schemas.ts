@@ -62,6 +62,17 @@ export const createTimetableSchema = z.object({
     second_constrain: z.string().optional(),
     duration: z.string().min(1, "Class duration is required."),
     prompt: z.string().optional(),
+}).refine(
+    (data) =>
+        !(data.first_constrain && data.second_constrain) ||
+        data.first_constrain !== data.second_constrain,
+    {
+        message: "The constrain must be different!",
+        path: ["second_constrain"],
+    }
+).refine((data) => data.start_time !== data.end_time, {
+    message: "Start time and end time must not be the same!",
+    path: ["end_time"],
 });
 
 export const EditTimetableSchema = z.object({
