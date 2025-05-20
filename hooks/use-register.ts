@@ -24,7 +24,7 @@ export default function useRegister() {
     register(data)
       .unwrap()
       .then(() => {
-        toast.success("Please check your email to activate your account");
+        toast.success("Account created successfully");
         router.push("/auth/login");
       })
       .catch((err) => {
